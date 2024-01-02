@@ -11,16 +11,15 @@
 
 Nell'ultimo decennio diverse tecnologie di rete si sono sviluppate,
 creando reti sempre più robuste ed efficienti. In questo scenario,
-una tecnologia in particolare, la \textit{Network Function Virtualization} 
-ha reso possibile creare delle reti che svolge le sue funzioni di sicurezza e
-trasporto tramite la virtualizzazione di quest'ultime. Ciò ha permesso di definire
-le \textit{Software Defined Network} che introducono la possibilità di creare dei forwarding
-path tramite software.\\
-Sfruttando queste tecnologie viene concepito Verefoo(VErified REfinement and Optimized Orchestration) 
-un framework in grado di riuscire ad allocare le varie NFV in una topologia predefinita e fornita
+una tecnologia in particolare, la \textit{"Network Function Virtualization"}(NFV)
+ha reso possibile creare delle reti che svolgono le funzioni di sicurezza e
+trasporto dei dati tramite la virtualizzazione di quest'ultime. Ciò ha permesso di definire
+le \textit{"Software Defined Network"}(SDN) che introducono la possibilità di controllare le operazioni di rete
+ tramite software.\\
+Sfruttando queste tecnologie è stato sviluppato Verefoo(VErified REfinement and Optimized Orchestration) cioè 
+un framework in grado di riuscire ad implementare nei nodi della rete i vari \textit{"Network Security Requirements"}(NSR) in una topologia predefinita e fornita
 come input al framework.\\
-Il lavoro svolto in questa tesi è stato svolto su ed attraverso questo framework, cercando di raggiungere 3
-obiettivi ben precisi:
+Gli obiettivi di questa tesi possono essere riassunti nei 3 punti:
 
 \begin{enumerate}
     \item Sistemare e migliorare una demo precedentemente sviluppata per mostrare le potenzialità del framework.
@@ -35,31 +34,32 @@ obiettivi ben precisi:
         in un'unica esecuzione tutti i Firewall e i VPN Gateway definiti dalle proprietà di rete che sono stati forniti come input al framework.
 \end{enumerate}
 
-Da questo momento in poi per tutto il documento mi riferiro alla prima demo come Demo-A mentre alla seconda come Demo-B.
+Da questo momento in poi per tutto il documento mi riferiro alla demo da modificare come Demo-A mentre alla demo da implementare come Demo-B.
 
 \section{Descrizione della tesi}
 
-Dopo aver spiegato nel Capitolo \hyperref[ch:intro]{[1]} gli obiettivi della tesi ed il lavoro prodotto per raggiungerli, il resto della
+Dopo aver spiegato nel Capitolo \hyperref[ch:intro]{[1]} gli obiettivi ed il lavoro prodotto per raggiungerli, il resto della
 tesi è definito nel seguente modo:
 
 \begin{itemize}
-    \item Il Capitolo \hyperref[ch:intro]{[2]} descrive il framework di Verefoo, ponendo particolare attenzione sul suo funzionamento ad alto e basso livello.
-        Nella seconda parte del capitolo si potranno trovare le  definizioni delle Proprietà di sicurezza da passare come input al framework, con una spiegazione dettagliata
+    \item Nella prima parte del Capitolo \hyperref[ch:intro]{[2]} si descrive il framework di Verefoo, ponendo particolare attenzione sul suo funzionamento ad alto e basso livello.
+        Nella seconda parte sono descritte  le  definizioni delle Proprietà di sicurezza da passare come input al framework, con una spiegazione dettagliata
         di come queste intervengono nella definizione della topologia finale che verrà fornita come output dal framewrok. \\
         Infine verranno introdotti i grafi che verefoo richiede ed utilizza nella computazione dei vari \textit{NSF}.
-    \item Il Capitolo \hyperref[ch:intro]{[3]} definisceoc l'architettura di docker, specificando la differenza fra usare docker e delle semplici macchine virtuali. Nella seconda parte del capitolo
-          verrà fatto un approfondimento su docker-compose, un tool in grado di poter istanziare più container velocemente tramite script. Nella parte finale questo capitolo tratterà il networking
-          sui vari container, come effettuarlo tramite docker-compose e come far comunicare i container in modo efficiente.
-    \item Il Capitolo \hyperref[ch:intro]{[4]} descriverà i lavori svolti nella Demo-A. Nella prima parte verrà descritto tramite pezzi di codice lo sviluppo dell'installer prodotto affinchè un qualsiasi utente possa
-          utilizzare la demo in maniera pratica ed agile. Nei paragrafi successivi verranno evidenziati i punti critici riscontrati nella demo precedentemente scritta, elencando le modifiche apportate affinchè essa possa funzionare correttamente.
+    \item Il Capitolo \hyperref[ch:intro]{[3]} definisce l'architettura di docker, specificando la differenza tra usare docker per la virtualizzazione e delle semplici macchine virtuali. Successivamente
+          viene fatto un approfondimento sul docker-compose, un tool in grado di poter istanziare più container velocemente tramite script. Nella parte finale viene spiegato come effettuare il networking
+          sui container instanziati, come definirlo tramite docker-compose e come testare le comunicazioni in modo efficiente.
+    \item Il Capitolo \hyperref[ch:intro]{[4]} descrive i lavori svolti nella Demo-A. Inizialmente viene descritto tramite pezzi di codice lo sviluppo dell'installer prodotto affinchè un qualsiasi utente possa
+          utilizzare la demo in maniera pratica ed agile. Nei paragrafi successivi vengono evidenziati i punti critici incontrati, elencando le modifiche apportate affinchè essa possa funzionare correttamente.
           Nell'ultimo paragrafo verranno specificati ulteriori upgrade che si possono inserire nella demo per mettere in mostra in maniera ancora più evidente il lavoro svolto da Verefoo.
     \item Il Capitolo \hyperref[ch:intro]{[5]} contiene un breve approfondimento degli obiettivi 2 e 3 della tesi con una descrizione accurata dei vari passi che sono stati svolti prima della soluzione definitiva.
-          In questo capitolo si evidenzieranno anche le difficoltà che sono emerse lavorando al framework, e verranno proposte alcune soluzioni per poter evitare ulteriori problematiche in futuro.
-    \item Il Capitolo \hyperref[ch:intro]{[6]} descrive la soluzione finale adottata nell'implementazione su Verefoo. In questo capitolo viene quindi spiegato, anche tramite frammenti di codice di Verefoo, gli step
-          che il framework eseguirà per soddisfare contemporaneamente i requisiti di sicurezza che la rete deve avere. 
-    \item Il Capitolo \hyperref[ch:intro]{[7]} approfondirà lo sviluppo della seconda demo. Inizialmente verrà descritto l'obiettivo da raggiungere con lo sviluppo della demo, mostrando e motivando la topologia
-        di rete scelta da virtualizzare per poter raggiungere l'obiettivo. All'interno di questo capitolo si trova anche la parte implementativa della demo con il codice utilizzato e spiegato.
-    \item Il Capitolo \hyperref[ch:intro]{[8]} elencherà i lavori futuri da svolgere all'interno del framework, la necessità di poter implementare soluzioni
-          alternative a quella proposta in questa tesi, e i limiti che devono essere superati affinchè il framework possa essere utile in un ambiente reale e non
-          solo di testing virtualizzato. Infine verranno descritte le conclusioni del lavoro, con un riassunto generale di tutto ciò che è stato prodotto.
+          In questo capitolo si evidenziano anche le difficoltà che sono emerse lavorando al framework, e verranno proposte alcune soluzioni per poter evitare simili problematiche in futuro.
+    \item Il Capitolo \hyperref[ch:intro]{[6]} descrive la soluzione finale scelta ed implementata su Verefoo. In questo capitolo viene quindi spiegato, anche tramite frammenti di codice, gli step
+          che il framework eseguirà per produrre in output una rete che soddisfi contemporaneamente tutti i requisiti di sicurezza passati come input. 
+    \item Il Capitolo \hyperref[ch:intro]{[7]} descrive lo sviluppo della Demo-B. In un primo momento si mostra la topologia
+        di rete scelta da virtualizzare, con la finalità di indicare le nuove funzionalità di verefoo sviluppate al completamento del secondo obiettivo della tesi. Successivamente vengono descritti tutti i passi svolti per implementare la demo, con un commento per il codice che è stato utilizzato. Infine
+        si evidenziano anche i limiti della demo prodotta con alcuni  futuri aggiornamenti possibili.
+    \item Il Capitolo \hyperref[ch:intro]{[8]} elenca i lavori futuri da svolgere all'interno del framework, la necessità di poter implementare soluzioni
+          alternative a quella proposta in questo documento, e i limiti che devono essere superati affinchè il framework possa essere utile in un ambiente reale e non
+          solo di testing virtualizzato. Infine vengono descritte le conclusioni del lavoro, con un riassunto generale di tutto ciò che è stato prodotto.
 \end{itemize}
