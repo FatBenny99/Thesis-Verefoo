@@ -5,8 +5,12 @@ Reallocating 'name_of_file' (item size: 1) to 25 items.
 A level-1 auxiliary file: chapters/00/abstract.aux
 Reallocating 'name_of_file' (item size: 1) to 29 items.
 A level-1 auxiliary file: chapters/01/introduction.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: chapters/02/Verefoo.aux
+Reallocating 'name_of_file' (item size: 1) to 23 items.
+A level-1 auxiliary file: chapters/03/docker.aux
 Reallocating 'name_of_file' (item size: 1) to 28 items.
-A level-1 auxiliary file: chapters/11/conclusions.aux
+A level-1 auxiliary file: chapters/08/conclusions.aux
 Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: IEEEtran.bst
 Reallocating 'name_of_file' (item size: 1) to 13 items.
@@ -23,7 +27,7 @@ Database file #1: bibliography.bib
 Done.
 You've used 1 entry,
             4087 wiz_defined-function locations,
-            832 strings with 7729 characters,
+            834 strings with 7774 characters,
 and the built_in function-call counts, 969 in all, are:
 = -- 63
 > -- 25

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2023.12.28)  28 DEC 2023 16:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2023.12.28)  2 JAN 2024 19:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/Benito/Desktop/Ssh/thesis_template/thesis.tex
-(c:/Users/Benito/Desktop/Ssh/thesis_template/thesis.tex
+**c:/Users/Benito/Desktop/Ssh/Tesi/thesis.tex
+(c:/Users/Benito/Desktop/Ssh/Tesi/thesis.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
 (C:\Users\Benito\AppData\Local\Programs\MiKTeX\tex/latex/toptesi\toptesi.cls
@@ -540,7 +540,7 @@ File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
 Package: listings 2023/02/27 1.9 (Carsten Heinz)
-) (thesis.aux (chapters/00/abstract.aux) (chapters/01/introduction.aux) (chapters/11/conclusions.aux))
+) (thesis.aux (chapters/00/abstract.aux) (chapters/01/introduction.aux) (chapters/02/Verefoo.aux) (chapters/03/docker.aux) (chapters/08/conclusions.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
@@ -622,7 +622,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 76.
 \c@lstlisting=\count340
-<PolitoLogo3.jpg, id=36, 3522.15875pt x 2491.3075pt>
+<PolitoLogo3.jpg, id=64, 3522.15875pt x 2491.3075pt>
 File: PolitoLogo3.jpg Graphic file (type jpg)
 <use PolitoLogo3.jpg>
 Package pdftex.def Info: PolitoLogo3.jpg  used on input line 98.
@@ -698,46 +698,75 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout2 = `chapters/01/introduction.aux'.
 
  (chapters/01/introduction.tex
+
+Package hyperref Warning: Option `colorlinks' has already been used,
+(hyperref)                setting the option has no effect on input line 6.
+
 Chapter 1.
-) [10
+[10
 
 
 
 
 ]
-\openout2 = `chapters/11/conclusions.aux'.
+Overfull \hbox (6.1724pt too wide) in paragraph at lines 60--62
+\OT1/cmr/m/n/12 verr^^Ra de-scritto l'obiettivo da rag-giun-gere con lo sviluppo della demo, mostrando
+ []
 
- (chapters/11/conclusions.tex
+[11]) [12]
+\openout2 = `chapters/02/Verefoo.aux'.
+
+ (chapters/02/Verefoo.tex
 Chapter 2.
-) [11
+) [13
 
 
 
 
-] (thesis.bbl) [12
+]
+\openout2 = `chapters/03/docker.aux'.
+
+ (chapters/03/docker.tex
+Chapter 3.
+) [14
 
 
 
-] (thesis.aux (chapters/00/abstract.aux) (chapters/01/introduction.aux) (chapters/11/conclusions.aux))
+
+]
+\openout2 = `chapters/08/conclusions.aux'.
+
+ (chapters/08/conclusions.tex
+Chapter 4.
+) [15
+
+
+
+
+] (thesis.bbl) [16
+
+
+
+] (thesis.aux (chapters/00/abstract.aux) (chapters/01/introduction.aux) (chapters/02/Verefoo.aux) (chapters/03/docker.aux) (chapters/08/conclusions.aux))
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 2712179F192D221F6F8ED39E29184D62;421.
+(rerunfilecheck)             Checksum: 60E1A30C41DDD23D4C4FE8F192E7C5A8;890.
  ) 
 Here is how much of TeX's memory you used:
- 23495 strings out of 474495
- 433590 string characters out of 5743462
- 1930460 words of memory out of 5000000
- 45355 multiletter control sequences out of 15000+600000
- 568688 words of font info for 76 fonts, out of 8000000 for 9000
+ 23587 strings out of 474495
+ 435713 string characters out of 5743462
+ 1935460 words of memory out of 5000000
+ 45413 multiletter control sequences out of 15000+600000
+ 569378 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 138i,13n,135p,633b,2535s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on thesis.pdf (12 pages, 2201274 bytes).
+ 138i,13n,135p,622b,2579s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Benito\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on thesis.pdf (16 pages, 2232127 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 20 named destinations out of 1000 (max. 500000)
- 82 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 208 PDF objects out of 1000 (max. 8388607)
+ 34 named destinations out of 1000 (max. 500000)
+ 138 words of extra memory for PDF output out of 10000 (max. 10000000)
 
