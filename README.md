@@ -1,1 +1,2 @@
-# Thesis-Verefoo
+# Thesis Template
+

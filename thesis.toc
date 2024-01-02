@@ -1,0 +1,12 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{List of Figures}{6}{section*.1}%
+\contentsline {chapter}{List of Tables}{7}{section*.2}%
+\contentsline {chapter}{Listings}{8}{section*.2}%
+\contentsline {chapter}{\numberline {1}Introduction}{10}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Thesis objective}{10}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Thesis description}{10}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Conclusions}{11}{chapter.2}%
+\contentsline {chapter}{Bibliography}{12}{chapter.2}%

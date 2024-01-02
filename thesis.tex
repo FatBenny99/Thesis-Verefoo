@@ -1,0 +1,210 @@
+% per commentare una riga mettere % al suo inizio
+% per s-commentare una riga (ossia attivarla) togliere il % al suo inizio
+%
+\documentclass[cucitura%lascia margine per la rilegatura
+%,twoside% per stampa fronte-retro (fortemente consigliato per tesi voluminose, opzionale per le altre)
+,12pt% font più grande (12pt) rispetto a quello normalmente usato (11pt)
+]{toptesi}
+%
+% Cambiare encoding a piacere; oppure non caricare nessun encoding se si usano
+% solo caratteri a 7 bit (ASCII) nei file d'entrata.
+%
+\usepackage[a-1b]{pdfx}% formato PDF/A, obbligatorio per l'archiviazione delle tesi di Polito
+\usepackage[utf8]{inputenc}% IMPORTANTE! usare codifica UTF-8 per le lettere accentate
+\usepackage{amsmath, amssymb}
+\usepackage{nccmath}
+\usepackage{appendix}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{accsupp}
+%
+% Commentare le righe seguenti se NON si è specificata l'opzione "pdfa"
+\hypersetup{%
+    pdfpagemode={UseOutlines},
+    bookmarksopen,
+    pdfstartview={FitH},
+    colorlinks,
+    linkcolor={blue},
+    citecolor={red},
+    urlcolor={blue}
+  }
+% \documentclass[11pt,twoside,oldstyle,autoretitolo,classica,greek]{toptesi}
+% \usepackage[or]{teubner}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+
+\input{commands.tex}
+
+\definecolor{blond}{rgb}{0.98, 0.94, 0.75}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{Maroon}{rgb}{0.5,0.0,0.0}
+\definecolor{darkgreen}{rgb}{0.0,0.5,0.0}
+
+%\ExtendCaptions{english}{Abstract}{Acknowledgements}
+
+\lstset{
+	numbers=none, 
+	numberstyle=\small, 
+	numbersep=8pt, 
+	frame = single, 
+	framexleftmargin=20pt
+}
+
+\lstdefinelanguage{XML}
+{
+	backgroundcolor = \color{blond},
+	basicstyle=\ttfamily\footnotesize,
+	morestring=[b]",
+	moredelim=[s][\bfseries\color{Maroon}]{<}{\ },
+	moredelim=[s][\bfseries\color{Maroon}]{</}{>},
+	moredelim=[l][\bfseries\color{Maroon}]{/>},
+	moredelim=[l][\bfseries\color{Maroon}]{>},
+	morecomment=[s]{<?}{?>},
+	morecomment=[s]{<!--}{-->},
+	commentstyle=\color{DarkOliveGreen},
+	stringstyle=\color{blue},
+	identifierstyle=\color{red}
+}
+
+
+
+\begin{document}
+%\renewcommand{\lapagina}{\Roman{page}}
+\english
+
+\iflanguage{english}{%
+	\retrofrontespizio{This work is subject to the Creative Commons Licence}
+	\DottoratoIn{PhD Course in\space}
+	\CorsoDiLaureaIn{Master of Science in\space}
+	\NomeMonografia{Bachelor Degree Final Work}
+	\TesiDiLaurea{Master Degree Thesis}
+	\NomeDissertazione{PhD Dissertation}
+	\InName{in}
+	\CandidateName{Candidate}
+	\AdvisorName{Supervisors}
+	\TutorName{Tutor}
+	\NomeTutoreAziendale{Internship Tutor}
+	\CycleName{cycle}
+	\NomePrimoTomo{First volume}
+	\NomeSecondoTomo{Second Volume}
+	\NomeTerzoTomo{Third Volume}
+	\NomeQuartoTomo{Fourth Volume}
+	\logosede[6cm]{PolitoLogo3}% or comma separated list of logos
+}{}
+
+\ateneo{}
+
+%%% scegliere la propria facoltà (solo PRIMA dell'AA 2012-2013)
+%
+%\facolta[III]{Ingegneria dell'Informazione}
+%\facolta[IV]{Organizzazione d'Impresa\\e Ingegneria Gestionale}
+%\Materia{Remote sensing}% uso sconsigliato
+
+%\monografia{Gestione informatizzata di un magazzino ricambi}% per la laurea triennale
+\titolo{Prova}% per la laurea quinquennale e il dottorato
+%\sottotitolo{Metodo dei satelliti medicei}% NON obbligatorio, per la laurea quinquennale e il dottorato
+
+\corsodilaurea{Computer Engineering}% per la laurea di primo e secondo livello
+
+\candidato{Benito \textsc{Marra}}% per tutti i percorsi
+\relatore{prof.\ Fulvio Valenza}% per la laurea e il dottorato
+\secondorelatore{prof.\  Name Surname}% per la laurea magistrale
+\terzorelatore{\tabular[t]{@{}l}
+	dott.  Name Surname\\[2pt]dott.  Name Surname
+	\endtabular}% per la laurea magistrale
+%\sedutadilaurea{Agosto 1615}% per la laurea quinquennale
+%\sedutadilaurea{\textsc{July} 2019}% per la laurea triennale
+\sedutadilaurea{\textsc{Academic~Year} 2023-2024}% per la laurea magistrale
+%\annoaccademico{1615-1616}% solo con l'opzione classica
+%\annoaccademico{2006-2007}% idem
+
+%\logosede{logopolito}
+%
+%\chapterbib %solo per vedere che cosa succede; e' preferibile comporre una sola bibliografia
+%\AdvisorName{Supervisors}
+%\newtheorem{osservazione}{Osservazione}% Standard LaTeX
+
+
+\hypersetup{
+   pdfpagemode={UseOutlines},
+   bookmarksopen,
+    pdfstartview={FitH},
+    colorlinks,
+    linkcolor={blue},
+    citecolor={green},
+    urlcolor={blue}
+  }
+
+%
+% per numerare e far comparire nell'indice anche le sezioni di quarto livello
+%\setcounter{secnumdepth}{4}% section-numbering-depth
+%\setcounter{tocdepth}{4}% TOC-numbering-depth (TOC=Table-Of-nt)
+
+%\setbindingcorrection{3mm}
+
+\errorcontextlines=9
+
+\expandafter\ifx\csname StileTrieste\endcsname\relax
+    \frontespizio
+\else
+    \paginavuota
+    \tomo
+\fi
+
+
+
+
+\include{chapters/00/abstract}
+
+\ringraziamenti
+
+Acknowledgement (optional)
+
+%% inserire sempre nella tesi per la laurea di I livello, perché il nome dei tutori non è indicato sul frontespizio.
+%Il lavoro descritto in questa monografia è stato svolto sotto la supervisione
+%del Prof. Antonio Lioy (tutore accademico)% inserire sempre il nome del tutore accademico
+% e dell'Ing. Mario Rossi (tutore aziendale)% inserire solo se la monografia è relativa ad un tirocinio.
+%.
+
+%\tablespagetrue % normalmente questa riga non serve ed e' commentata
+%\figurespagetrue % normalmente questa riga non serve ed e' commentata
+
+\indici
+
+\listoffigures
+
+\listoftables
+
+\addcontentsline{toc}{chapter}{Listings}
+\lstlistoflistings
+
+\clearpage\pagestyle{empty}\mbox{}\clearpage
+
+%\renewcommand{\lapagina}{\arabic{page}}
+
+\mainmatter
+
+
+\include{chapters/01/introduction}
+%other chapters
+\include{chapters/11/conclusions}
+
+\bibliographystyle{IEEEtran}
+\bibliography{bibliography}
+%\include{bibliography}
+
+%if appendixes are needed, uncomment the following lines
+%\appendix
+%\appendixpage
+%\include{appendixA}
+%\include{appendixB}
+
+
+
+\end{document}
+
