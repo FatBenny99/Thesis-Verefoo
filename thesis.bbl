@@ -21,6 +21,19 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{Bringhenti2019}
+D.~Bringhenti, G.~Marchetto, R.~Sisto, F.~Valenza, and J.~Yusupov, ``Towards a
+  fully automated and optimized network security functions orchestration,'' in
+  \emph{2019 4th International Conference on Computing, Communications and
+  Security (ICCCS)}, 2019, pp. 1--7.
+
+\bibitem{rfc7665}
+\BIBentryALTinterwordspacing
+J.~M. Halpern and C.~Pignataro, ``Service function chaining {(SFC)}
+  architecture,'' \emph{{RFC}}, vol. 7665, pp. 1--32, 2015. [Online].
+  Available: \url{https://doi.org/10.17487/RFC7665}
+\BIBentrySTDinterwordspacing
+
 \bibitem{noms2020}
 \BIBentryALTinterwordspacing
 D.~Bringhenti, G.~Marchetto, R.~Sisto, F.~Valenza, and J.~Yusupov, ``Automated

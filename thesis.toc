@@ -8,12 +8,13 @@
 \contentsline {chapter}{\numberline {1}Introduzione}{10}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Obiettivo della Tesi}{10}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Descrizione della tesi}{11}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Background}{13}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introduzione a Verefoo}{13}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Definizione dei Security Requirements}{13}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Ambiente di test}{13}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Docker}{14}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduzione a Docker}{14}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Docker Compose}{14}{section.3.2}%
-\contentsline {chapter}{\numberline {4}Conclusions}{15}{chapter.4}%
-\contentsline {chapter}{Bibliography}{16}{chapter.4}%
+\contentsline {chapter}{\numberline {2}Network Security Automation e Verefoo}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Service Function Chain}{13}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Introduzione a Verefoo}{15}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Descrizione del modello}{15}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Definizione ed esempi delle proprietà di sicurezza}{18}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Docker}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduzione a Docker}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Docker Compose}{19}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Conclusions}{20}{chapter.4}%
+\contentsline {chapter}{Bibliography}{21}{chapter.4}%
