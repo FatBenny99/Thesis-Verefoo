@@ -1,4 +1,16 @@
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{myyellow},
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    language=XML
+}
+
+
 \chapter{Network Security Automation e Verefoo} \label{ch:verefoo}
+
+
+
 
 Nel mondo odierno le reti internet hanno rivestito un'importanza sempre maggiore, evolvendosi da piccole e semplici scenari per reti private domestiche
 a grandi e complicate topologie per le aziende e la comunicazione in tutto il mondo. Trattandosi di un mondo sempre in evoluzione, anche la configurazione e
@@ -54,7 +66,8 @@ Per quanto riguarda i vari SF possiamo trovare i seguenti:
 L'unione dei tre SF in questo specifico ordine definice una Service Function Chain. E' importante notare che se l'ordine fosse stato diverso (ad esempio mettendo prima i 2 VPN Gateway e dopo il firewall)
 la SFC risultante sarebbe stata diversa da quella di partenza, garantendo una ramificazione.
 
-\section{Introduzione a Verefoo}
+\section{Verefoo}
+\subsection{Introduzione}
  Il potenziamento progressivo delle tecnologie appena descritte ha portato rapidamente allo sviluppo di reti  che automatizzavano i lavori di configurazione che solitamente venivano svolti manualmente.
  Un esempio di queste nuove tecnologie viene svolto da VEREFOO\cite{Bringhenti2019}(VErified REfinement and Optimized Orchestration), un framework che si pone diversi obiettivi fra i quali la definizione
 ad alto livello dei requisiti di sicurezza di rete, l'allocazione automatica ed ottimale delle varie Service Function per ottenere la maggior efficenza di rete allocando le minori risorse possibili, e la
@@ -89,7 +102,7 @@ Il modello di Verefoo, descritto in figura 2.2 richiede in input due elementi fo
     \centering
     \includegraphics[width=1\textwidth]{VerefooArchitecture.png}  % Sostituisci 'nome_immagine' con il nome del tuo file immagine e l'estensione
     \caption{Architettura di VEREFOO \cite{Bringhenti2019}}
-    \label{fig:esempio}
+    \label{fig:architettura_verefoo}
   \end{figure}
 
 Successivamente all'input, il framework esegue una serie di passi che possono essere così riassunti:
@@ -118,7 +131,7 @@ Successivamente all'input, il framework esegue una serie di passi che possono es
     \centering
     \includegraphics[width=0.9\textwidth]{Service_Allocation_Graph.png}  % Sostituisci 'nome_immagine' con il nome del tuo file immagine e l'estensione
     \caption{Esempi di Service (in alto) e Allocation(in basso) Graphs \cite{Bringhenti2019}}
-    \label{fig:esempio}
+    \label{fig:AllocationGraph}
   \end{figure}
 
 \section{Definizione ed esempi delle proprietà di sicurezza}
@@ -137,10 +150,135 @@ I requisiti prodotti all'interno di verefoo saranno formulati con la seguente de
 \end{lstlisting}
 
 \begin{itemize}
-    \item \textbf{ruleType}: specifica quale proprietà stiamo definendo. Allo stato attuale del framework ci sono 3 possibili opzione: Reachability Property, Isolation Property e Protection Property
-    \item \textbf{IPSrc}: definisce da quale nodo  
-    \item \textbf{IPDst}:
-    \item \textbf{portSrc}:
-    \item \textbf{portDst}:
-    \item \textbf{transportProto}:
+    \item \textbf{ruleType}: specifica quale proprietà stiamo definendo. Allo stato attuale del framework ci sono 3 possibili opzione: Reachability Property, Isolation Property e Protection Property.
+    \item \textbf{IPSrc}: indica l'indirizzo IP sorgente, cioè il primo nodo della rete dal quale il requisito deve essere applicato.
+    \item \textbf{IPDst}: indica l'indirizzo IP destinazione, ovvero l'ultimo nodo della rete dal quale il requisito deve essere applicato.
+    \item \textbf{portSrc}:specifica la porta di rete del nodo sorgente che il protocollo di trasporto utilizzerà per inoltrare i pacchetti di rete. In questa opzione è possibile 
+        inserire il valore \textit{"*"} che rappresenterà il range di tutte le porte possibili.
+    \item \textbf{portDst}:specifica la porta di rete del nodo destinazione che il protocollo di trasporto utilizzerà per ricevere i pacchetti di rete. Come per il valore 
+        portSrc anche in questo caso è possibile inserire il valore \textit{"*"} per rappresentare tutte le possibili porte di destinazione.
+    \item \textbf{transportProto}:è il campo che specifica quale protocollo di trasporto verrà utilizzato per soddisfare la regola. Allo stato attuale Verefoo consente di utilizzare 2 possibili protocolli, UDP e TCP.
 \end{itemize}
+
+\newpage
+
+I campi IPSrc e IPDst non sono limitati a descrivere un singolo host sorgente e un singolo host destinazione per ogni requisito. È infatti possibile utilizzare i due campi per definire anche delle sottoreti. 
+Il framework di Verefoo, infatti, definisce gli IP con la classica notazione decimale:
+
+\begin{center}
+    \centering  % Aggiunge il comando per centrare il testo
+    \textit{ip= ip1.ip2.ip3.ip4}
+\end{center}
+
+Ogni elemento da ip1 a ip4 deve appartenere al range [0-255] oppure è possibile utilizzare il valore \textit{"*"} per definire l'intera sottorete.
+Grazie a questa implementazione è possibile definire le sottoreti come ad esempio 40.5.0.0\textbackslash16 utilizzando la notazione 40.5.*.* o anche sottoreti
+più piccole come 20.1.1.0\textbackslash24 scrivendo 20.1.1.* . \\
+
+Di seguito viene fornita una descrizione più dettagliata dei vari requirements specificabili su Verefoo e di come il framework li traduca in requisiti più generali che la topologia
+di rete deve avere affinchè si possa soddisfare la richiesta dell'utente.
+
+\subsection{Reachability Requirements}
+
+I requisiti di raggiungibilità sono definiti nel framework di Verefoo per garantire che un determinato Host sorgente che verrà definito Host-S sia 
+in grado di comunicare in maniera diretta e definita con un host destinazione che verrà nominato Host-D. Per garantire ciò è necessario assicurarsi che tutti i 
+packet filter presenti nella connessione fra Host-S ed Host-D non scartino mai i pacchetti di questa comunicazione. Per ottenere questo obiettivo è quindi possibile
+configurare i packet filter della rete in due modalità: blacklist e whitelist. Nella prima i packet filter faranno transitare tutto il traffico tranne quello specificato
+nelle regole definite, mentre nella seconda bloccherà tutto il traffico in entrata escluso quello specificato nelle regole che gli sono state imposte.
+
+Per poter dare per certo che il requisito sia applicabile alla topologia Verefoo svolge le seguenti operazioni:
+
+\begin{enumerate}
+    \item  Viene svolto un controllo formale sulla definizione della regola, cioè viene controllata la correttezza di tutti i campi inseriti nella proprietà. In questa prima fase
+        Verefoo controlla se gli input inseriti sono tutti presenti e definiti nella maniera corretta (Come ad esempio Stringhe e indirizzi ip come numeri decimali).
+    \item Viene svolto un controllo logico sulla definizione della regola, cioè viene controllato che l'indirizzo IP sorgente e quello destinazione appartengano effettivamente a degli host definiti
+        nella rete. Inoltre viene controllato anche il protocollo di trasporto, assicurandosi che sia UDP o TCP.
+    \item Si ispeziona l'Host-S, e ci si assicura che sia possibile inoltrare il traffico destinato all'Host-D in almeno uno dei nodi adiacenti poichè è sufficiente garantire che esista almeno un percorso
+        definito per la comunicazione fra Host-S e Host-D
+    \item Infine viene attenzionato l'Host-D, sincerandosi che sia possibile ricevere il traffico proveniente dall'Host-S da almeno uno dei nodi adiacenti, perchè garantisce che almeno un percorso fra l'Host-S
+    e l'Host-D sia stato trovato.
+\end{enumerate}
+
+Di seguito è possibile trovare un esempio svolto da Verefoo per soddisfare un requisito di raggiungibilità:\\
+\begin{figure}[h]  % 'h' significa che la figura viene posizionata qui
+    \centering
+    \includegraphics[width=0.8\textwidth]{Reachability.png}  % Sostituisci 'nome_immagine' con il nome del tuo file immagine e l'estensione
+    \caption{Grafo di allocazione per requisito di raggiungibilità}
+    \label{fig:Reachability}
+  \end{figure}
+
+Successivamente è necessario definire la definizione di requisito di raggiungibilità tra l'Host-S 60.0.01 e l'Host-D 40.0.0.0. Nel caso di questo esempio
+proveremo a far comunicare i due Host tramite solo il protocollo TCP:
+\begin{lstlisting}[style=mystyle,caption={Esempio di requisito di raggiungibilità}]
+    <PropertyDefinition>
+    <Property graph="0" name="ReachabilityProperty" src="60.0.0.1" dst="40.0.0.0" lv4proto="TCP" src_port="*" dst_port="*"/>
+    </PropertyDefinition>
+    \end{lstlisting}
+    \newpage
+Il risultato aspettato è il seguente:\\
+\begin{figure}[h]  % 'h' significa che la figura viene posizionata qui
+    \centering
+    \includegraphics[width=0.8\textwidth]{Reachability_risolta.png}  % Sostituisci 'nome_immagine' con il nome del tuo file immagine e l'estensione
+    \caption{Output grafo di esempio per requisito di raggiungibilità}
+    \label{fig:Reachability_Soddisfatta}
+  \end{figure}
+
+
+Come si può notare, è stato posto un firewall che funge da packet filter che esclude tutte le comunicazioni uscenti da 60.0.0.1 e dirette a 40.0.0.0 che non utilizzano
+il protocollo TCP. Il firewall è quindi stato impostato in blacklist mode negando tutto il traffico che non soddisfa la regola definita sopra.
+
+
+
+\subsection{Isolation Requirements}
+
+I requisiti di isolamento sono definiti nel framework di Verefoo per garantire
+che un determinato Host sorgente che verrà definito Host-S non sia in grado di comu-
+nicare in maniera diretta e definita con un host destinazione che verrà nominato
+Host-D. Al fine di poter garantire ciò è necessario che tutti i packet filter presenti nel collegamento tra
+Host-S e Host-D scartino a priori ogni pacchetto. In maniera equivalente ai requisiti di raggiungibilità è possibile
+implementare nelle reti questo requisito tramite l'utilizzo di packet filter. Analogamente, sarà possibile impostare i
+packet filter in blacklist, cioè bloccando solo le comunicazioni che vengono specificate dalle regole di filtraggio, oppure in 
+whitelist, permettendo il transito solo dei pacchetti che fanno match con le regole di filtraggio.\\
+Affinchè ciò sia implementato correttamente, Verefoo analizza ed opera nel seguente modo ogni requisito di isolamento ricevuto:
+
+\begin{enumerate}
+    \item  Come per i requisiti di raggiungibilità, viene svolto un controllo formale sulla definizione della regola, cioè viene controllata la correttezza di tutti i campi inseriti nella proprietà. In questa prima fase
+        Verefoo controlla se gli input inseriti sono tutti presenti e definiti nella maniera corretta (Come ad esempio Stringhe e indirizzi ip come numeri decimali).
+    \item Viene svolto un controllo logico sulla definizione della regola, cioè viene controllato che l'indirizzo IP sorgente e quello destinazione appartengano effettivamente a degli host definiti
+        nella rete. Inoltre viene controllato anche il protocollo di trasporto, assicurandosi che sia UDP o TCP.
+    \item Si ispeziona l'Host-S, e ci si assicura che sia possibile inoltrare il traffico destinato all'Host-D in almeno uno dei nodi adiacenti poichè è sufficiente garantire che esista almeno un percorso
+        definito per la comunicazione fra Host-S e Host-D
+    \item Infine viene attenzionato l'Host-D, sincerandosi che non sia possibile ricevere il traffico proveniente dall'Host-S da nessuno dei nodi adiacenti, così da garantire che non esiste nessun percorso in grado di
+    far comunicare l'Host-S e l'Host-D.
+\end{enumerate}
+
+Al fine di poter portare all'attenzione un esempio di questo requisito di sicurezza, si utilizzerà la stessa topologia di rete 
+consultabile nell'immagine \ref{fig:Reachability}.\\
+A differenza del requisito di raggiungibilità, in questo caso la definizione sarà la seguente:\\
+
+\begin{lstlisting}[style=mystyle,caption={Esempio di requisito di isolamento}]
+    <PropertyDefinition>
+    <Property graph="0" name="IsolationProperty" src="70.0.0.1" dst="40.0.0.0" lv4proto="UDP" />    </PropertyDefinition>
+    \end{lstlisting}
+
+In questo caso viene espresso che tutto il traffico proveniente dall'Host-S 70.0.0.1 e diretto all'Host-D 40.0.0.0 che transita
+tramite il protocollo di livello 4 UDP, deve essere bloccato e quindi non arrivare a destinazione.
+La computazione svolta da Verefoo porta alla seguente:
+
+\begin{figure}[h]  % 'h' significa che la figura viene posizionata qui
+    \centering
+    \includegraphics[width=0.8\textwidth]{Isolation_Soddisfatta.png}  % Sostituisci 'nome_immagine' con il nome del tuo file immagine e l'estensione
+    \caption{Output grafo di esempio per requisito di isolamento}
+    \label{fig:Isolation_Soddisfatta}
+  \end{figure}
+
+  A differenza della \ref{fig:Reachability_Soddisfatta}, il packet filter allocato da Verefoo è stato impostato in blacklist
+  mode. Facendo ciò le comunicazioni fra i due host 70.0.0.1 e 60.0.0.1 sono ancora garantite e l'unica regola che blocca il traffico
+  dati è specifica per le comunicazioni in UDP da 70.0.0.1 a 40.0.0.0.
+  \newpage
+
+
+  \subsection{Protection Requirements}
+  
+
+
+  \section{Descrizione Grafi Verefoo}
