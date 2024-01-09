@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2023.12.28)  7 JAN 2024 19:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2023.12.28)  9 JAN 2024 19:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -719,7 +719,7 @@ Chapter 2.
 
 
 ]
-<SFC.png, id=207, 956.57375pt x 113.42375pt>
+<SFC.png, id=215, 956.57375pt x 113.42375pt>
 File: SFC.png Graphic file (type png)
 <use SFC.png>
 Package pdftex.def Info: SFC.png  used on input line 51.
@@ -730,7 +730,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) h
                                                   \__shipout_drop_firstpage_...
 l.78 
       <./SFC.png>] [15]
-<VerefooArchitecture.png, id=224, 823.075pt x 575.14874pt>
+<VerefooArchitecture.png, id=232, 823.075pt x 575.14874pt>
 File: VerefooArchitecture.png Graphic file (type png)
 <use VerefooArchitecture.png>
 Package pdftex.def Info: VerefooArchitecture.png  used on input line 103.
@@ -741,7 +741,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}) h
                                                   \__shipout_drop_firstpage_...
 l.119     \item \textbf
                        {Trasformazione a Medium Level Language}: Una volta d... <./VerefooArchitecture.png>]
-<Service_Allocation_Graph.png, id=234, 823.075pt x 569.12625pt>
+<Service_Allocation_Graph.png, id=242, 823.075pt x 569.12625pt>
 File: Service_Allocation_Graph.png Graphic file (type png)
 <use Service_Allocation_Graph.png>
 Package pdftex.def Info: Service_Allocation_Graph.png  used on input line 132.
@@ -750,66 +750,97 @@ Package pdftex.def Info: Service_Allocation_Graph.png  used on input line 132.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.145 
+l.144 
        <./Service_Allocation_Graph.png>]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 148.
- [18]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 174.
+Overfull \hbox (15.76062pt too wide) in paragraph at lines 149--151
+[]\OT1/cmr/bx/n/12 Network Ad-dress Trans-la-tor (NAT)\OT1/cmr/m/n/12 : ^^Re un servizio che con-sente la traduzione
+ []
+
+[18] [19]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 182.
+ [20]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 208.
  (C:\Users\Benito\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 174.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 208.
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--176
+Underfull \hbox (badness 10000) in paragraph at lines 207--210
 
  []
 
-[19]
-<Reachability.png, id=259, 636.3775pt x 306.14375pt>
+[21]
+<Reachability.png, id=275, 636.3775pt x 306.14375pt>
 File: Reachability.png Graphic file (type png)
 <use Reachability.png>
-Package pdftex.def Info: Reachability.png  used on input line 204.
+Package pdftex.def Info: Reachability.png  used on input line 238.
 (pdftex.def)             Requested size: 338.00314pt x 162.60109pt.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 212.
- [20
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 246.
+ [22
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.216     \newpage
+l.250     \newpage
                    <./Reachability.png>]
-<Reachability_risolta.png, id=270, 636.3775pt x 306.14375pt>
+<Reachability_risolta.png, id=286, 636.3775pt x 306.14375pt>
 File: Reachability_risolta.png Graphic file (type png)
 <use Reachability_risolta.png>
-Package pdftex.def Info: Reachability_risolta.png  used on input line 220.
+Package pdftex.def Info: Reachability_risolta.png  used on input line 254.
 (pdftex.def)             Requested size: 338.00314pt x 162.60109pt.
- [21
+ [23
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.250     \item I
+l.286     \item I
                  nfine viene attenzionato l'Host-D, sincerandosi che non sia... <./Reachability_risolta.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 254--257
+Underfull \hbox (badness 10000) in paragraph at lines 290--293
 
  []
 
-<Isolation_Soddisfatta.png, id=279, 636.3775pt x 306.14375pt>
+<Isolation_Soddisfatta.png, id=295, 636.3775pt x 306.14375pt>
 File: Isolation_Soddisfatta.png Graphic file (type png)
 <use Isolation_Soddisfatta.png>
-Package pdftex.def Info: Isolation_Soddisfatta.png  used on input line 269.
+Package pdftex.def Info: Isolation_Soddisfatta.png  used on input line 305.
 (pdftex.def)             Requested size: 338.00314pt x 162.60109pt.
-[22
+[24
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.277   \newpage
-                 <./Isolation_Soddisfatta.png>]) [23]
+l.313   \newpage
+                 <./Isolation_Soddisfatta.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 317--322
+
+ []
+
+[25] [26]
+<EsempioProtection.png, id=326, 729.47531pt x 176.91093pt>
+File: EsempioProtection.png Graphic file (type png)
+<use EsempioProtection.png>
+Package pdftex.def Info: EsempioProtection.png  used on input line 366.
+(pdftex.def)             Requested size: 422.50232pt x 102.46263pt.
+<ProectionProp.png, id=327, 729.47531pt x 181.42781pt>
+File: ProectionProp.png Graphic file (type png)
+<use ProectionProp.png>
+Package pdftex.def Info: ProectionProp.png  used on input line 394.
+(pdftex.def)             Requested size: 422.50232pt x 105.0787pt.
+ [27
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.406 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.406 
+       <./EsempioProtection.png> <./ProectionProp.png>]) [28]
 \openout2 = `chapters/03/docker.aux'.
 
  (chapters/03/docker.tex
 Chapter 3.
-) [24
+) [29
 
 
 
@@ -819,12 +850,12 @@ Chapter 3.
 
  (chapters/08/conclusions.tex
 Chapter 4.
-) [25
+) [30
 
 
 
 
-] (thesis.bbl) [26
+] (thesis.bbl) [31
 
 
 
@@ -834,20 +865,20 @@ LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 35EBE537FAE6E589F77B8BADC1ACB084;1401.
+(rerunfilecheck)             Checksum: 2B1565FC03366D6DD65C27F81578F49A;1457.
  ) 
 Here is how much of TeX's memory you used:
- 24020 strings out of 474495
- 440532 string characters out of 5743462
- 1940460 words of memory out of 5000000
- 45789 multiletter control sequences out of 15000+600000
+ 24068 strings out of 474495
+ 441318 string characters out of 5743462
+ 1953460 words of memory out of 5000000
+ 45808 multiletter control sequences out of 15000+600000
  570374 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  138i,13n,135p,622b,2653s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Benito\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (26 pages, 2459283 bytes).
+Output written on thesis.pdf (31 pages, 2516674 bytes).
 PDF statistics:
- 382 PDF objects out of 1000 (max. 8388607)
- 85 named destinations out of 1000 (max. 500000)
- 216 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 445 PDF objects out of 1000 (max. 8388607)
+ 114 named destinations out of 1000 (max. 500000)
+ 226 words of extra memory for PDF output out of 10000 (max. 10000000)
 

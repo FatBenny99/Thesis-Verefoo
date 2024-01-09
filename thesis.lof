@@ -7,8 +7,10 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Esempio di Service Function Chain}}{14}{figure.2.1}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Architettura di VEREFOO \cite {Bringhenti2019}}}{16}{figure.2.2}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Esempi di Service (in alto) e Allocation(in basso) Graphs \cite {Bringhenti2019}}}{17}{figure.2.3}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Grafo di allocazione per requisito di raggiungibilità}}{20}{figure.2.4}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Output grafo di esempio per requisito di raggiungibilità}}{21}{figure.2.5}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Output grafo di esempio per requisito di isolamento}}{22}{figure.2.6}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Grafo di allocazione per requisito di raggiungibilità}}{22}{figure.2.4}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Output grafo di esempio per requisito di raggiungibilità}}{23}{figure.2.5}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Output grafo di esempio per requisito di isolamento}}{24}{figure.2.6}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Grafo di allocazione d'esempio per requisiti di protezione}}{27}{figure.2.7}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Output grafo di esempio per requisito di protezione}}{27}{figure.2.8}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

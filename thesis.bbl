@@ -34,6 +34,16 @@ J.~M. Halpern and C.~Pignataro, ``Service function chaining {(SFC)}
   Available: \url{https://doi.org/10.17487/RFC7665}
 \BIBentrySTDinterwordspacing
 
+\bibitem{strongswan}
+\BIBentryALTinterwordspacing
+{StrongSwan Project}, \emph{StrongSwan Documentation}, 2022. [Online].
+  Available: \url{https://www.strongswan.org/documentation.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ipsec}
+``{IPsec} - {Internet Protocol Security},''
+  \url{https://tools.ietf.org/html/rfc4301}, 2005, rFC 4301.
+
 \bibitem{noms2020}
 \BIBentryALTinterwordspacing
 D.~Bringhenti, G.~Marchetto, R.~Sisto, F.~Valenza, and J.~Yusupov, ``Automated
