@@ -159,12 +159,124 @@ Allo stato attuale all'interno di Verefoo è possibile definire come SF le segue
 Questi elementi possono essere inseriti nella creazione di una rete da fornire a Verefoo. Il framework è in grado di accettare file XML che descrivono il grafo della topologia di rete definendo i nodi nel seguente modo:
 
 \begin{itemize}
-    \item \textbf{nome}: é l'indirizzo ip che caratterizza il nodo.
-    \item \textbf{funzionalità}: descrive quale delle SF descritte precedentemente il nodo implementa.
-    \item \textbf{nodi vicini}: viene fornita una lista di nodi adiacenti al nodo in questione definiti dal loro indirizzo IP. 
-    \item  \textbf{configurazione}: viene specificata la configurazione, ove necessaria, per poter istanziare la funzionalità definita al campo precedente.
+    \item \textbf{Nome}: é l'indirizzo ip che caratterizza il nodo.
+    \item \textbf{Funzionalità}: descrive quale delle SF descritte precedentemente il nodo implementa.
+    \item \textbf{Nodi adiacenti}: viene fornita una lista di nodi adiacenti al nodo in questione definiti dal loro indirizzo IP. 
+    \item  \textbf{Configurazione}: viene specificata la configurazione, ove necessaria, per poter istanziare la funzionalità definita al campo precedente.
 \end{itemize}
 
+Di seguito viene proposto un esempio della definizione di un Service Graph:
+
+\begin{figure}[h]  % 'h' significa che la figura viene posizionata qui
+    \centering
+    \includegraphics[width=1\textwidth]{ServiceGraph.png}  % Sostituisci 'nome_immagine' con il nome del tuo file immagine e l'estensione
+    \caption{Esempio di un Service Graph}
+    \label{fig:Service_Graph}
+\end{figure}
+
+In questo scenario, sono presenti tre WebClient con gli indirizzi IP corrispondenti a 190.0.0.1, 190.0.0.2 e 190.0.0.3, tutti appartenenti a una specifica sottorete. 
+Questa sottorete è gestita da un dispositivo NAT con indirizzo 10.0.0.1, il quale instrada il traffico dati al firewall e maschera gli indirizzi IP locali dei client.
+Successivamente, il firewall entra in gioco e prende la decisione di filtrare soltanto le comunicazioni provenienti dall'IP 190.0.0.1 e dirette verso 20.0.0.1. 
+Il traffico filtrato viene quindi inoltrato al load balancer con indirizzo 10.0.0.3. 
+Quest'ultimo si occupa di distribuire il traffico sulla linea di connessione in modo da garantire una gestione efficiente delle risorse, privilegiando la linea meno congestionata.\\
+
+
+Al fine di esempio, la seguente è la definizione in termini di codice XML da fornire a Verefoo per specificare una rete con le condizioni sopra descritte: 
+
+\begin{lstlisting}[style=mystyle,caption={Definizione nodi del ServiceGraph \ref*{fig:Service_Graph}}]
+<NFV>
+<graphs>
+    <graph id="0">
+        <node functional_type="WEBCLIENT" name="190.0.0.1">
+            <neighbour name="10.0.0.1"/>
+            <configuration description="Client1" name="conf1">
+                <webclient nameWebServer="30.0.5.2"/>
+            </configuration>
+        </node>
+        <node functional_type="WEBCLIENT" name="190.0.0.2">
+            <neighbour name="10.0.0.1"/>
+            <configuration description="Client2" name="conf1">
+                <webclient nameWebServer="30.0.5.2"/>
+            </configuration>
+        </node>
+        <node functional_type="WEBCLIENT" name="190.0.0.3">
+            <neighbour name="10.0.0.1"/>
+            <configuration description="Client3" name="conf1">
+                <webclient nameWebServer="30.0.5.2"/>
+            </configuration>
+        </node>
+        <node functional_type="NAT" name="10.0.0.1">
+            <neighbour name="190.0.0.1"/>
+            <neighbour name="190.0.0.2"/>
+            <neighbour name="190.0.0.3"/>
+            <neighbour name="10.0.0.2"/>
+            <configuration description="NAT" name="conf1">
+                <nat>
+                    <source>190.0.0.1</source>
+                    <source>190.0.0.2</source>
+                    <source>190.0.0.3</source>
+                </nat>
+            </configuration>
+        </node>
+        <node functional_type="LOADBALANCER" name="10.0.0.3">
+            <neighbour name="10.0.0.2"/>
+            <neighbour name="20.0.0.1"/>
+            <neighbour name="20.0.0.2"/>
+            <configuration description="LB" name="conf1">
+                <loadbalancer>
+                    <pool>20.0.0.1</pool>
+                    <pool>20.0.0.2</pool>
+                </loadbalancer>
+            </configuration>
+        </node>
+        <node functional_type="WEBSERVER" name="20.0.0.1">
+            <neighbour name="10.0.0.3"/>
+            <configuration description="Server1" name="conf1">
+                <webserver>
+                    <name>20.0.0.1</name>
+                </webserver>
+            </configuration>
+        </node>
+        <node functional_type="WEBSERVER" name="20.0.0.2">
+            <neighbour name="10.0.0.3"/>
+            <configuration description="Server2" name="conf1">
+                <webserver>
+                    <name>20.0.0.2</name>
+                </webserver>
+            </configuration>
+        </node>
+        <node functional_type="FIREWALL" name="10.0.0.2">
+            <neighbour name="10.0.0.1"/>
+            <neighbour name="10.0.0.3"/>
+            <configuration description="" name="conf1">
+                <firewall defaultAction="DENY">
+                    <elements>
+                        <action>ALLOW</action>
+                        <source>190.0.0.1</source>
+                        <destination>20.0.0.1</destination>
+                        <protocol>ANY</protocol>
+                        <src_port>22</src_port>
+                        <dst_port>22</dst_port>
+                    </elements>
+                </firewall>
+            </configuration>
+        </node>
+    </graph>
+</graphs>
+</NFV>
+\end{lstlisting}
+
+In continuità con il grafo precedentemente descritto, possiamo estendere la rappresentazione introducendo un esempio di "Allocation Graph". 
+Come specificato precedentemente, questo grafo prevede l'inclusione di uno o più "Allocation Places", che sono nodi specifici funzionanti come spazi temporanei per il futuro collocamento di una service function (SF). 
+Tale approccio agevola il processo di comunicazione con Verefoo, consentendo una migliore comprensione della topologia di rete e accelerando l'individuazione di soluzioni ottimali. 
+Di seguito è presente un esempio di codice XML per definire un Allocation Place che si interpone fra il client 190.0.0.1 e il NAT definiti nella figura \ref{fig:Service_Graph}: 
+
+\begin{lstlisting}[style=mystyle,caption={Definizione Allocation Place per Allocation Graph}]
+<node name="1.0.0.1">
+<neighbour name="190.0.0.1"/>
+<neighbour name="10.0.0.1"/>
+</node>
+\end{lstlisting}
 
 \newpage
 
