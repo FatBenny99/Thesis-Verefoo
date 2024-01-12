@@ -19,7 +19,9 @@
 \contentsline {subsection}{\numberline {2.4.2}Isolation Requirements}{25}{subsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.4.3}Protection Requirements}{27}{subsection.2.4.3}%
 \contentsline {chapter}{\numberline {3}Docker}{31}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduzione a Docker}{31}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Docker Compose}{31}{section.3.2}%
-\contentsline {chapter}{\numberline {4}Conclusions}{32}{chapter.4}%
-\contentsline {chapter}{Bibliography}{33}{chapter.4}%
+\contentsline {section}{\numberline {3.1}Differenze fra Container e Macchine Virtuali}{31}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Docker e la sua architettura}{34}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Il tool Compose}{35}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Networking}{35}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Conclusions}{36}{chapter.4}%
+\contentsline {chapter}{Bibliography}{37}{chapter.4}%

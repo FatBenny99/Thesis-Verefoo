@@ -36,7 +36,7 @@ J.~M. Halpern and C.~Pignataro, ``Service function chaining {(SFC)}
 
 \bibitem{strongswan}
 \BIBentryALTinterwordspacing
-{StrongSwan Project}, \emph{StrongSwan Documentation}, 2022. [Online].
+{StrongSwan Project}, \emph{StrongSwan Documentation}, 2024. [Online].
   Available: \url{https://www.strongswan.org/documentation.html}
 \BIBentrySTDinterwordspacing
 
@@ -44,14 +44,38 @@ J.~M. Halpern and C.~Pignataro, ``Service function chaining {(SFC)}
 ``{IPsec} - {Internet Protocol Security},''
   \url{https://tools.ietf.org/html/rfc4301}, 2005, rFC 4301.
 
-\bibitem{noms2020}
+\bibitem{docker-docs}
 \BIBentryALTinterwordspacing
-D.~Bringhenti, G.~Marchetto, R.~Sisto, F.~Valenza, and J.~Yusupov, ``Automated
-  optimal firewall orchestration and configuration in virtualized networks,''
-  in \emph{{NOMS} 2020 - {IEEE/IFIP} Network Operations and Management
-  Symposium, Budapest, Hungary, April 20-24, 2020}.\hskip 1em plus 0.5em minus
-  0.4em\relax {IEEE}, 2020, pp. 1--7. [Online]. Available:
-  \url{https://doi.org/10.1109/NOMS47738.2020.9110402}
+(2024) Docker documentation. Docker, Inc. [Online]. Available:
+  \url{https://docs.docker.com/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{vmware}
+\BIBentryALTinterwordspacing
+(2024) What is a virtual machine? VMware, Inc. Accessed on \today. [Online].
+  Available:
+  \url{https://www.vmware.com/topics/glossary/content/virtual-machine.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{docker-container}
+\BIBentryALTinterwordspacing
+{Docker, Inc.} (2024) What is a container? Accessed on \today. [Online].
+  Available: \url{https://www.docker.com/resources/what-container/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{hypervisor}
+\BIBentryALTinterwordspacing
+(2024) What is a hypervisor? VMware, Inc. Accessed on \today. [Online].
+  Available:
+  \url{https://www.vmware.com/topics/glossary/content/hypervisor.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{performance-container}
+\BIBentryALTinterwordspacing
+M.~Lindström, ``Containers \& virtual machines: A performance, resource \&
+  power consumption comparison,'' Master's thesis, Blekinge Institute of
+  Technology, SE-371 79 Karlskrona, June 2024. [Online]. Available:
+  \url{http://www.diva-portal.org/smash/get/diva2:1665606/FULLTEXT01.pdf}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

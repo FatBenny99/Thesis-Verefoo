@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2023.12.28)  10 JAN 2024 17:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2023.12.28)  12 JAN 2024 19:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -622,7 +622,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 76.
 \c@lstlisting=\count340
-<PolitoLogo3.jpg, id=88, 3522.15875pt x 2491.3075pt>
+<PolitoLogo3.jpg, id=96, 3522.15875pt x 2491.3075pt>
 File: PolitoLogo3.jpg Graphic file (type jpg)
 <use PolitoLogo3.jpg>
 Package pdftex.def Info: PolitoLogo3.jpg  used on input line 98.
@@ -719,7 +719,7 @@ Chapter 2.
 
 
 ]
-<SFC.png, id=221, 956.57375pt x 113.42375pt>
+<SFC.png, id=235, 956.57375pt x 113.42375pt>
 File: SFC.png Graphic file (type png)
 <use SFC.png>
 Package pdftex.def Info: SFC.png  used on input line 51.
@@ -730,7 +730,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) h
                                                   \__shipout_drop_firstpage_...
 l.78 
       <./SFC.png>] [15]
-<VerefooArchitecture.png, id=238, 823.075pt x 575.14874pt>
+<VerefooArchitecture.png, id=252, 823.075pt x 575.14874pt>
 File: VerefooArchitecture.png Graphic file (type png)
 <use VerefooArchitecture.png>
 Package pdftex.def Info: VerefooArchitecture.png  used on input line 103.
@@ -741,7 +741,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}) h
                                                   \__shipout_drop_firstpage_...
 l.119     \item \textbf
                        {Trasformazione a Medium Level Language}: Una volta d... <./VerefooArchitecture.png>]
-<Service_Allocation_Graph.png, id=248, 823.075pt x 569.12625pt>
+<Service_Allocation_Graph.png, id=262, 823.075pt x 569.12625pt>
 File: Service_Allocation_Graph.png Graphic file (type png)
 <use Service_Allocation_Graph.png>
 Package pdftex.def Info: Service_Allocation_Graph.png  used on input line 132.
@@ -757,7 +757,7 @@ Overfull \hbox (15.76062pt too wide) in paragraph at lines 149--151
  []
 
 [18]
-<ServiceGraph.png, id=262, 1044.90375pt x 353.32pt>
+<ServiceGraph.png, id=276, 1044.90375pt x 353.32pt>
 File: ServiceGraph.png Graphic file (type png)
 <use ServiceGraph.png>
 Package pdftex.def Info: ServiceGraph.png  used on input line 172.
@@ -791,7 +791,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 319--322
  []
 
 [23]
-<Reachability.png, id=377, 636.3775pt x 306.14375pt>
+<Reachability.png, id=391, 636.3775pt x 306.14375pt>
 File: Reachability.png Graphic file (type png)
 <use Reachability.png>
 Package pdftex.def Info: Reachability.png  used on input line 350.
@@ -802,7 +802,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.5}) h
                                                   \__shipout_drop_firstpage_...
 l.362     \newpage
                    <./Reachability.png>]
-<Reachability_risolta.png, id=387, 636.3775pt x 306.14375pt>
+<Reachability_risolta.png, id=401, 636.3775pt x 306.14375pt>
 File: Reachability_risolta.png Graphic file (type png)
 <use Reachability_risolta.png>
 Package pdftex.def Info: Reachability_risolta.png  used on input line 366.
@@ -817,7 +817,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 402--405
 
  []
 
-<Isolation_Soddisfatta.png, id=397, 636.3775pt x 306.14375pt>
+<Isolation_Soddisfatta.png, id=411, 636.3775pt x 306.14375pt>
 File: Isolation_Soddisfatta.png Graphic file (type png)
 <use Isolation_Soddisfatta.png>
 Package pdftex.def Info: Isolation_Soddisfatta.png  used on input line 417.
@@ -833,12 +833,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 429--434
  []
 
 [27] [28]
-<EsempioProtection.png, id=427, 729.47531pt x 176.91093pt>
+<EsempioProtection.png, id=441, 729.47531pt x 176.91093pt>
 File: EsempioProtection.png Graphic file (type png)
 <use EsempioProtection.png>
 Package pdftex.def Info: EsempioProtection.png  used on input line 478.
 (pdftex.def)             Requested size: 422.50232pt x 102.46263pt.
-<ProectionProp.png, id=428, 729.47531pt x 181.42781pt>
+<ProectionProp.png, id=442, 729.47531pt x 181.42781pt>
 File: ProectionProp.png Graphic file (type png)
 <use ProectionProp.png>
 Package pdftex.def Info: ProectionProp.png  used on input line 506.
@@ -858,22 +858,77 @@ l.518
 
  (chapters/03/docker.tex
 Chapter 3.
-) [31
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--17
+
+ []
+
+[31
 
 
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 18--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+ []
+
+<VMvsContainers.png, id=475, 490.83376pt x 323.70938pt>
+File: VMvsContainers.png Graphic file (type png)
+<use VMvsContainers.png>
+Package pdftex.def Info: VMvsContainers.png  used on input line 26.
+(pdftex.def)             Requested size: 422.50232pt x 278.65137pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+[32
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.35 
+      <./VMvsContainers.png>] [33]
+Underfull \hbox (badness 10000) in paragraph at lines 55--60
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
+
+ []
+
+<Docker_Architecture.png, id=491, 1053.1847pt x 397.485pt>
+File: Docker_Architecture.png Graphic file (type png)
+<use Docker_Architecture.png>
+Package pdftex.def Info: Docker_Architecture.png  used on input line 65.
+(pdftex.def)             Requested size: 422.50232pt x 159.45819pt.
+[34
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.80         \end{itemize}
+                           <./Docker_Architecture.png>]
+Overfull \hbox (1.30681pt too wide) in paragraph at lines 83--86
+[]\OT1/cmr/bx/n/12 Docker Reg-istry\OT1/cmr/m/n/12 : ^^Re una zona di memo-ria che mem-o-rizza le im-mag-ini Docker.
+ []
+
+) [35]
 \openout2 = `chapters/08/conclusions.aux'.
 
  (chapters/08/conclusions.tex
 Chapter 4.
-) [32
+) [36
 
 
 
 
-] (thesis.bbl) [33
+] (thesis.bbl) [37
 
 
 
@@ -883,20 +938,20 @@ LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 2B1565FC03366D6DD65C27F81578F49A;1457.
+(rerunfilecheck)             Checksum: 7CA125FDC10ABDFD1D0C09CE9ECD997A;1635.
  ) 
 Here is how much of TeX's memory you used:
- 24165 strings out of 474495
- 442880 string characters out of 5743462
+ 24199 strings out of 474495
+ 443543 string characters out of 5743462
  2019460 words of memory out of 5000000
- 45816 multiletter control sequences out of 15000+600000
+ 45838 multiletter control sequences out of 15000+600000
  570374 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  138i,13n,135p,622b,4206s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Benito\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (33 pages, 2557917 bytes).
+Output written on thesis.pdf (37 pages, 2652721 bytes).
 PDF statistics:
- 563 PDF objects out of 1000 (max. 8388607)
- 203 named destinations out of 1000 (max. 500000)
- 231 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 618 PDF objects out of 1000 (max. 8388607)
+ 215 named destinations out of 1000 (max. 500000)
+ 257 words of extra memory for PDF output out of 10000 (max. 10000000)
 
