@@ -9,6 +9,8 @@ Reallocating 'name_of_file' (item size: 1) to 24 items.
 A level-1 auxiliary file: chapters/02/Verefoo.aux
 Reallocating 'name_of_file' (item size: 1) to 23 items.
 A level-1 auxiliary file: chapters/03/docker.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
+A level-1 auxiliary file: chapters/04/ThesisObj.aux
 Reallocating 'name_of_file' (item size: 1) to 28 items.
 A level-1 auxiliary file: chapters/08/conclusions.aux
 Reallocating 'name_of_file' (item size: 1) to 9 items.
@@ -25,44 +27,44 @@ Database file #1: bibliography.bib
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 9 entries,
+You've used 12 entries,
             4087 wiz_defined-function locations,
-            874 strings with 8687 characters,
-and the built_in function-call counts, 4204 in all, are:
-= -- 360
-> -- 55
+            884 strings with 8933 characters,
+and the built_in function-call counts, 5206 in all, are:
+= -- 445
+> -- 58
 < -- 12
-+ -- 29
++ -- 32
 - -- 10
-* -- 181
-:= -- 772
-add.period$ -- 20
-call.type$ -- 9
-change.case$ -- 12
+* -- 210
+:= -- 951
+add.period$ -- 27
+call.type$ -- 12
+change.case$ -- 17
 chr.to.int$ -- 27
-cite$ -- 9
-duplicate$ -- 311
-empty$ -- 358
+cite$ -- 12
+duplicate$ -- 397
+empty$ -- 460
 format.name$ -- 12
-if$ -- 925
+if$ -- 1152
 int.to.chr$ -- 0
-int.to.str$ -- 9
-missing$ -- 68
-newline$ -- 64
+int.to.str$ -- 12
+missing$ -- 88
+newline$ -- 77
 num.names$ -- 5
-pop$ -- 171
+pop$ -- 233
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 333
+skip$ -- 415
 stack$ -- 0
-substring$ -- 74
-swap$ -- 217
+substring$ -- 79
+swap$ -- 267
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 9
+type$ -- 12
 warning$ -- 0
 while$ -- 13
-width$ -- 10
-write$ -- 118
+width$ -- 14
+write$ -- 146
