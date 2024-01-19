@@ -7,25 +7,24 @@
 \contentsline {chapter}{Listings}{9}{section*.2}%
 \contentsline {chapter}{\numberline {1}Introduzione}{11}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Obiettivo della Tesi}{11}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Descrizione della tesi}{12}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Network Security Automation e Verefoo}{14}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Service Function Chain}{14}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Verefoo}{16}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Introduzione}{16}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Descrizione del modello}{16}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Definizione ed esempio di Grafo di servizio e di allocazione}{19}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Definizione ed esempi delle proprietà di sicurezza}{23}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Reachability Requirements}{24}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Isolation Requirements}{26}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Protection Requirements}{28}{subsection.2.4.3}%
-\contentsline {chapter}{\numberline {3}Docker}{32}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Differenze fra Container e Macchine Virtuali}{32}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Docker e la sua architettura}{35}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Il tool Compose}{36}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Introduzione}{36}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}YAML}{37}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Services e Networking}{38}{subsection.3.3.3}%
-\contentsline {chapter}{\numberline {4}Obiettivi della tesi}{41}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Prova}{41}{section.4.1}%
+\contentsline {section}{\numberline {1.2}Descrizione della tesi}{11}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Network Security Automation e Verefoo}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Service Function Chain}{13}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Verefoo}{15}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Introduzione}{15}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Descrizione del modello}{15}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Definizione ed esempio di Grafo di servizio e di allocazione}{18}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Definizione ed esempi delle proprietà di sicurezza}{22}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Reachability Requirements}{23}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Isolation Requirements}{25}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Protection Requirements}{27}{subsection.2.4.3}%
+\contentsline {chapter}{\numberline {3}Docker}{31}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Differenze fra Container e Macchine Virtuali}{31}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Docker e la sua architettura}{34}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Il tool Compose}{35}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Introduzione}{35}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}YAML}{36}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Services e Networking}{37}{subsection.3.3.3}%
+\contentsline {chapter}{\numberline {4}Obiettivi della tesi}{40}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Conclusions}{42}{chapter.5}%
 \contentsline {chapter}{Bibliography}{43}{chapter.5}%
