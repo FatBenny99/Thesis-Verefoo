@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2023.12.28)  2 FEB 2024 05:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2023.12.28)  8 FEB 2024 19:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -642,7 +642,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 76.
 \c@lstlisting=\count340
-<PolitoLogo3.jpg, id=124, 3522.15875pt x 2491.3075pt>
+<PolitoLogo3.jpg, id=132, 3522.15875pt x 2491.3075pt>
 File: PolitoLogo3.jpg Graphic file (type jpg)
 <use PolitoLogo3.jpg>
 Package pdftex.def Info: PolitoLogo3.jpg  used on input line 98.
@@ -744,7 +744,7 @@ Chapter 2.
 
 
 ]
-<SFC.png, id=301, 956.57375pt x 113.42375pt>
+<SFC.png, id=311, 956.57375pt x 113.42375pt>
 File: SFC.png Graphic file (type png)
 <use SFC.png>
 Package pdftex.def Info: SFC.png  used on input line 51.
@@ -755,7 +755,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) h
                                                   \__shipout_drop_firstpage_...
 l.78 
       <./SFC.png>] [15]
-<VerefooArchitecture.png, id=318, 823.075pt x 575.14874pt>
+<VerefooArchitecture.png, id=328, 823.075pt x 575.14874pt>
 File: VerefooArchitecture.png Graphic file (type png)
 <use VerefooArchitecture.png>
 Package pdftex.def Info: VerefooArchitecture.png  used on input line 103.
@@ -766,7 +766,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}) h
                                                   \__shipout_drop_firstpage_...
 l.119     \item \textbf
                        {Trasformazione a Medium Level Language}: Una volta d... <./VerefooArchitecture.png>]
-<Service_Allocation_Graph.png, id=328, 823.075pt x 569.12625pt>
+<Service_Allocation_Graph.png, id=338, 823.075pt x 569.12625pt>
 File: Service_Allocation_Graph.png Graphic file (type png)
 <use Service_Allocation_Graph.png>
 Package pdftex.def Info: Service_Allocation_Graph.png  used on input line 132.
@@ -782,7 +782,7 @@ Overfull \hbox (15.76062pt too wide) in paragraph at lines 149--151
  []
 
 [18]
-<ServiceGraph.png, id=342, 1044.90375pt x 353.32pt>
+<ServiceGraph.png, id=352, 1044.90375pt x 353.32pt>
 File: ServiceGraph.png Graphic file (type png)
 <use ServiceGraph.png>
 Package pdftex.def Info: ServiceGraph.png  used on input line 172.
@@ -816,7 +816,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 319--322
  []
 
 [23]
-<Reachability.png, id=457, 636.3775pt x 306.14375pt>
+<Reachability.png, id=467, 636.3775pt x 306.14375pt>
 File: Reachability.png Graphic file (type png)
 <use Reachability.png>
 Package pdftex.def Info: Reachability.png  used on input line 350.
@@ -827,7 +827,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.5}) h
                                                   \__shipout_drop_firstpage_...
 l.362     \newpage
                    <./Reachability.png>]
-<Reachability_risolta.png, id=467, 636.3775pt x 306.14375pt>
+<Reachability_risolta.png, id=477, 636.3775pt x 306.14375pt>
 File: Reachability_risolta.png Graphic file (type png)
 <use Reachability_risolta.png>
 Package pdftex.def Info: Reachability_risolta.png  used on input line 366.
@@ -842,7 +842,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 402--405
 
  []
 
-<Isolation_Soddisfatta.png, id=477, 636.3775pt x 306.14375pt>
+<Isolation_Soddisfatta.png, id=487, 636.3775pt x 306.14375pt>
 File: Isolation_Soddisfatta.png Graphic file (type png)
 <use Isolation_Soddisfatta.png>
 Package pdftex.def Info: Isolation_Soddisfatta.png  used on input line 417.
@@ -858,12 +858,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 429--434
  []
 
 [27] [28]
-<EsempioProtection.png, id=507, 729.47531pt x 176.91093pt>
+<EsempioProtection.png, id=517, 729.47531pt x 176.91093pt>
 File: EsempioProtection.png Graphic file (type png)
 <use EsempioProtection.png>
 Package pdftex.def Info: EsempioProtection.png  used on input line 478.
 (pdftex.def)             Requested size: 422.50232pt x 102.46263pt.
-<ProectionProp.png, id=508, 729.47531pt x 181.42781pt>
+<ProectionProp.png, id=518, 729.47531pt x 181.42781pt>
 File: ProectionProp.png Graphic file (type png)
 <use ProectionProp.png>
 Package pdftex.def Info: ProectionProp.png  used on input line 506.
@@ -903,7 +903,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
 
-<VMvsContainers.png, id=541, 490.83376pt x 323.70938pt>
+<VMvsContainers.png, id=551, 490.83376pt x 323.70938pt>
 File: VMvsContainers.png Graphic file (type png)
 <use VMvsContainers.png>
 Package pdftex.def Info: VMvsContainers.png  used on input line 38.
@@ -928,7 +928,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
-<Docker_Architecture.png, id=557, 1053.1847pt x 397.485pt>
+<Docker_Architecture.png, id=567, 1053.1847pt x 397.485pt>
 File: Docker_Architecture.png Graphic file (type png)
 <use Docker_Architecture.png>
 Package pdftex.def Info: Docker_Architecture.png  used on input line 77.
@@ -973,74 +973,84 @@ Chapter 4.
 
  (chapters/05/DemoA.tex
 Chapter 5.
-<VPN_AG.PNG, id=672, 538.4115pt x 263.18324pt>
-File: VPN_AG.PNG Graphic file (type png)
-<use VPN_AG.PNG>
-Package pdftex.def Info: VPN_AG.PNG  used on input line 10.
-(pdftex.def)             Requested size: 422.50232pt x 206.523pt.
 [42
 
 
 
 
+]
+<VPN_AG.PNG, id=687, 538.4115pt x 263.18324pt>
+File: VPN_AG.PNG Graphic file (type png)
+<use VPN_AG.PNG>
+Package pdftex.def Info: VPN_AG.PNG  used on input line 36.
+(pdftex.def)             Requested size: 422.50232pt x 206.523pt.
 
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.15 
-      <./VPN_AG.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 43--46
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 69--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--46
-
- []
-
-
-Overfull \hbox (147.2234pt too wide) in paragraph at lines 50--60
- [][] 
- []
-
-[43
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.66     \item \textbf
-                      {Third Rule}: Web Client e7 must be able to communicat...
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.66     \item \textbf
-                      {Third Rule}: Web Client e7 must be able to communicat...]
-<VPN_deploy.PNG, id=683, 423.984pt x 194.52675pt>
-File: VPN_deploy.PNG Graphic file (type png)
-<use VPN_deploy.PNG>
-Package pdftex.def Info: VPN_deploy.PNG  used on input line 76.
-(pdftex.def)             Requested size: 422.50232pt x 193.85246pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 81--84
+Underfull \hbox (badness 10000) in paragraph at lines 69--72
 
  []
 
 [44
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.72 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{table.5.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.72 
+      <./VPN_AG.PNG>]
+Overfull \hbox (147.2234pt too wide) in paragraph at lines 76--86
+ [][] 
+ []
+
+<VPN_deploy.PNG, id=704, 423.984pt x 194.52675pt>
+File: VPN_deploy.PNG Graphic file (type png)
+<use VPN_deploy.PNG>
+Package pdftex.def Info: VPN_deploy.PNG  used on input line 102.
+(pdftex.def)             Requested size: 422.50232pt x 193.85246pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--110
+
+ []
+
+[45
+pdfTeX warning (ext4): destination with the same identifier (name{table.5.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.110 
+      ]
+Underfull \vbox (badness 1348) has occurred while \output is active []
+
+ [46
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.84 
-      <./VPN_deploy.PNG>]) [45
+l.174 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.198 \include{chapters/05/DemoA}
-                                 
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.4}) has been already used, duplicate ignored
+l.174 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.5.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.198 \include{chapters/05/DemoA}
-                                 
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.5}) has been already used, duplicate ignored
+l.174 
+       <./VPN_deploy.PNG>]) [47
+pdfTeX warning (ext4): destination with the same identifier (name{table.5.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.198 \include{chapters/05/DemoA}
@@ -1054,7 +1064,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.5.7}) ha
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.198 \include{chapters/05/DemoA}
-                                 ] [46
+                                 
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -1069,7 +1079,7 @@ Overfull \hbox (91.37831pt too wide) in paragraph at lines 33--58
  [][] 
  []
 
-) [47
+) [48
 
 
 
@@ -1079,7 +1089,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.6.1}) ha
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.199 \include{chapters/07/DemoB}
-                                 ] [48
+                                 ] [49
 pdfTeX warning (ext4): destination with the same identifier (name{table.6.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -1094,7 +1104,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.6.4}) ha
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.199 \include{chapters/07/DemoB}
-                                 ] [49
+                                 ] [50
 pdfTeX warning (ext4): destination with the same identifier (name{table.6.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -1104,12 +1114,12 @@ l.199 \include{chapters/07/DemoB}
 
  (chapters/08/conclusions.tex
 Chapter 7.
-) [50
+) [51
 
 
 
 
-] (thesis.bbl) [51
+] (thesis.bbl) [52
 
 
 
@@ -1123,20 +1133,20 @@ L3 programming layer <2023-12-11>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: A9152A9DDE25342BAD551120BFAA2170;2032.
+(rerunfilecheck)             Checksum: 1BB6990C901A55452FD028B1DB2872FE;2231.
  ) 
 Here is how much of TeX's memory you used:
- 24447 strings out of 474495
- 448789 string characters out of 5743462
+ 24458 strings out of 474495
+ 448886 string characters out of 5743462
  2019460 words of memory out of 5000000
- 45948 multiletter control sequences out of 15000+600000
+ 45950 multiletter control sequences out of 15000+600000
  571957 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  138i,13n,135p,858b,4206s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Benito\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Benito\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (51 pages, 2854032 bytes).
+Output written on thesis.pdf (52 pages, 2861075 bytes).
 PDF statistics:
- 860 PDF objects out of 1000 (max. 8388607)
- 325 named destinations out of 1000 (max. 500000)
- 323 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 882 PDF objects out of 1000 (max. 8388607)
+ 334 named destinations out of 1000 (max. 500000)
+ 339 words of extra memory for PDF output out of 10000 (max. 10000000)
 

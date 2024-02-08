@@ -26,9 +26,11 @@
 \contentsline {subsection}{\numberline {3.3.2}YAML}{36}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}Services e Networking}{37}{subsection.3.3.3}%
 \contentsline {chapter}{\numberline {4}Obiettivi della tesi}{40}{chapter.4}%
-\contentsline {chapter}{\numberline {5}DemoA}{42}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Introduction}{42}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Output}{44}{section.5.2}%
-\contentsline {chapter}{\numberline {6}DemoB}{47}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclusions}{50}{chapter.7}%
-\contentsline {chapter}{Bibliography}{51}{chapter.7}%
+\contentsline {chapter}{\numberline {5}Correzione, sviluppo e ottimizzazione Demo A}{42}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introduzione alla Demo}{42}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Implementazione}{43}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Output}{45}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Verifiche e Test}{47}{section.5.4}%
+\contentsline {chapter}{\numberline {6}DemoB}{48}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Conclusions}{51}{chapter.7}%
+\contentsline {chapter}{Bibliography}{52}{chapter.7}%
