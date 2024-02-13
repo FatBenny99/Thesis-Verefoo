@@ -94,4 +94,22 @@ M.~Lindström, ``Containers \& virtual machines: A performance, resource \&
   \url{https://docs.docker.com/compose/compose-file/05-services/}
 \BIBentrySTDinterwordspacing
 
+\bibitem{dockerubuntu}
+\BIBentryALTinterwordspacing
+{Docker Documentation}. (2024) Install docker engine on ubuntu. Docker.
+  [Online]. Available: \url{https://docs.docker.com/engine/install/ubuntu/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{dockercomposelinux}
+\BIBentryALTinterwordspacing
+------. (2024) Install docker compose on linux. Docker. [Online]. Available:
+  \url{https://docs.docker.com/compose/install/linux/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{z3prover}
+\BIBentryALTinterwordspacing
+{Microsoft}. (2024) Z3 theorem prover. [Online]. Available:
+  \url{https://github.com/Z3Prover/z3}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

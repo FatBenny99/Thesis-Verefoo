@@ -28,9 +28,11 @@
 \contentsline {chapter}{\numberline {4}Obiettivi della tesi}{40}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Correzione, sviluppo e ottimizzazione Demo A}{42}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Introduzione alla Demo}{42}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Implementazione}{43}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Output}{45}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Verifiche e Test}{47}{section.5.4}%
-\contentsline {chapter}{\numberline {6}DemoB}{48}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclusions}{51}{chapter.7}%
-\contentsline {chapter}{Bibliography}{52}{chapter.7}%
+\contentsline {section}{\numberline {5.2}Sviluppo Installer}{43}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Implementazione}{47}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Output}{50}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Verifiche e Test}{53}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Merge}{57}{chapter.6}%
+\contentsline {chapter}{\numberline {7}DemoB}{58}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Conclusions}{61}{chapter.8}%
+\contentsline {chapter}{Bibliography}{62}{chapter.8}%
