@@ -1,9 +1,8 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\babel@toc {english}{}\relax 
-\contentsline {chapter}{List of Figures}{7}{section*.1}%
-\contentsline {chapter}{List of Tables}{8}{section*.2}%
+\contentsline {chapter}{Elenco delle figure}{7}{section*.1}%
+\contentsline {chapter}{Elenco delle tabelle}{8}{section*.2}%
 \contentsline {chapter}{Listings}{9}{section*.2}%
 \contentsline {chapter}{\numberline {1}Introduzione}{11}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Obiettivo della Tesi}{11}{section.1.1}%
@@ -38,4 +37,4 @@
 \contentsline {section}{\numberline {6.3}Codice della soluzione prodotta}{61}{section.6.3}%
 \contentsline {chapter}{\numberline {7}DemoB}{62}{chapter.7}%
 \contentsline {chapter}{\numberline {8}Conclusions}{65}{chapter.8}%
-\contentsline {chapter}{Bibliography}{66}{chapter.8}%
+\contentsline {chapter}{Bibliografia}{66}{chapter.8}%
