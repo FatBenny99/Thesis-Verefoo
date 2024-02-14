@@ -1,3 +1,81 @@
-\chapter{Merge} \label{ch:MergeChapter}
+\chapter{Merge Funzioni di Verefoo} \label{ch:MergeChapter}
 
-Merge works of the 2 verefoo versions
+All'interno di questo capitolo verrà descritto il processo di ricerca e di sviluppo che è stato svolto per poter raggiungere il secondo macro obiettivo di questa tesi, ovvero 
+la creazione di una nuova versione di Verefoo che sia in grado di istanziare, in un'unica iterazione, sia dei Firewall configurati per agire da Packet Filter che dei VPN Gateway 
+che permettono la comunicazione cifrata fra due endpoints.\\
+Il lavoro prodotto al fine di raggiungere questo obiettivo pur essendo sufficiente è tuttavia non pienamente completo per garantire una versione di Verefoo priva di errori di correttezza delle soluzioni prodotte,
+ma garantisce una prima versione stabile e parzialmente corretta dell'implementazione. Durante gli studi e lo sviluppo del Merge delle due versioni sono infatti state eseguite numerose prove 
+per garantire un merge che mantenesse quanto più possibile le peculiarità delle versioni utilizzate precedentemente cercando di ridurre al minimo i problemi verificatisi durante l'implementazione.\\
+Nei paragrafi seguenti verrà descritto il processo di sviluppo che è stato effettuato per ottenere la versione più stabile possibile e che minimizzasse gli errori di output possibili. Inizialmente 
+verrà descritta la soluzione ibrida che si è tentato di raggiungere evidenziando le motivazioni del perchè non fosse efficiente, successivamente invece saranno illustrate due soluzioni possibili all'obiettivo
+da raggiungere elencando le motivazioni che hanno portato alla scelta di una delle due soluzioni. Infine verrà mostrato brevemente con degli snippet di codice Java il funzionamento generale della versione di 
+Verefoo prodotta. 
+
+\newpage
+
+\section{Versione Ibrida con doppio Jar File}
+Il primo approccio tentato per raggiungere l'obiettivo è stato quello di utilizzare le due versioni distinte di Verefoo contemporaneamente, creando una soluzione che richiedesse due iterazioni del framework con diversi input.\\
+Scendendo nel dettaglio, questa soluzione richiede lo svolgimento dei seguenti passaggi:
+
+\begin{enumerate}
+    \item \textbf{Suddivisione dei security requirements}: Il file di input che un'utente definisce per ottenere una configurazione di rete desiderata tendenzialmente contiene
+        contemporaneamente sia requisiti di isolamento e raggiungibilità che requisiti di protezione. Di conseguenza è necessario suddividere i requisiti in input in due gruppi, 
+        il primo contenente i requisiti necessari per la definizione dei Firewall nella topologia(ovvero isolamento e raggiungibilità) ed il secondo contenente i requisiti per la 
+        definizione dei VPN Gateway (ovvero protezione). Per costruire quindi il primo input verrà mantenuta la topologia di rete eliminando uno 
+        dei due gruppi di requirements dall'input iniziale.
+    \item \textbf{Iterazione della prima versione di Verefoo}: Ottenuto il primo file di input è possibile eseguire il primo jar file contenente la versione di verefoo che alloca univocamente 
+        i Firewall o i VPN Gateway. In questa fase è necessario utilizzare il pacchetto curl(\ref{sec:Installer}) per eseguire una chiamata API di tipo POST passando come argomento della chiamata l'input 
+        prodotto al punto precedente. La chiamata restituirà un output nel quale i Firewall o i VPN Gateway saranno allocati(a seconda della versione utilizzata per prima), ove necesario, al posto degli allocation places disponibili mentre tutti gli allocation
+        places aggiuntivi verranno sostituiti da dei semplici forwarder. 
+    \item \textbf{Traduzione Output prima versione e creazione del nuovo input}: L'output prodotto nel passaggio precedente non è utilizzabile per la seconda iterazione di Verefoo. Risulta quindi necessario
+    \   tradurlo in una versione comprensibile da Verefoo. I nodi dove sono state allocate Network Security Functions verranno mantenute nell nuovo input, assieme all'inseme di nodi definiti precedentemente. Tutti i nodi
+        che erano invece stati trasformati da allocation places a forwarder devono essere ritradotti come allocation places, ed infine il secondo gruppo di requirements deve essere aggiunto alla descrizione del grafo di input.
+    \item \textbf{Iterazione della seconda versione di Verefoo}: Una volta terminata la produzione del secondo input è possibile eseguire il secondo file jar che si occupa dell'allocazione della Network
+        Security Function rimanente in base alla scelta effettuata al punto 2. Come fatto precedentemente viene quindi eseguita una chiamata API di tipo POST tramite il pacchetto curl passando come argomento della chiamata
+        il secondo input prodotto. Il risultato definito in output rappresenta la topologia di rete che l'utente ha richiesto soddisfacendo contemporaneamente sia i requisiti di raggiungibilità ed isolamento che i requisiti di protezione.
+\end{enumerate}
+
+Seppur teoricamente questa soluzione sembra un buon tentativo primitivo di risolvere il problema delle versioni multiple con Verefoo, 
+essa presenta numerose limitazioni e difficoltà che ne hanno reso impossibile la realizzazione.
+\\ \\
+Uno degli ostacoli principali è stata la traduzione del primo output nel secondo input descritta al punto 3. Infatti Verefoo non fornisce un metodo per comprendere in maniera univoca quali sono i Forwarder presenti nella rete precedentemente all'allocazione
+delle Network Security Functions rispetto a quelli che vengono tradotti successivamente al non utilizzo di un allocation places. Questo rende praticamente impossibile creare un software che traduca automaticamente l'output fornito dalla 
+prima iterazione in un input idoneo per la seconda iterazione, non rendendo questa soluzione automatizzabile. Inoltre, delegare all'utente la configurazione del secondo file manualmente reintrodurrebbe la variabile di errore umano per cui Verefoo è stato sviluppato
+vanificando l'intero lavoro.
+\\ \\
+In seconda battuta è stato analizzato quale delle due versioni del framework andasse utilizzata per la prima chiamata API(step 2) e quale per la seconda(step 4). Sebbene la scelta possa sembrare indifferente, a livello implementativo potrebbe portare a delle computazioni più complesse a causa delle operazioni che le NSFs
+svolgono all'interno della topologia. I firewall per agire da packet filter devono infatti ispezionare i pacchetti che transitano attraverso il nodo e questo va in diretta contrapposizione con i tunnel VPN che vengono istanziati. Se infatti viene allocato un tunnel VPN nel quale path è presente un firewall questo non sarà in
+grado di poter ispezionare il pacchetto essendo completamente incapsulato dal protocollo ESP di IPsec.
+\\ \\ 
+Come ultima criticità di questa soluzione, che ha portato la ricerca di una soluzione alternativa, è stata la vera e propria incompatibilità delle due versioni del framework. Scendendo più nel dettaglio, è stato notato come pur traducendo momentaneamente manualmente il primo output in un input elegibile per la seconda versione di 
+Verefoo quest'ultimo continuava a non trovare una soluzione ottimale o in alcuni casi addirittura a dare errore di computazione restituendo un \textit{"503: Internal Server Error"} come risposta alla POST effettuata. Indagando è emerso che la versione che si occupava di Firewall non poteva in alcun modo accettare un input contenente
+dei Gateway VPN in quanto questi non erano stati definiti all'interno del codice del file jar e di conseguenza non venivano riconosciuti come Network Security Functions. Viceversa anche allocando prima i Firewall e successivamente i Gateway VPN la soluzione non veniva comunque computata in quanto, seppur presente la definizione dei Firewall all'interno del file Jar,
+i vincoli utilizzati per definire il problema MaxSMT riguardanti i Firewall non erano aggiornati allo stato più recente della ricerca, andando in conflitto con i nuovi security requirements in input.\\
+Di conseguenza lo sviluppo di questa soluzione si è interrotto privilegiando una soluzione che prevedesse un'unica iterazione per l'allocazione di entrambe le Network Security Function.
+
+\section{Versioni Firewall-to-VPN e VPN-to-Firewall}
+
+Dovendo sviluppare una soluzione univoca una delle prime scelte effettuate è stata la decisione di cosa dover allocare in maniera prioritaria fra Firewall e VPN Gateway.
+Inizialmente si è preferito optare per una soluzione nella quale i Firewall venissero allocati prima dei Gateway VPN, in quanto la versione di Verefoo contentente l'allocazione e la configurazione dei Firewall era considerabile come la versione più aggiornata e testata rispetto alle altre e quindi un'ottima base di partenza per il lavoro di sintesi delle versioni.\\
+Tuttavia questa scelta è stata celermente scartata in quanto avere una soluzione intermedia nella quale sono già presenti i Firewall rispetto alle VPN porta a due problemi principali:
+
+\begin{enumerate}
+    \item \textbf{Firewall all'interno dei Tunnel VPN}: Potrebbe capitare che il firewall non riesca a svolgere la sua funzione allocandolo precedentemente ai gateway VPN. Infatti è possibile che il framework
+        inserisca nel path di alcuni pacchetti che devono essere scartati dal firewall dei tunnel VPN che ovviamente, per garantire l'integrità dei dati, cifreranno il pacchetto e modificheranno il proprio header
+        inserendo come IPsrc e IPdst i due estremi del VPN Gateway. Se tali pacchetti dovessero passare da un firewall configurato precedentemente per bloccare determinati pacchetti provenienti con un IP diverso da quello di incapsulamento 
+        potrebbe capitare che il pacchetto attraversi il tunnel senza venir scartato.
+    \item \textbf{Maggiore calcolo computazionale}: Allocare precedentemente un Firewall richiede un calcolo medio computazionale maggiore, perchè nella successiva allocazione dei Gateway VPN il framework dovrà trovare, al minimo, 2 nodi 
+        di tipo allocation places disponibili per poter istanziare un tunnel. Viceversa invece istanziando precedentemente un tunnel VPN servirà solo 1 nodo per l'allocazione del firewall, rendendo la ricerca nello spazio delle soluzioni possibili
+        più rapida e computazionalmente leggera.
+\end{enumerate}
+
+Considerando queste due motivazioni è stato quindi deciso di utilizzare univocamente soluzioni del tipo VPN-to-Firewall rispetto a quelle Firewall-to-VPN.\\
+Tuttavia, per futuri lavori, le soluzioni Firewall-to-VPN non sono da escludere a priori in quanto è possibile realizzarle senza che entrino in conflitto con i Firewall, ma per 
+garantire ciò è fondamentale che le configurazioni del firewall vengano sovrascritte tenendo conto di eventuali tunnel VPN che il framework potrebbe allocare, modificando le regole del firewall con i nuovi indirizzi IP del tunnel. Per fare ciò tuttavia è necessario modificare
+diverse features di Verefoo che non sono state argomento di approfondimento nello svolgimento di questo lavoro di tesi e perciò questa possibilità viene delegata al prossimo studio di implementazioni di soluzioni miste.
+\\
+Un altro elemento che è stato materia di studio all'interno dello sviluppo di questa soluzione è stata l'analisi della disponibilità dei singoli allocation places per la ricerca di soluzioni ottimali.
+Più precisamente, essendo la collocazione delle network security functions suddivisa per ogni funzione di rete è possibile trovarsi nella situazione in cui un allocation places che sarebbe stato un candidato ideale per la collocazione di una funzione di sicurezza viene occupato
+precedentemente da un'altra funzione di sicurezza. Questa situazione potrebbe portare quindi non solo a delle soluzioni che si possono definire sub-ottimali ma anche a delle situazioni limite in cui gli allocation places non sono sufficienti rispetto al numero di Network Security Functions
+che devono essere istanziate nella topologia di rete. Di seguito viene rappresentato un esempio molto semplice di caso limite che mostra questo caso limite: 
+\section{Codice della soluzione prodotta}

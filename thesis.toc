@@ -32,7 +32,10 @@
 \contentsline {section}{\numberline {5.3}Implementazione}{47}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Output}{50}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Verifiche e Test}{53}{section.5.5}%
-\contentsline {chapter}{\numberline {6}Merge}{57}{chapter.6}%
-\contentsline {chapter}{\numberline {7}DemoB}{58}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Conclusions}{61}{chapter.8}%
-\contentsline {chapter}{Bibliography}{62}{chapter.8}%
+\contentsline {chapter}{\numberline {6}Merge Funzioni di Verefoo}{57}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Versione Ibrida con doppio Jar File}{58}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Versioni Firewall-to-VPN e VPN-to-Firewall}{60}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Codice della soluzione prodotta}{61}{section.6.3}%
+\contentsline {chapter}{\numberline {7}DemoB}{62}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Conclusions}{65}{chapter.8}%
+\contentsline {chapter}{Bibliography}{66}{chapter.8}%
