@@ -1,3 +1,14 @@
+
+\lstset{
+    language=Java,
+    basicstyle=\small\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{green},
+    breaklines=true
+}
+
+
 \chapter{Merge Funzioni di Verefoo} \label{ch:MergeChapter}
 
 All'interno di questo capitolo verrà descritto il processo di ricerca e di sviluppo che è stato svolto per poter raggiungere il secondo macro obiettivo di questa tesi, ovvero 
@@ -77,5 +88,231 @@ diverse features di Verefoo che non sono state argomento di approfondimento nell
 Un altro elemento che è stato materia di studio all'interno dello sviluppo di questa soluzione è stata l'analisi della disponibilità dei singoli allocation places per la ricerca di soluzioni ottimali.
 Più precisamente, essendo la collocazione delle network security functions suddivisa per ogni funzione di rete è possibile trovarsi nella situazione in cui un allocation places che sarebbe stato un candidato ideale per la collocazione di una funzione di sicurezza viene occupato
 precedentemente da un'altra funzione di sicurezza. Questa situazione potrebbe portare quindi non solo a delle soluzioni che si possono definire sub-ottimali ma anche a delle situazioni limite in cui gli allocation places non sono sufficienti rispetto al numero di Network Security Functions
-che devono essere istanziate nella topologia di rete. Di seguito viene rappresentato un esempio molto semplice di caso limite che mostra questo caso limite: 
-\section{Codice della soluzione prodotta}
+che devono essere istanziate nella topologia di rete. Di seguito viene rappresentato un esempio molto semplice di caso limite che mostra questa circostanza: 
+
+\begin{figure}[h]  % 'h' significa che la figura viene posizionata qui
+    \centering
+    \includegraphics[width=1\textwidth]{CasoLimite.png}  % Sostituisci 'nome_immagine' con il nome del tuo file immagine e l'estensione
+    \caption{Definizione esempio caso limite per duplice allocazione}
+    \label{fig:CasoLimite1}
+\end{figure}
+
+All'interno di questo esempio l'utente vuole creare una rete nella quale solo uno dei due Web Client a sinistra possa comunicare con i Web Server a destra mentre l'altro Web Client,
+che possiamo definire "client zombie" deve essere completamente isolato dal resto della topologia di rete. Inoltre viene richiesto che il collegamento fra uno dei tre server ed il Web Client
+sia protetto, e quindi il traffico che transita per quello specifico percorso deve venire cifrato da un endpoint all'altro.\\
+In questo caso allocando prima i VPN gateway per garantire i requisiti di protezione il risultato che ci si aspetta è il seguente:
+
+
+\begin{figure}[h]  % 'h' significa che la figura viene posizionata qui
+    \centering
+    \includegraphics[width=1\textwidth]{CasoLimite2.png}  % Sostituisci 'nome_immagine' con il nome del tuo file immagine e l'estensione
+    \caption{Allocazione parziale del caso limite}
+    \label{fig:CasoLimite2}
+\end{figure}
+
+I gateway, seppur istanziati correttamente, fanno emergere chiaramente un grande problema, ovvero che al fine di poter rispettare anche i requisiti di
+isolamento il numero di allocation point definiti inizialmente non è sufficiente all'interno dell'input fornito dall'utente. Inoltre se fossero stati allocati
+i Firewall precedentemente alle VPN si sarebbe arrivati ad una situazione speculare nel momento in cui sarebbe stato necessario allocare i gateway.\\
+Al fine di proporre una soluzione valida a questo problema, è stato deciso di inserire un ulteriore passo durante l'allocazione delle prime Network Security Functions,
+ovvero di istanziare, contestualmente alla funzione corrente, altri N allocation places, uno per ogni nodo adiacente alla singola Network Function istanziata nell'allocation place 
+scelto. Riprendendo l'esempio precedente l'output parziale prodotto dal framework sarà il seguente:
+
+
+\begin{figure}[h]  % 'h' significa che la figura viene posizionata qui
+    \centering
+    \includegraphics[width=1\textwidth]{CasoLimite3.png}  % Sostituisci 'nome_immagine' con il nome del tuo file immagine e l'estensione
+    \caption{Soluzione all'allocazione parziale del caso limite}
+    \label{fig:CasoLimite3}
+\end{figure}
+Attraverso l'introduzione di ulteriori allocation places la topologia risulterà più complessa, ma allo stesso tempo verrà concessa a Verefoo la possibilità di avere uno spazio di soluzioni
+possibili per risolvere l'input fornito maggiore. Di conseguenza la soluzione ottimale che verrà prodotta sarà non solo possibile nel caso limite, ma anche tendenzialmente migliore delle precedenti
+nei casi più comuni, in quanto sarà possibile applicare le restrizioni di sicurezza in più punti della rete intervenendo prima sui pacchetti che necessitano di essere scartati ma anche posizionando 
+i vari gateway VPN in posizioni più strategicamente valide all'interno della topologia. Infine viene fornito, nella figura sottostante, la soluzione finale che Verefoo produrrà in output per il caso
+descrito in questo paragrafo:
+
+\begin{figure}[h]  % 'h' significa che la figura viene posizionata qui
+    \centering
+    \includegraphics[width=1\textwidth]{CasoLimite4.png}  % Sostituisci 'nome_immagine' con il nome del tuo file immagine e l'estensione
+    \caption{Soluzione finale caso limite}
+    \label{fig:CasoLimite4}
+\end{figure}
+
+
+\section{Trasposizione Teorica in Codice: Analisi dell'Implementazione}
+Definite le implementazioni desiderate all'interno dell'analisi delle possibili soluzioni, il framework è stato modificato adeguatamente per poter effettuare, come descritto prima, in un'unica iterazione
+l'allocazione dei VPN Gateway necessari per garantire i requisiti di protezione e dei Firewall per garantire i requisiti di isolamento e raggiungibilità in questo ordine. All'interno di questo paragrafo, verranno mostrati
+i punti salienti del codice al più alto livello effettuati, ovvero le classi di Verefoo che agiscono come Proxy e come Serializer. L'implementazione di più basso livello invece, allo stato precedente alle modifiche effettuate da questo lavoro, era già stato definito tramite vincoli 
+descritti nella comunicazione con il Theorem Prover Z3 e tramite la definizione delle classi delle varie Network Security Functions.
+Il linguaggio di sviluppo del framework è Java, pertanto il codice che verrà descritto di seguito utilizzerà
+tale linguaggio di programmazione. \\
+Prima di dare uno sguardo alle implementazioni delle classi è bene descrivere a grandi linee il flow chart del framework. Ad ogni esecuzione di una chiamata API Verefoo esegue le seguenti istruzioni:
+
+\begin{enumerate}
+    \item \textbf{Lettura Input e Traduzione}: Nelle primissime fasi tramite un marshaller vengono effettuate le traduzioni dell'input da un file di testo ad un file XML comprensibile e memorizzabile all'interno della memoria di Verefoo. In questa fase viene quindi effettuata 
+        una validazione dell'input nelle sue varie componenti.  
+    \item  \textbf{Invocazione del Serializer}: Definito l'input valido viene creata una istanza della classe del Serializer che è una classe che si occupa di "incapsulare" tutte le attività di Verefoo. Viene definito serializer perchè
+        nel caso di molteplici Service Graph mandati in input esegue in maniera serializzata tutte le procedure necessarie per far lavorare Z3 correttamente per ogni grafo.
+    \item \textbf{Invocazione del Normalizer}: All'interno del Serializer la prima operazione che viene effettuata è l'invocazione del Normalizer che si occupa di produrre, dato l'input fornito dall'utente e reso comprensibile con il marshaller, di produrre una versione normalizzata del grafo.
+    \item \textbf{Invocazione del Proxy}: Dopo aver creato un input normalizzato viene chiamato il Proxy che si occupa di svolgere il calcolo del problema MaxSMT per produrre una soluzione.
+    \item \textbf{Traduzione output}: Infine come ultimo passo, il framework traduce l'output prodotto all'interno del proxy sotto forma di file XML per renderlo più comprensibile all'utente.
+\end{enumerate}
+
+Le modifiche più significate effettuate all'interno del work flow di verefoo sono state eseguite all'interno dei file VerefooSerializer e VerefooNormalizer.
+Di seguito viene fornita la nuova versione del Serializer:
+
+\lstset{language=Java} % Imposta il linguaggio per il listing
+
+\begin{lstlisting}[caption={Esempio di codice Java}, label=lst:java_example]
+    public VerefooSerializer(NFV root) {
+
+
+
+    int flag=0;
+    this.nfv = root;
+    AllocationGraphGenerator agg = new AllocationGraphGenerator(root);
+    root = agg.getAllocationGraph();
+    VerefooNormalizer norm = new VerefooNormalizer(root);
+    root = norm.getRoot();
+    try {
+        List<Path> paths = null;
+        if (root.getNetworkForwardingPaths() != null)
+            paths = root.getNetworkForwardingPaths().getPath();
+        for (Graph g : root.getGraphs().getGraph()) {
+            if (root.getProfile()==null) {
+                ProfileType pt = new ProfileType();
+                pt.setName(ProfileNameType.HYBRID);
+                    root.setProfile(pt);
+            }
+            List<Property> propProtection = root.getPropertyDefinition().getProperty().stream()
+                    .filter(p -> p.getGraph() == g.getId()&& p.getName().name().equals("PROTECTION_PROPERTY")).collect(Collectors.toList());
+            if (propProtection.size() != 0) {
+                flag=1;
+                VerefooProxy test = new VerefooProxy(g, root.getHosts(), root.getConnections(), root.getConstraints(),
+                        propProtection, paths, root.getProfile().getName().name() ,"VPN");
+
+                long beginAll = System.currentTimeMillis();
+                VerificationResult res = test.checkNFFGProperty();
+                long endAll = System.currentTimeMillis();
+                resultChecker = endAll - beginAll;
+
+                //logger.debug("Only checker: " + (endAll - beginAll) + "ms");
+                //System.out.println("Only checker: " + (endAll - beginAll) + "ms");
+                time = (int) res.getTime();
+                if (res.result != Status.UNSATISFIABLE && res.result != Status.UNKNOWN) {
+                    //System.out.println("RAW MODEL: " + res.model.toString() );
+                    Translator t = new Translator(res.model.toString(), root, g, test.getAllocationNodes(), test.getTrafficFlowsMap(),"VPN");
+                    z3Model = res.model.toString();
+                    t.setNormalizer(norm);
+                    result = t.convert();
+                    root = result;
+                    sat = true;
+                } else {
+                    sat = false;
+                    result = root;
+                }
+                root.getPropertyDefinition().getProperty().stream().filter(p -> p.getGraph() == g.getId())
+                        .forEach(p -> p.setIsSat(res.result != Status.UNSATISFIABLE));
+            }
+            List<Property> prop = root.getPropertyDefinition().getProperty().stream()
+                    .filter(p -> p.getGraph() == g.getId()&& (p.getName().name().equals("ISOLATION_PROPERTY")||p.getName().name().equals("REACHABILITY_PROPERTY"))).collect(Collectors.toList());
+
+            if(propProtection.size()!=0){
+                for(Property p:propProtection){
+                    prop.add(createProperty(p));
+
+                }
+            }
+
+            if(prop.size()!=0 && sat)
+            {
+                ServiceGraph serviceGraph= new ServiceGraph(root);
+                root=serviceGraph.addAP();
+
+                VerefooProxy test = new VerefooProxy(g, root.getHosts(), root.getConnections(), root.getConstraints(),
+                        prop, paths, root.getProfile().getName().name() ,"FW");
+                long beginAll = System.currentTimeMillis();
+                VerificationResult res = test.checkNFFGProperty();
+                long endAll = System.currentTimeMillis();
+                resultChecker = endAll - beginAll;
+                time = (int) res.getTime();
+                if (res.result != Status.UNSATISFIABLE && res.result != Status.UNKNOWN) {
+                        //System.out.println("RAW MODEL: " + res.model.toString() );
+                    Translator t = new Translator(res.model.toString(), root, g, test.getAllocationNodes(), test.getTrafficFlowsMap(),"FW");
+                    z3Model = res.model.toString();
+                    t.setNormalizer(norm);
+                    result = t.convert();
+                    root = result;
+                    sat = true;
+                    serviceGraph.RemoveAP();
+                } else {
+                    sat = false;
+                    result = root;
+                }
+                root.getPropertyDefinition().getProperty().stream().filter(p -> p.getGraph() == g.getId())
+                        .forEach(p -> p.setIsSat(res.result != Status.UNSATISFIABLE));
+
+                flag=1;
+            }
+
+            if(flag==0)
+                throw new BadGraphError("No property defined for the Graph " + g.getId(),
+                        EType.INVALID_PROPERTY_DEFINITION);
+
+            //TranslatorStrongSwan translatorStrongSwan= new TranslatorStrongSwan();
+            //translatorStrongSwan.translationConf(root);
+        }
+    } catch (BadGraphError e) {
+        throw e;
+    }
+}
+
+    \end{lstlisting}
+    
+\newpage
+    \begin{lstlisting}[caption={Esempio di codice Java}, label=lst:java_example]
+ 
+        public VerefooProxy(Graph graph, Hosts hosts, Connections conns, Constraints constraints, List<Property> prop,
+        List<Path> paths, String profile,String type) throws BadGraphError {
+    this.profile=profile;
+    this.type=type;
+    // Initialitation of the variables related to the nodes
+    allocationNodes = new HashMap<>();
+    nodes = graph.getNode();
+    nodes.forEach(n -> allocationNodes.put(n.getName(), new AllocationNode(n)));
+    wildcardManager = new WildcardManager(allocationNodes);
+    properties = prop;
+    securityRequirements = new HashMap<>();
+    int idRequirement = 0;
+    for(Property p : properties) {
+        securityRequirements.put(idRequirement, new SecurityRequirement(p, idRequirement));
+        idRequirement++;
+    }
+    
+    this.paths = paths;
+    this.nodeMetrics = constraints.getNodeConstraints().getNodeMetrics();
+    
+    //Creation of the z3 context
+    HashMap<String, String> cfg = new HashMap<String, String>();
+    cfg.put("model", "true");
+    ctx = new Context(cfg);
+            
+    //Creation of the NetContext (z3 variables)
+    nctx = nctxGenerate(ctx, nodes, prop, allocationNodes);
+    nctx.setWildcardManager(wildcardManager);
+
+
+    trafficFlowsMap = generateFlowPaths();
+    allocationManager = new AllocationManager(ctx, nctx, allocationNodes, nodeMetrics, prop, wildcardManager,type);
+    allocationManager.instantiateFunctions();
+    allocateFunctions();
+    distributeTrafficFlows();
+    allocationManager.configureFunctions(type);
+    check = new Checker(ctx, nctx, allocationNodes);
+
+    formalizeRequirements();
+    
+}
+    \end{lstlisting}
+
+
+

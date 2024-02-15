@@ -12,3 +12,5 @@
 \contentsline {lstlisting}{\numberline {5.3}Installazione Docker e Docker Compose}{45}{lstlisting.5.3}%
 \contentsline {lstlisting}{\numberline {5.4}Installazione Z3}{46}{lstlisting.5.4}%
 \contentsline {lstlisting}{\numberline {5.5}Definizione di Services dell'ambiente virtuale DemoA}{49}{lstlisting.5.5}%
+\contentsline {lstlisting}{\numberline {6.1}Esempio di codice Java}{64}{lstlisting.6.1}%
+\contentsline {lstlisting}{\numberline {6.2}Esempio di codice Java}{67}{lstlisting.6.2}%
