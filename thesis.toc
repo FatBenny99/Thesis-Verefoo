@@ -35,6 +35,8 @@
 \contentsline {section}{\numberline {6.1}Versione Ibrida con doppio Jar File}{58}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Versioni Firewall-to-VPN e VPN-to-Firewall}{60}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Trasposizione Teorica in Codice: Analisi dell'Implementazione}{63}{section.6.3}%
-\contentsline {chapter}{\numberline {7}DemoB}{68}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Conclusions}{71}{chapter.8}%
-\contentsline {chapter}{Bibliografia}{72}{chapter.8}%
+\contentsline {subsection}{\numberline {6.3.1}Definizione del Verefoo Serializer}{63}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Definizione del Verefoo Proxy}{67}{subsection.6.3.2}%
+\contentsline {chapter}{\numberline {7}DemoB}{70}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Conclusions}{73}{chapter.8}%
+\contentsline {chapter}{Bibliografia}{74}{chapter.8}%

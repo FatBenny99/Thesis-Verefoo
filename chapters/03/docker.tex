@@ -42,7 +42,7 @@ Seppur le due definizioni possano sembrare molto simili, la struttura software c
  
 Le macchine virtuali hanno infatti una struttura più complessa rispetto ai container. È infatti presente un hypervisor\cite{hypervisor}, che è un software che permette di creare e gestire le macchine virtuali in maniera veloce, efficiente, flessibile e portabile.
 Sopra all'hypervisor ogni macchina virtuale ha il suo proprio sistema operativo, costringendo l'host OS ad allocare numerose risorse per istanziare anche solo 1 macchina virtuale. Si può notare come questa soluzione sia difficlmente scalabile perchè
-ciò porta il server hardware sul quale poggia tutto il sistema ad essere ulteriormente stressato con l'aggiunta di ogni macchina virtuale. Viceversa, i container richiedono solo le risorse minime necessaria a fare funzionare l'applicazione di turno, installando solo i file binari e le librerie necessarie.\\
+ciò porta il server hardware sul quale poggia tutto il sistema ad essere ulteriormente stressato con l'aggiunta di ogni macchina virtuale. Viceversa, i container richiedono solo le risorse minime necessarie a fare funzionare l'applicazione di turno, installando solo i file binari e le librerie necessarie.\\
 Più in generale le caratteristiche vantaggiose dei container rispetto alle macchine virtuali sono riassunte dalle seguenti parole chiave:\\
 
 
@@ -90,7 +90,7 @@ Di seguito una spiegazione di tutti gli elementi che intervengono nella creazion
             \item \textit{Docker Build}: questo comando permette la creazione di un'immagine dato un file di configurazione definito dall utente (deve avere il nome di Dockerfile) e una cartella di riferimento.
             \item \textit{Docker Run}: questa chiamata fa creare al demone un container con l'immagine specificata da linea di comando ed avvia il container.
         \end{itemize}
-    \item \textbf{Docker Deamon}: è il cuore dell'architettura di Docker. Il ruolo del docker deamon(anche chiamato dockerd) è di ascoltare le richieste tramite call API del client e gestire il registro Docker dove sono contenute
+    \item \textbf{Docker Deamon}: è il cuore dell'architettura di Docker. Il ruolo del docker deamon (anche chiamato dockerd) è di ascoltare le richieste tramite call API del client e gestire il registro Docker dove sono contenute
         le immagini, i plugin e le estensioni. Inoltre può comunicare con altri demoni per gestire i servizi Docker.
     \item \textbf{Docker Registry}: è  una zona di memoria che memorizza le immagini Docker. In questa zona sono anche presenti eventuali plugin installati su Docker e le estensioni sviluppate per sfruttare i servizi di Docker.
         Talvolta potrebbe capitare che le immagini ricercate nel registro non sono presenti, ed in questo caso viene effettuato un collegamento diretto con un registro pubblico online definito Docker Hub per poter usufruire di alcune
@@ -167,7 +167,7 @@ All'interno del plugin docker-compose è quindi possibile utilizzare un unico fi
 di un file è possibile definire, ad alto livello, i seguenti elementi:
 
 \begin{itemize}
-    \item \textbf{Services}: Come è possibile ricavare dalla documentazione\cite{composeservices}"Un servizio è una definizione astratta di una risorsa di elaborazione all'interno di un'applica-zione che può essere scalata o sostituita indipendentemente da altri componenti. 
+    \item \textbf{Services}: Come è possibile ricavare dalla documentazione\cite{composeservices} "Un servizio è una definizione astratta di una risorsa di elaborazione all'interno di un'applica-zione che può essere scalata o sostituita indipendentemente da altri componenti. 
     I servizi sono supportati da un insieme di contenitori, gestiti dalla piattaforma in base ai requisiti di replicazione e ai vincoli di posizionamento. Poiché i servizi sono supportati da contenitori, sono definiti da un'immagine Docker e un insieme di argomenti di runtime."
     Tramite la definizione di questi servizi è quindi possibile definire quali container il nostro sistema monterà e utilizzerà. Al fine di questo lavoro di tesi ogni container rappresenta un nodo all'interno della topologia di rete che verrà presa in esempio. La funzionalità del
     singolo nodo di rete verrà poi specificata all'interno dello stesso servizio. È infatti possibile definire, all'interno di ogni servizio, numerosi elementi che permettono di personalizzare il singolo servizio a preferenza dell'utente, i più importanti sono:\\

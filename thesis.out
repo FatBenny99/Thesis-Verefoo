@@ -32,6 +32,8 @@
 \BOOKMARK [1][]{section.6.1}{Versione\040Ibrida\040con\040doppio\040Jar\040File}{chapter.6}% 32
 \BOOKMARK [1][]{section.6.2}{Versioni\040Firewall-to-VPN\040e\040VPN-to-Firewall}{chapter.6}% 33
 \BOOKMARK [1][]{section.6.3}{Trasposizione\040Teorica\040in\040Codice:\040Analisi\040dell'Implementazione}{chapter.6}% 34
-\BOOKMARK [0][]{chapter.7}{DemoB}{}% 35
-\BOOKMARK [0][]{chapter.8}{Conclusions}{}% 36
-\BOOKMARK [0][]{chapter.8}{Bibliografia}{}% 37
+\BOOKMARK [2][]{subsection.6.3.1}{Definizione\040del\040Verefoo\040Serializer}{section.6.3}% 35
+\BOOKMARK [2][]{subsection.6.3.2}{Definizione\040del\040Verefoo\040Proxy}{section.6.3}% 36
+\BOOKMARK [0][]{chapter.7}{DemoB}{}% 37
+\BOOKMARK [0][]{chapter.8}{Conclusions}{}% 38
+\BOOKMARK [0][]{chapter.8}{Bibliografia}{}% 39

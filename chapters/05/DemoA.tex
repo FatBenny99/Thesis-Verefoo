@@ -37,7 +37,7 @@ L'obiettivo principale di questo lavoro di demo è quindi mostrare all'utente co
 Un altro elemento emerso durante i lavori sullo sviluppo di questa demo è stata la difficile accessibilità di quest'ultima. Per far funzionare sia il framework che la demo sono infatti necessari numerosi tool da installare all'interno della macchina in alcune versioni specifiche e potrebbe essere non immediato installare correttamente il dispositivo per far funzionare 
 framework e demo. Di conseguenza come obiettivo secondario, ma di uguale importanza è stato prodotto un installer che permette all'utente di ottenere automaticamente tutti i programmi nelle versioni corrette per poter utilizzare il framework a proprio piacimento.
 \\
-Per portare a termine questi due obiettivi ci si è quindi interfacciati con un progetto di demo che risultava incompleto e mal funzionante. Analizzando più approfonditamente possiamo dividere le modifiche effettuate all'interno di questa demo nei seguenti punti:
+Per portare a termine questi due obiettivi ci si è quindi interfacciati con un progetto di demo che risultava incompleto e di conseguenza non operativo. Analizzando più approfonditamente possiamo dividere le modifiche effettuate all'interno di questa demo nei seguenti punti:
 
 \begin{enumerate}
     \item \textbf{Versione Framework}: Il file del framework iniziale era malfunzionante, in quanto ogni qual volta che si provava ad avviarlo il terminale segnalava il file come corrotto ed inutilizzabile.
@@ -181,8 +181,8 @@ che si avvicinasse il più possibile a quella di una rete di un'azienda di picco
     \caption{Service Graph Demo A}
     \label{fig:ServiceGraph}
 \end{figure}
-Come è possibile notare, la topologia proposta presenta sulla sinistra 3 WebServer (e1,e2,e3) il cui traffico viene gestito da un load balancer (lb1) il quale si occupa di evitare congestioni di traffico durante le comunicazioni fra clients e servers. 
-Congiuntamente ai WebServer sono presenti anche 5 endpoints (e4,e5,e6,e7,e8) che all'interno dell'ambiente virtuale verranno istanziati come fossero dei WebClients. 
+Come è possibile notare, la topologia proposta presenta sulla sinistra 3 WebServer (e1, e2, e3) il cui traffico viene gestito da un load balancer (lb1) il quale si occupa di evitare congestioni di traffico durante le comunicazioni fra clients e servers. 
+Congiuntamente ai WebServer sono presenti anche 5 endpoints (e4, e5, e6, e7, e8) che all'interno dell'ambiente virtuale verranno istanziati come fossero dei WebClients. 
 Al fine di poter testare il corretto funzionamento del framework all'interno della rete sono anche presenti dei nodi che fungeranno da monitor, come il nodo  s11, ed altri che invece svolgeranno la semplice funzione di forwarder con le rispettive static routes, per simulare dei router generici. 
 Infine sono presenti diversi nodi al momento vuoti che rappresentano gli  allocation places che Verefoo richiede fra i suoi possibili input per velocizzare il processo di risoluzione del problema MaxSMT. All'interno di questi nodi, il framework potrà collocare delle network security functions per assicurarsi 
 il corretto funzionamento dei requisiti di sicurezza all'interno della rete.\\ Di seguito viene fornita una tabella con la definizione di ogni nodo, del suo indirizzo IP che verrà utilizzato nell'ambiente virtuale e della sua funzionalità all'interno della topologia. \\
@@ -238,7 +238,7 @@ Al fine di poter ottenere una topologia simile sono state definite le seguenti r
 \end{table}
 \begin{itemize}
     \item \textbf{Prima Regola}: Il Web Client e4 deve poter comunicare in maniera sicura con il Web Server e1. Il traffico originato da e4 può utilizzare qualsiasi porta di uscita per il protocollo di trasporto ma il Server e1 deve ricevere i dati in ingresso unicamente dalla porta 22. È possibile utilizzare sia il protocollo UDP che TCP per il trasporto. Viene specificato infine il nodo s10 come nodo non sicuro e attraverso il quale il traffico deve passare cifrato.
-    \item \textbf{Seconda regola}: Il Web Client e6 deve poter comunicare in maniera sicura con tutti i Web Server (e1,e2,e3). Il traffico originato da e6 può utilizzare qualsiasi porta di uscita per il protocollo di trasporto ma i Server devono ricevere i dati in ingresso solo dalla porta 80. È possibile utilizzare sia il protocollo UDP che TCP per il trasporto. In questo caso i nodi considerati non sicuri sono s10 e s11.
+    \item \textbf{Seconda regola}: Il Web Client e6 deve poter comunicare in maniera sicura con tutti i Web Server (e1, e2, e3). Il traffico originato da e6 può utilizzare qualsiasi porta di uscita per il protocollo di trasporto ma i Server devono ricevere i dati in ingresso solo dalla porta 80. È possibile utilizzare sia il protocollo UDP che TCP per il trasporto. In questo caso i nodi considerati non sicuri sono s10 e s11.
     \item \textbf{Terza Regola}: Il Web Client e7 deve poter comunicare in maniera sicura con il Web Server e1. Non ci sono limitazioni sulle porte per il traffico in entrata ed in uscita e può essere utilizzato qualsiasi protocollo di quarto livello per il trasporto. I nodi non sicuri, come per la seconda regola, sono s10 e s11. 
     \item \textbf{Quarta Regola}: Il Web Client e5 deve poter comunicare in maniera sicura con il Web Client e8. Come per la terza regola, non ci sono limitazioni sulle porte e protocollo di trasporto da utilizzare. I nodi considerati non sicuri per questa regola sono s12 ed s13.
 \end{itemize}

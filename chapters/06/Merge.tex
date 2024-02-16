@@ -157,12 +157,13 @@ Prima di dare uno sguardo alle implementazioni delle classi è bene descrivere a
     \item \textbf{Traduzione output}: Infine come ultimo passo, il framework traduce l'output prodotto all'interno del proxy sotto forma di file XML per renderlo più comprensibile all'utente.
 \end{enumerate}
 
+\subsection{Definizione del Verefoo Serializer}
 Le modifiche più significate effettuate all'interno del work flow di verefoo sono state eseguite all'interno dei file VerefooSerializer e VerefooNormalizer.
-Di seguito viene fornita la nuova versione del Serializer:
+Di seguito vengono forniti snippet di codice del Serializer:
 
 \lstset{language=Java} % Imposta il linguaggio per il listing
 
-\begin{lstlisting}[caption={Esempio di codice Java}, label=lst:java_example]
+\begin{lstlisting}[caption={Inizializzazione e normalizzazione input}, label=lst:java_example1]
     public VerefooSerializer(NFV root) {
 
 
@@ -173,103 +174,143 @@ Di seguito viene fornita la nuova versione del Serializer:
     root = agg.getAllocationGraph();
     VerefooNormalizer norm = new VerefooNormalizer(root);
     root = norm.getRoot();
-    try {
-        List<Path> paths = null;
-        if (root.getNetworkForwardingPaths() != null)
-            paths = root.getNetworkForwardingPaths().getPath();
-        for (Graph g : root.getGraphs().getGraph()) {
-            if (root.getProfile()==null) {
-                ProfileType pt = new ProfileType();
-                pt.setName(ProfileNameType.HYBRID);
-                    root.setProfile(pt);
-            }
-            List<Property> propProtection = root.getPropertyDefinition().getProperty().stream()
-                    .filter(p -> p.getGraph() == g.getId()&& p.getName().name().equals("PROTECTION_PROPERTY")).collect(Collectors.toList());
-            if (propProtection.size() != 0) {
-                flag=1;
-                VerefooProxy test = new VerefooProxy(g, root.getHosts(), root.getConnections(), root.getConstraints(),
-                        propProtection, paths, root.getProfile().getName().name() ,"VPN");
-
-                long beginAll = System.currentTimeMillis();
-                VerificationResult res = test.checkNFFGProperty();
-                long endAll = System.currentTimeMillis();
-                resultChecker = endAll - beginAll;
-
-                //logger.debug("Only checker: " + (endAll - beginAll) + "ms");
-                //System.out.println("Only checker: " + (endAll - beginAll) + "ms");
-                time = (int) res.getTime();
-                if (res.result != Status.UNSATISFIABLE && res.result != Status.UNKNOWN) {
-                    //System.out.println("RAW MODEL: " + res.model.toString() );
-                    Translator t = new Translator(res.model.toString(), root, g, test.getAllocationNodes(), test.getTrafficFlowsMap(),"VPN");
-                    z3Model = res.model.toString();
-                    t.setNormalizer(norm);
-                    result = t.convert();
-                    root = result;
-                    sat = true;
-                } else {
-                    sat = false;
-                    result = root;
-                }
-                root.getPropertyDefinition().getProperty().stream().filter(p -> p.getGraph() == g.getId())
-                        .forEach(p -> p.setIsSat(res.result != Status.UNSATISFIABLE));
-            }
-            List<Property> prop = root.getPropertyDefinition().getProperty().stream()
-                    .filter(p -> p.getGraph() == g.getId()&& (p.getName().name().equals("ISOLATION_PROPERTY")||p.getName().name().equals("REACHABILITY_PROPERTY"))).collect(Collectors.toList());
-
-            if(propProtection.size()!=0){
-                for(Property p:propProtection){
-                    prop.add(createProperty(p));
-
-                }
-            }
-
-            if(prop.size()!=0 && sat)
-            {
-                ServiceGraph serviceGraph= new ServiceGraph(root);
-                root=serviceGraph.addAP();
-
-                VerefooProxy test = new VerefooProxy(g, root.getHosts(), root.getConnections(), root.getConstraints(),
-                        prop, paths, root.getProfile().getName().name() ,"FW");
-                long beginAll = System.currentTimeMillis();
-                VerificationResult res = test.checkNFFGProperty();
-                long endAll = System.currentTimeMillis();
-                resultChecker = endAll - beginAll;
-                time = (int) res.getTime();
-                if (res.result != Status.UNSATISFIABLE && res.result != Status.UNKNOWN) {
-                        //System.out.println("RAW MODEL: " + res.model.toString() );
-                    Translator t = new Translator(res.model.toString(), root, g, test.getAllocationNodes(), test.getTrafficFlowsMap(),"FW");
-                    z3Model = res.model.toString();
-                    t.setNormalizer(norm);
-                    result = t.convert();
-                    root = result;
-                    sat = true;
-                    serviceGraph.RemoveAP();
-                } else {
-                    sat = false;
-                    result = root;
-                }
-                root.getPropertyDefinition().getProperty().stream().filter(p -> p.getGraph() == g.getId())
-                        .forEach(p -> p.setIsSat(res.result != Status.UNSATISFIABLE));
-
-                flag=1;
-            }
-
-            if(flag==0)
-                throw new BadGraphError("No property defined for the Graph " + g.getId(),
-                        EType.INVALID_PROPERTY_DEFINITION);
-
-            //TranslatorStrongSwan translatorStrongSwan= new TranslatorStrongSwan();
-            //translatorStrongSwan.translationConf(root);
-        }
-    } catch (BadGraphError e) {
-        throw e;
+    ... 
     }
-}
+\end{lstlisting}
+All'interno di questa prima fase il parametro in ingresso che viene fornito è un NFV (\ref{lst:service_graphh}). Come descritto precedentemente è impossibile utilizzare l'NFV 
+all'interno di Verefoo, di conseguenza viene istanziato un AllocationGraphGenerator che si occupa, dato un input NFV in partenza, di generare un allocation graph. Successivamente 
+questo grafo viene normalizzato all'interno della classe VerefooNormalizer ed è finalmente pronto ad essere utilizzato per calcolare l'output.
+\begin{lstlisting}[caption={Calcolo dei Paths e dei profili nell'input}, label=lst:java_example2]
+     
+    ...
+    List<Path> paths = null;
+    if (root.getNetworkForwardingPaths() != null)
+        paths = root.getNetworkForwardingPaths().getPath();
+    for (Graph g : root.getGraphs().getGraph()) {
+        if (root.getProfile()==null) {
+            ProfileType pt = new ProfileType();
+            pt.setName(ProfileNameType.HYBRID);
+                root.setProfile(pt);
+        } 
+    }
+   ...  
+\end{lstlisting}
 
-    \end{lstlisting}
-    
+Prima di eseguire l'algoritmo di calcolo del problema MaxSMT posto dall'utente è necessario eseguire alcuni step di configurazione dopo l'inizializzazione dell'input.
+In questo caso specifico, se i NetworkForwardingPaths esistono, essi vengono estratti dalla root ed inseriti in una lista che servirà successivamente come parametro al VerefooProxy.\\
+Inoltre, potendo inviare all'interno dell NFV più di un grafo, viene controllato il profilo descritto in ognuno, e per ogni profilo non esistente viene impostato come profilo
+\textit{HYBRID}, che rappresenta il tipo di soluzione che viene trovata all'interno di questa versione del framework. In questo modo ogni utente potrà comprendere subito quali
+file di output sono stati generati da questa versione rispetto agli altri. 
+
+
 \newpage
-    \begin{lstlisting}[caption={Esempio di codice Java}, label=lst:java_example]
+
+
+\begin{lstlisting}[caption={Iterazione di allocazione VPN}, label=lst:java_example3]
+   ... 
+   List<Property> propProtection = root.getPropertyDefinition().getProperty().stream()
+   .filter(p -> p.getGraph() == g.getId()&& p.getName().name().equals("PROTECTION_PROPERTY"))
+   .collect(Collectors.toList());
+    if (propProtection.size() != 0) {
+    flag=1;
+    VerefooProxy test = new VerefooProxy(g, root.getHosts(), root.getConnections(), root.getConstraints(),
+        propProtection, paths, root.getProfile().getName().name() ,"VPN");
+
+    
+    long beginAll = System.currentTimeMillis();
+    VerificationResult res = test.checkNFFGProperty();
+    long endAll = System.currentTimeMillis();
+    resultChecker = endAll - beginAll;
+    time = (int) res.getTime();
+
+    if (res.result != Status.UNSATISFIABLE && res.result != Status.UNKNOWN) {
+    Translator t = new Translator(res.model.toString(), root, g, test.getAllocationNodes(), test.getTrafficFlowsMap(),"VPN");
+    z3Model = res.model.toString();
+    t.setNormalizer(norm);
+    result = t.convert();
+    root = result;
+    sat = true;
+    } else {
+    sat = false;
+    result = root;
+    }
+    root.getPropertyDefinition().getProperty().stream().filter(p -> p.getGraph() == g.getId())
+        .forEach(p -> p.setIsSat(res.result != Status.UNSATISFIABLE));
+    }
+   ...
+\end{lstlisting}
+
+Terminate le configurazioni necessarie per istanziare il Proxy, dallo stream delle proprietà di sicurezza (\ref{SecurityRequirementsDef}) descritte nell'NFV
+viene estratto tramite un filtro una lista formata univocamente dalle proprietà di protezione, cioè quelle responsabili dell'allocazione dei VPN gateway. Se la lista contiene 
+almeno una proprietà di sicurezza dovranno essere allocati almeno 2 gateway per poterla soddisfare, di conseguenza viene istanziato il VerefooProxy che è il cuore dell'algoritmo
+di verefoo, passando fra i vari parametri il grafo, gli host e le connessioni, le proprietà ricavate precedentemente e i paths possibili per soddisfarle. Viene inoltre definito il
+nuovo nome del profilo(VPN). Completata la computazione della soluzione all'interno del VerefooProxy l'output viene verificato per controllare se tutte le proprità sono effettivamente
+ancora soddisfatte. Se l'ouput è corretto viene quindi definito un Translator che si occupa di tradurre l'output parziale in un formato valido per la computazione delle altre proprietà
+rimaste da verificare. In questo caso la variabile di soddisfacibilità viene posta a \textit{true} così che si possa procedere anche all'allocazione successiva. Viceversa in caso di un risultato  
+negativo il risultato viene posto uguale alla root iniziale e la variabile di soddisfacibilità viene posta a \textit{false}.
+
+
+\begin{lstlisting}[caption={Iterazione di allocazione Firewall}, label=lst:java_example4]
+    ... 
+    List<Property> prop = root.getPropertyDefinition().getProperty().stream()
+    .filter(p -> p.getGraph() == g.getId()&& 
+    (p.getName().name().equals("ISOLATION_PROPERTY")
+    ||p.getName().name().equals("REACHABILITY_PROPERTY")))
+    .collect(Collectors.toList());
+
+    if(propProtection.size()!=0){
+    for(Property p:propProtection){
+        prop.add(createProperty(p));
+    }
+    }
+
+    if(prop.size()!=0 && sat)
+    {
+    ServiceGraph serviceGraph= new ServiceGraph(root);
+    root=serviceGraph.addAP();
+
+    VerefooProxy test = new VerefooProxy(g, root.getHosts(), root.getConnections(), root.getConstraints(),
+            prop, paths, root.getProfile().getName().name() ,"FW");
+    long beginAll = System.currentTimeMillis();
+    VerificationResult res = test.checkNFFGProperty();
+    long endAll = System.currentTimeMillis();
+    resultChecker = endAll - beginAll;
+    time = (int) res.getTime();
+    if (res.result != Status.UNSATISFIABLE && res.result != Status.UNKNOWN) {
+        Translator t = new Translator(res.model.toString(), root, g, test.getAllocationNodes(), test.getTrafficFlowsMap(),"FW");
+        z3Model = res.model.toString();
+        t.setNormalizer(norm);
+        result = t.convert();
+        root = result;
+        sat = true;
+        serviceGraph.RemoveAP();
+    } else {
+        sat = false;
+        result = root;
+    }
+    root.getPropertyDefinition().getProperty().stream().filter(p -> p.getGraph() == g.getId())
+            .forEach(p -> p.setIsSat(res.result != Status.UNSATISFIABLE));
+
+    flag=1;
+    }
+    ... 
+\end{lstlisting}
+Il passo successivo all'allocazione dei VPN Gateway è l'allocazione dei Firewall configurati come Packet Filter. Per fare ciò il meccanismo che si utilizza è simile al
+passo precedente. Viene quindi definita una lista di proprietà da soddisfare che in questo caso saranno soltanto le proprietà di isolamento e di raggiungibilità,
+ovvero le proprietà che determinano la necessità di inserire dei Packet Filter all'interno della topologia di rete. Diversamente dal caso precedente, dopo aver inserito nella
+lista tutte le proprietà relative ai Firewall, viene controllata la lista delle proprietà di protezione e ogni proprietà viene aggiunta alla lista precedente. Questo step intermedio è 
+necessario perchè dopo aver chiamato per la seconda volta il VerefooProxy per allocare i Firewall, al fine di verificare la correttezza della soluzione prodotta non sarà sufficiente avere la lista
+con i requisiti di isolamento e raggiungibilità ma è necessario considerare tutte le proprietà nella topologia finale prodotta. Dopo aver prodotto la seconda lista, se è presente almeno una proprietà 
+e la variabile di soddisfacibilità è impostata a true (ovvero se lo step precedente è andato a buon fine) viene ricalcolato il nuovo Service Graph aggiungendo gli allocation places (AP) come descritto nella figura(\ref{fig:CasoLimite3}).
+Successivamente viene ripetuto lo step precedente istanziando un nuovo VerefooProxy, controllando il risultato e traducendolo in un output comprensibile all'utente. L'unica differenza con lo step precedente è che una volta terminata la conversione vengono rimossi
+gli allocation places aggiunti precedentemente dal Service Graph come illustrato in figura(\ref{fig:CasoLimite4}).
+    
+\subsection{Definizione del Verefoo Proxy}
+Nonostante il Serializer svolga una funzione molto importante all'interno dell'ecosistema di Verefoo, il cuore pulsante delle operazioni di calcolo del problema MaxSMT, dell'allocazione delle Network Security Functions e della loro configurazione viene effettuato
+all'interno del Proxy, che svolge la funzione di vera e propria interfaccia con le funzionalità del framework.\\
+Di seguito viene fornita la definizione del Verefoo Proxy con un breve commento delle modifiche effettuate alle funzioni che svolge:
+
+    \begin{lstlisting}[caption={Esempio di codice Java}, label=lst:java_example5]
  
         public VerefooProxy(Graph graph, Hosts hosts, Connections conns, Constraints constraints, List<Property> prop,
         List<Path> paths, String profile,String type) throws BadGraphError {
@@ -312,7 +353,25 @@ Di seguito viene fornita la nuova versione del Serializer:
     formalizeRequirements();
     
 }
-    \end{lstlisting}
+\end{lstlisting}
 
+All'interno del Proxy è stata inserita una variabile definita type che permette di comprendere, ad ogni istanza del Proxy, la Network Security Function che è necessario allocare. Al momento
+è possibile utilizzare due parametri possibili: "VPN" per definire l'allocazione dei VPN Gateway e "FW" per definire l'allocazione dei Firewall.\\
+Dopo aver definito il profilo e il tipo di funzione da allocare vi è una breve inizializzazione delle variabili necessarie al calcolo del risultato, tra le quali viene creata
+una HashMap per definire gli allocationNodes, un wildcardManager che serve per gestire la comunicazione con il tool Z3 e una HashMap per contenere i vari secruity requirements.
+Dopo aver creato il contesto di z3 per il calcolo del problema MaxSMT, il proxy esegue le seguenti funzioni per trovare una soluzione:
 
+\begin{enumerate}
+    \item \textbf{Calcolo Flow Paths}: forniti i requisiti di sicurezza vengono calcolati tutti i percorsi possibili all'interno della topologia di rete per soddisfarli.
+    \item \textbf{Definizione e istanziazione di Funzioni}: ogni elemento all'interno della topologia viene istanziato dentro alla variabile di contesto di z3 definita precedentemente. In questo
+        caso le definizioni sono possibili grazie a delle modifiche ai file di configurazione di z3 avvenute precedentemente a questo lavoro, che consentono di poter comprendere contemporaneamente sia 
+        i vincoli necessari per definire i firewall che quelli per i VPN gateway.
+    \item \textbf{Allocazione delle funzioni di sicurezza}: una volta istanziate le funzioni di rete vengono allocate tenendo conto della nuova variabile type. Grazie a questo marker che consente di capire 
+        in quale passo dell'allocazione siamo indirizzando il codice ad allocare solo i Gateway o solo i Firewall e ad associarli ad un determinato allocation place.
+    \item \textbf{Distribuzione del traffico}: viene calcolato il traffico in input per ciascun nodo e viene distribuito cercando la soluzione migliore.
+    \item \textbf{Configurazione delle funzioni di sicurezza}: avendo soddisfatto tutto il traffico necessario descritto nei requisiti viene proposta una configurazione delle funzioni a seconda della variabile type che è stata allocata.
+    \item \textbf{Formalizzazione dei requisiti}: terminate le configurazioni l'ultimo step si occupa di controllare formalmente se i requisiti vengono rispettati grazie ad un checker.
+\end{enumerate}
 
+Grazie all'ausilio dei lavori precedenti, con le modifiche effettuate è ora possibile allocare in un'unica istanza d'esecuzione del framework sia dei Firewall configurati come packet filter che dei VPN Gateway per cifrare il traffico in transito
+all'interno di una topologia di rete. Di conseguenza si può considerare raggiunto il secondo macro obiettivo di questo lavoro di tesi.
