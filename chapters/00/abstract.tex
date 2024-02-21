@@ -1,5 +1,16 @@
 \sommario
 
 
-Text of the summary 
+Nel mondo moderno uno dei problemi emergenti più importanti è l'automatizzazione della sicurezza nelle reti. Diverse tecnologie
+sono state sviluppate con l'intento di semplificare tutti i processi di sicurezza all'interno delle aziende. In questo ambito due delle scoperte più signficative
+sono state le tecnologie denominate Network Function Virtualization (NFV) e Software Defined Network (SDN). Attraverso queste è possibile definire delle reti dentro le quali
+alcuni nodi non sono definiti da un hardware specifico ma vengono virtualizzati, permettendo di svolgere delle funzioni tramite l'ausilio di software.
+All'interno di questo ambiente è stato progettato VEREFOO(VErified REFinement and Optimized Orchestration) un framework capace di allocare e configurare automaticamente Network Security Functions (NSF)
+per soddisfare dei requisiti di sicurezza definiti in input dall'utente. Le prime versioni del framework erano in grado di poter allocare in una iterazione univocamente un solo tipo di Network Security Functions,
+generalmente dei Firewall o dei VPN Gateway. Il lavoro presente in questo documento descrive e promuove una versione aggiornata del framework, che riesce in un'unica iterazione ad allocare contemporanemante 
+entrambe le NSFs descritte. Inoltre, descrive il processo di design, sviluppo e implementazione di due Demo prodotte per mostrare le potenzialità del framework. La prima riguarda principalemente la versione primitiva
+di Verefoo capace di verificare e soddisfare i requisiti di sicurezza di protezione delle comunicazione tramite l'istanziazione di VPN Gateway, la seconda dimostra il funzionamento della nuova versione del framework
+prodotta tramite una topologia di rete che necessita contemporanemante dell'utilizzo di Firewall per scartare determinati pacchetti in transito all'interno della rete e di VPN Gateway per garantire la comunicazione sicura tramite l'autenticazione
+e la cifratura dei pacchetti.
+
 
