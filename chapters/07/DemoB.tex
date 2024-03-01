@@ -373,6 +373,13 @@ da effettuare per l'incapsulamento in IPSec tramite il protocollo ESP, utilizzan
 
 \section{Verifiche e Test}
 
+Grazie alle configurazioni prodotte in output dalla nuova versione del framework è possibile verificare che le soluzioni prodotte siano efficaci e corrette.
+Per fare ciò, come nella demo precedente è stato predisposto un ambiente virtuale composto da container Docker che simuleranno il comportamento di ogni elemento di rete descritto nella topologia. In questo caso
+le verifiche da effettuare all'interno della topologia saranno diverse perchè non sarà necessario dimostrare solo che le comunicazioni fra l'host C1-1 ed il server S2 siano protette tramite crittografia ma è anche
+necessario controllare se le comunicazioni fra i client ed i vari host vengono filtrate dal firewall. \\
+Partendo dalla verifica del firewall sarà necessario utilizzare due terminali differenti, il primo corrispondente al client C1-1 che come da requisiti dovrebbe essere in grado di comunicare solo con il server S2, isolando tutte le
+comunicazioni con S1. Per testare ciò utilizzeremo i seguenti comandi Linux:
+
 \begin{figure}[H] 
     \centering
     \includegraphics[width=1\textwidth]{(1)FirewallDiscard1.png} 
@@ -380,12 +387,31 @@ da effettuare per l'incapsulamento in IPSec tramite il protocollo ESP, utilizzan
     \label{fig:Verifica1}
 \end{figure}
 
+All'interno del terminale C1-1 eseguiamo il comando \textit{"ping -c 5 [ipaddr]"} per verificare le connessioni con i due server presi in esame.
+Nel primo caso testiamo sul server dall'IP "10.0.0.2" ovvero S2: come si può notare vengono trasferiti 5 pacchetti col protocollo ICMP e contemporaneamente vengono
+ricevuti 5 pacchetti con una statistica di 0\% packet loss. Se invece eseguiamo la stessa operazione con il server dall'IP "10.0.0.1" il risultato sarà opposto, ovvero tutti
+i pacchetti inviati vengono scartati non ricevendo alcuna risposta ed il numero di packet loss sarà uguale al 100\%.\\
+Considerando il percorso che eseguono i pacchetti, ovvero\\
+ $ \text{C1-1} \rightarrow \text{Lb} \rightarrow \text{VPNGateway1} \rightarrow \text{Firewall} \rightarrow \text{Monitor} \rightarrow \text{VPNGateway2} \rightarrow \text{Server}$
+è possibile dedurre che l'elemento che scarta i pacchetti e impedisce le comunicazioni è proprio il firewall con la configurazione prodotta da Verefoo.\\
+Tuttavia verificare le comunicazioni fra il client C1-1 ed il Server S2 non è sufficiente a verificare il corretto funzionamento del firewall, è infatti necessario assicurarsi che anche
+le comunicazioni all'interno della rete 20.2.0.0/16 vengano filtrate quando si prova a comunicare con il server S1. 
 \begin{figure}[H] 
     \centering
     \includegraphics[width=1\textwidth]{(2)FirewallDiscard2.png} 
     \caption{Verifica pacchetti scartati dal Firewall per rete 20.2.*.*}
     \label{fig:Verifica2}
 \end{figure}
+
+Per verificare anche questa condizione vengono effettuati gli stessi comandi sul terminale del client C2-1, avendo un IP appartenente alla rete 20.2.0.0/16.
+Il risultato che viene visualizzato in output è coerente con quello che ci si aspetta, essendo opposto all'output del client C1-1. Le comunicazioni con il server
+10.0.0.2 non risultano possibili in quanto ogni pacchetto è stato scartato dal Firewall ed è presente anche qua il 100\% di packet loss, viceversa quando si fa un ping 
+sul server 10.0.0.1 corrispondente a S1 ogni pacchetto viene correttamente trasmesso e ricevuto dal server, passando quindi i controlli del firewall. \\
+È quindi possibile affermare che le configurazioni riguardanti i requisiti di raggiungibilità e di isolamento prodotte dal framework risultano corretti e con il minimo uso 
+di risorse possibili, in quanto grazie ad un unico firewall sono state soddisfatte tutti le caratteristiche fornite in input. \\ \\
+La successiva verifica che deve essere effettuata sulla bontà della soluzione prodotta riguarda l'istanziazione e la configurazione dei VPN Gateway nella topologia di output.
+In questa istanza specifica solo 2 gateway sono stati allocati, quindi è sufficiente verificare che i pacchetti in transito tra il nodo C1-1 ed il server S2 risultano cifrati
+correttamente. Prendendo spunto dai test effettuati nella demo precedente utilizziamo tcpdump nel seguente modo:
 
 \begin{figure}[H] 
     \centering
@@ -394,6 +420,13 @@ da effettuare per l'incapsulamento in IPSec tramite il protocollo ESP, utilizzan
     \label{fig:Verifica3}
 \end{figure}
 
+Il nodo preso in analisi è lo stesso in cui viene instanziato il firewall, utilizzando tcpdump è possibile  osservare e monitorare i pacchetti in transito attraverso una delle interfacce
+del nodo. L'interfaccia scelta per questo test è "eth4" corrispondente alla connessione fra il firewall ed il primo VPN Gateway. Il risultato aspettato è quindi, come per la prima demo, osservare
+il transito dei pacchetti non come semplici ICMP packets ma come ESP packets, ovvero il protocollo utilizzato per l'incapsulamento in IPsec.\\
+Per controllare l'output è quindi necessario, una volta impostato il monitoraggio dell'interfaccia, eseguire il comando di ping come fatto per il firewall precedentemente e controllare l'output 
+nel terminale del firewall. Di seguito viene proposto un possibile output effettuato: 
+
+
 \begin{figure}[H] 
     \centering
     \includegraphics[width=1\textwidth]{(4)Encryptedpacket_output.png} 
@@ -401,4 +434,8 @@ da effettuare per l'incapsulamento in IPSec tramite il protocollo ESP, utilizzan
     \label{fig:Verifica4}
 \end{figure}
 
+Il risultato ottenuto corrisponde alle aspettative descritte precedentemente. È infatti possibile notare come ogni pacchetto venga codificato con il protocollo ESP e viene monitorato con il path specifico del tunnel VPN.
+Di conseguenza è possibile affermare che il risultato prodotto da Verefoo è corretto in quanto garantisce la sicurezza in tutto il traffico partente dal nodo C1-1 al server S2. Grazie a questa ennesima verifica anche i requisiti
+di sicurezza sono rispettati, confermando la correttezza del framework e della demo prodotta. Di conseguenza si può affermare che anche il terzo ed ultimo obiettivo della tesi è stato portato a termine, producendo una demo funzionante che
+mettesse in risalto le caratteristiche della nuova versione del framework.
 

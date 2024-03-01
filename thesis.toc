@@ -45,5 +45,5 @@
 \contentsline {subsection}{\numberline {7.3.2}Configurazioni Network Security Functions}{80}{subsection.7.3.2}%
 \contentsline {subsection}{\numberline {7.3.3}Configurazioni Strongswan}{81}{subsection.7.3.3}%
 \contentsline {section}{\numberline {7.4}Verifiche e Test}{82}{section.7.4}%
-\contentsline {chapter}{\numberline {8}Conclusions}{84}{chapter.8}%
-\contentsline {chapter}{Bibliografia}{85}{chapter.8}%
+\contentsline {chapter}{\numberline {8}Conclusioni e Lavori Futuri}{86}{chapter.8}%
+\contentsline {chapter}{Bibliografia}{88}{chapter.8}%

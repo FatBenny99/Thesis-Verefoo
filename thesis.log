@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2023.12.28)  21 FEB 2024 17:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2023.12.28)  1 MAR 2024 19:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1309,58 +1309,83 @@ l.330
 <(1)FirewallDiscard1.png, id=1420, 1145.02782pt x 380.92313pt>
 File: (1)FirewallDiscard1.png Graphic file (type png)
 <use (1)FirewallDiscard1.png>
-Package pdftex.def Info: (1)FirewallDiscard1.png  used on input line 378.
+Package pdftex.def Info: (1)FirewallDiscard1.png  used on input line 385.
 (pdftex.def)             Requested size: 422.50232pt x 140.55573pt.
 <(2)FirewallDiscard2.png, id=1421, 1148.79187pt x 365.86688pt>
 File: (2)FirewallDiscard2.png Graphic file (type png)
 <use (2)FirewallDiscard2.png>
-Package pdftex.def Info: (2)FirewallDiscard2.png  used on input line 385.
+Package pdftex.def Info: (2)FirewallDiscard2.png  used on input line 401.
 (pdftex.def)             Requested size: 422.50232pt x 134.55913pt.
-<(3)Firewall_tcpdump_setup.png, id=1422, 1105.88156pt x 377.15906pt>
-File: (3)Firewall_tcpdump_setup.png Graphic file (type png)
-<use (3)Firewall_tcpdump_setup.png>
-Package pdftex.def Info: (3)Firewall_tcpdump_setup.png  used on input line 392.
-(pdftex.def)             Requested size: 422.50232pt x 144.0931pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [82
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.396 
-      
+l.404 \end{figure}
+                   <./(1)FirewallDiscard1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 406--415
+
+ []
+
+<(3)Firewall_tcpdump_setup.png, id=1427, 1105.88156pt x 377.15906pt>
+File: (3)Firewall_tcpdump_setup.png Graphic file (type png)
+<use (3)Firewall_tcpdump_setup.png>
+Package pdftex.def Info: (3)Firewall_tcpdump_setup.png  used on input line 418.
+(pdftex.def)             Requested size: 422.50232pt x 144.0931pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [83
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.396 
-       <./(1)FirewallDiscard1.png> <./(2)FirewallDiscard2.png>]
-<(4)Encryptedpacket_output.png, id=1429, 1108.14pt x 380.17032pt>
+l.422 
+       <./(2)FirewallDiscard2.png>]
+<(4)Encryptedpacket_output.png, id=1433, 1108.14pt x 380.17032pt>
 File: (4)Encryptedpacket_output.png Graphic file (type png)
 <use (4)Encryptedpacket_output.png>
-Package pdftex.def Info: (4)Encryptedpacket_output.png  used on input line 399.
+Package pdftex.def Info: (4)Encryptedpacket_output.png  used on input line 432.
 (pdftex.def)             Requested size: 422.50232pt x 144.9477pt.
-) [83
+ [84
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.199 \include{chapters/07/DemoB}
-                                 
+l.441 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.199 \include{chapters/07/DemoB}
-                                  <./(3)Firewall_tcpdump_setup.png> <./(4)Encryptedpacket_output.png>]
+l.441 
+       <./(3)Firewall_tcpdump_setup.png> <./(4)Encryptedpacket_output.png>]) [85]
 \openout2 = `chapters/08/conclusions.aux'.
 
  (chapters/08/conclusions.tex
 Capitolo 8.
-) [84
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--13
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--30
+
+ []
+
+[86
 
 
 
 
-] (thesis.bbl) [85
+]) [87] (thesis.bbl) [88
 
 
 
@@ -1374,20 +1399,20 @@ L3 programming layer <2023-12-11>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 1253CED0D0FAE3C9548CC2FFF1917C68;3422.
+(rerunfilecheck)             Checksum: 6986E2D5EA9EEABD14652EBE5574398F;3447.
  ) 
 Here is how much of TeX's memory you used:
- 25586 strings out of 474495
- 467055 string characters out of 5743462
+ 25589 strings out of 474495
+ 467076 string characters out of 5743462
  2060460 words of memory out of 5000000
  46582 multiletter control sequences out of 15000+600000
  572423 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  138i,13n,135p,626b,4216s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Benito\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1095.pk> <C:\Users\Benito\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Benito\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Benito/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (85 pages, 4448657 bytes).
+Output written on thesis.pdf (88 pages, 4459292 bytes).
 PDF statistics:
- 1695 PDF objects out of 1728 (max. 8388607)
- 805 named destinations out of 1000 (max. 500000)
+ 1707 PDF objects out of 1728 (max. 8388607)
+ 808 named destinations out of 1000 (max. 500000)
  526 words of extra memory for PDF output out of 10000 (max. 10000000)
 

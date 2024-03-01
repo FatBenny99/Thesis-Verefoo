@@ -1,3 +1,32 @@
-\chapter{Conclusions} \label{ch:conclusions}
+\chapter{Conclusioni e Lavori Futuri} \label{ch:conclusions}
 
-Conclusion and future works
+Durante lo sviluppo dei lavori di tesi numerosi passi avanti nello sviluppo di Verefoo sono stati effettuati.
+Inizialmente, dopo aver studiato approfonditamente il funzionamento e le limitazioni del framework è stata prodotta
+una demo consultabile in maniera open source per eventuali utenti che vorrebbero testare e verificare la funzionalità di 
+allocazione di tunnel VPN Gateway all'interno di una topologia di rete.
+\\
+
+In seconda battuta, diverse modifiche sono state implementate al codice sorgente del software che precedentemente era in grado
+di allocare solamente Firewall o solamente tunnel VPN dipendentemente dalla versione. La soluzione prodotta invece è mista e consente
+di fornire all'utente topologie di rete che siano in grado di allocare contemporaneamente entrambe le Network Security Functions.
+\\ 
+
+Dopo aver testato e corretto eventuali problemi della nuova versione del framework è stata prodotta una demo conclusiva del lavoro svolto,
+in grado di mostrare in maniera evidente le nuove funzionalità del merge prodotto. All'interno di quest'ultima viene inoltre mostrato un test
+della correttezza del lavoro prodotto, che è stato successivamente documentato e reso disponibile per eventuali pubblicazioni all'interno dei repository
+del framework.
+\\
+
+Nonostante il lavoro prodotto risulta correttamente testato e completo, è possibile effettuare ulteriori innovazioni per rendere il prodotto disponibile all'utente
+ancora più efficiente. Per quanto riguarda le due demo prodotte i nodi configurati come Network Addess Translator all'interno della topologia di rete in input al framework
+non vengono istanziati come tali all'interno dell ambiente virtuale, ma sono stati instanziati invece dei nodi placeholder che agiscono come dei semplici forwarder dei pacchetti (con le rispettive static routes).
+Di conseguenza utilizzando software come iptables è possibile configurarli come dei NAT veri e propri per simulare in maniera quanto più affidabile possibile la situazione reale descritta in input.
+\\
+Considerando invece il lavoro svolto sul codice sorgente di Verefoo il framework sembra funzionare nella maggior parte dei casi correttamente, tuttavia una parte ancora non sviluppata all'interno del framework è la 
+traduzione e configurazione automatica dei file di StrongSwan da produrre per le soluzioni prodotte. Sarebbe necessario automatizzare anche il meccanismo di configurazione di questi file, così da velocizzare eventuali
+test su ambienti virtualizzati e fornire all'utente una primitiva ma corretta configurazione dei tunnel VPN.\\
+Inoltre nonostante la versione prodotta durante questo lavoro se ha risposto efficacemente a diversi input ci sono stati alcuni output più complessi di quelli presentati in esempio in questa tesi che hanno portato a delle soluzioni
+che erano incomplete o completamente errate, probabilmente dovuto ai vincoli definiti ed imposti su Z3 che conterranno qualche errore di configruazione.\\
+
+Infine l'ultima innovazione che è consigliabile implementare è quella di aggiungere ulteriori funzioni di sicurezza di rete come ad esempio un IDS (Intrusion Detection System) o Web Application Firewall, al fine di garantire più
+flessibilità e scelta all'utente nel definire le funzionalità che la rete da configurare deve avere.
