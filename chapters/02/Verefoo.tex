@@ -18,7 +18,7 @@ l'installazione di queste reti è diventata sempre più complessa, tanto da far 
 Per queste situazioni nasce l'idea di \textit{Network Security Automation}, che pone come obiettivo principale quello di riuscire a rendere la sicurezza delle reti
 il più possibile autonoma, riducendo la possibilità di errore umano e delegando all'automatizzazione tutte le criticità della configurazione delle varie funzioni di rete.\\
 In questo capitolo si introduce la definizione di \textbf{\textit{Security Function Chain (SFC)}} specificando la loro capacità nel migliorare la sicurezza delle reti,
-successivamente verrà introdotto il framework Verefoo che utilizza le SFC per poter produrre delle topologie di rete robuste e sicure e automatizzare il processo di creazione e configurazione delle reti.\\
+successivamente verrà introdotto il framework Verefoo che utilizza le SFC per poter produrre delle topologie di rete robuste e sicure e automatizzare il processo di creazione e configurazione delle reti\cite{cit3}.\\
 L'ultima sezione del capitolo infine spazia sugli input che il framework accetta, le \textit{Network Security Functions (NSFs)}, cioè tutte le funzioni che la rete deve rispettare come ad esempio filtrare dei pacchetti
 o criptare del traffico dati. 
 
@@ -41,7 +41,7 @@ che definisce le seguenti:
     L'ordine implicito potrebbe non essere una progressione lineare poiché l'architettura consente SFC che si ramificano su più di un percorso e consente anche casi in cui c'è flessibilità nell'ordine in cui le Service Function devono essere applicate. 
 \end{itemize}
 
-La possibilità di definire SF separate e di combinarle fra loro nell'ordine che si preferisce garantisce alle reti la possibilità di essere flessibili e scalabili facilmente.
+La possibilità di definire SF separate, e di combinarle fra loro nell'ordine che si preferisce, garantisce alle reti la possibilità di essere flessibili e scalabili facilmente.
 Come infatti è descritto dalla definizione di SFC la concatenazione di più SFC permette ramificazioni su più percorsi, garantendo molteplici comunicazioni fra due host con carateristiche di sicurezza differenti.
 Per comprendere meglio il concetto di SFC, un esempio fornito è il seguente:
 
@@ -71,7 +71,7 @@ la SFC risultante sarebbe stata diversa da quella di partenza, garantendo una ra
  Il potenziamento progressivo delle tecnologie appena descritte ha portato rapidamente allo sviluppo di reti  che automatizzavano i lavori di configurazione che solitamente venivano svolti manualmente.
  Un esempio di queste nuove tecnologie viene svolto da VEREFOO\cite{Bringhenti2019}(VErified REFinement and Optimized Orchestration), un framework che si pone diversi obiettivi fra i quali la definizione
 ad alto livello dei requisiti di sicurezza di rete, l'allocazione automatica ed ottimale delle varie Service Function per ottenere la maggior efficenza di rete allocando le minori risorse possibili, e la
-configurazione automatica delle varie \textit{Network Security Functions}, eliminando l'errore  umano che in reti di grandi dimensioni è solito capitare.
+configurazione automatica delle varie \textit{Network Security Functions}, eliminando l'errore  umano che in reti di grandi dimensioni è solito capitare\cite{cit8}.
 Come è possibile intuire, la sfida di produrre una rete configurata automaticamente e correttamente è molto difficile da ottenere, perciò per assicurare la correttezza formale dei risultati ottenuti da Verefoo
 l'intero framework utilizza un metodo formale che si basa sulla risoluzione di un \textit{Maximum Satisfiability Modulo Theories} (MaxSMT) tramite l'engine Z3 di Microsoft.\\
 Questo, essendo basato su 3 pilastri quali \textit{Ottimizzazione, Ottimalità e Correttezza Formale}, si pone 2 obiettivi da soddisfare:
@@ -331,7 +331,7 @@ packet filter presenti nella connessione fra Host-S ed Host-D non scartino mai i
 configurare i packet filter della rete in due modalità: blacklist e whitelist. Nella prima i packet filter faranno transitare tutto il traffico tranne quello specificato
 nelle regole definite, mentre nella seconda bloccherà tutto il traffico in entrata escluso quello specificato nelle regole che gli sono state imposte.
 
-Per poter dare per certo che il requisito sia applicabile alla topologia Verefoo svolge le seguenti operazioni:
+Per poter dare per certo che il requisito sia applicabile alla topologia Verefoo svolge le seguenti operazioni\cite{cit2}:
 
 \begin{enumerate}
     \item  Viene svolto un controllo formale sulla definizione della regola, cioè viene controllata la correttezza di tutti i campi inseriti nella proprietà. In questa prima fase
@@ -386,7 +386,7 @@ Host-S e Host-D scartino a priori ogni pacchetto. In maniera equivalente ai requ
 implementare nelle reti questo requisito tramite l'utilizzo di packet filter. Analogamente, sarà possibile impostare i
 packet filter in blacklist, cioè bloccando solo le comunicazioni che vengono specificate dalle regole di filtraggio, oppure in 
 whitelist, permettendo il transito solo dei pacchetti che fanno match con le regole di filtraggio.\\
-Affinchè ciò sia implementato correttamente, Verefoo analizza ed opera nel seguente modo ogni requisito di isolamento ricevuto:
+Affinchè ciò sia implementato correttamente, Verefoo analizza ed opera nel seguente modo\cite{cit2} ogni requisito di isolamento ricevuto:
 
 \begin{enumerate}
     \item  Come per i requisiti di raggiungibilità, viene svolto un controllo formale sulla definizione della regola, cioè viene controllata la correttezza di tutti i campi inseriti nella proprietà. In questa prima fase
@@ -428,7 +428,7 @@ La computazione svolta da Verefoo porta alla seguente:
   \subsection{Protection Requirements}
   I requisiti di protezione sono definiti nel framework di Verefoo per garantire che un determinato Host sorgente che verrà definito Host-S possa 
   comunicare con un host destinazione definito Host-D in maniera sicura garantendo le proprietà di integrità, confidenzialità e segretezza.
-  Per assicurare tali prestazioni Verefoo istanzia dei tunnel VPN che vengono allocati nella rete attraverso dei  VPN Gateway in grado di prendere il traffico in ingresso
+  Per assicurare tali prestazioni Verefoo instanzia dei tunnel VPN che vengono allocati nella rete attraverso dei  VPN Gateway in grado di prendere il traffico in ingresso
   del tunnel, criptarlo, farlo transitare all'interno del tunnel e decriptarlo quando il messaggio è arrivato a destinazione. Per fare ciò su Verefoo è presente un translator
   in grado di creare delle configurazioni StrongSwan \cite{strongswan}, un software open-source che permette di istanziare tunnel VPN utilizzando IPsec \cite{ipsec}.\\
 
@@ -447,13 +447,13 @@ Come si può notare paragonando questa nuova definizione di regola alla \ref{lst
     \item \textbf{untrustedNodes}: definisce il set di nodi non sicuri della rete. Questa definizione è fondamentale perchè Verefoo deve conoscere l'insieme dei nodi nel quale è obbligatorio imporre le regole di sicurezza definite dall'utente.
         Solitamente il set di nodi non sicuri è definito dal percorso di collegamento fra l'Host-S e l'host-D, tuttavia è possibile anche aggiungere altri nodi non appartententi al percorso se lo si ritiene necessario.
     \item \textbf{inspectorNodes}: definisce il set di nodi nei quali il traffico deve transitare senza alcuna protezione. Questo set di nodi ha il compito di analizzare il traffico per controllarne la correttezza e la sicurezza, e non potrebbe operare
-        se il traffico fosse cifrato. Verefoo ha quindi l'obbligo di trovare una soluzione ottima che permetta ai nodi d'ispezione di analizzare il trafico. 
+        se il traffico fosse cifrato. Verefoo ha quindi l'obbligo di trovare una soluzione ottima che permetta ai nodi d'ispezione di analizzare il traffico. 
     \item \textbf{untrustedLinks}: è il set di collegamenti nei quali l'applicazione dei requisiti di sicurezza è obbligatoria.  Similmente al set dei nodi non sicuri, questo parametro è una vera e propria estensione, in quanto tiene in considerazione
         tutti i possibili path che si potrebbero delineare dall'Host-S all'Host-D come link non sicuri. In aggiunta, come accade per gli untrustedNodes, è possibile definire dei link aggiuntivi se lo si ritiene necessario.
 \end{itemize}
 
 
-Al fine di implementare correttamente ogni requisito descritto dalla regola, Verefoo analizza ed opera nel seguente modo ogni requisito di protezione ricevuto:
+Al fine di implementare correttamente ogni requisito descritto dalla regola, Verefoo analizza ed opera nel seguente modo ogni requisito di protezione ricevuto\cite{cit5}:
 
 \begin{enumerate}
     \item  Similmente ai requisiti precedentemente spiegati, viene svolto un controllo formale sulla definizione della regola, cioè viene controllata la correttezza di tutti i campi inseriti nella proprietà. In questa prima fase
@@ -461,12 +461,12 @@ Al fine di implementare correttamente ogni requisito descritto dalla regola, Ver
         utilizzando i requisiti di default che il framework calcola.
     \item Viene svolto un controllo logico sulla definizione della regola, cioè viene controllato che l'indirizzo IP sorgente e quello destinazione appartengano effettivamente a degli host definiti
         nella rete.
-    \item Si pone attenzione a tutti i possibili flusso di traffico del requisito specificato. Per qualsiasi flusso, ogni qual volta viene incontrato un nodo considerato non sicuro si calcola il numero di nodi precedenti e ci si assicura
+    \item Si pone attenzione a tutti i possibili flussi di traffico del requisito specificato. Per qualsiasi flusso, ogni qual volta viene incontrato un nodo considerato non sicuro si calcola il numero di nodi precedenti e ci si assicura
         che i nodi che  definiscono e implementano un qualsiasi tipo di protezione siano  sempre in numero maggiore di quelli che invece la rimuovono. Questa condizione è fondamentale per garantire che il traffico che passa attraverso i nodi non sicuri sia 
         sempre cifrato e non ispezionabile dal nodo.
     \item Sempre considerando tutti i possibili flussi di traffico, ogni qual volta viene incontrato un nodo considerato d'ispezione si calcola il numero di nodi precedenti e ci si assicura che i nodi che definiscono  e implementano una qualsiasi protezione siano in numero uguale di quelli che invece la rimuovono.
         Questa condizione è fondamentale per garantire che il traffico che passa attraverso i nodi d'ispezione sia sempre decifrato ed in chiaro, così da essere analizzato.
-    \item Infine, come per i due precedenti casi, considerando tutti i flussi di traffico, se si ha un collegamento non sicuro si calcola il numero di nodi precedenti e ci si assicura che i nodi che definiscano e imnplementano una qualsiasi protezione
+    \item Infine, come per i due precedenti casi, considerando tutti i flussi di traffico, se si ha un collegamento non sicuro si calcola il numero di nodi precedenti e ci si assicura che i nodi che definiscono e implementano una qualsiasi protezione
         siano in numero maggiore di quelli che invece la rimuovono. Sincerandosi di ciò, è possibile garantire che per ogni collegamento non sicuro nel quale il traffico transita, i pacchetti saranno sempre cifrati e non ispezionabili in alcun punto del collegamento.
 \end{enumerate}
 
@@ -508,9 +508,9 @@ Una soluzione possibile scelta da Verefoo è la seguente:
     \label{fig:ProtectionRisolta}
 \end{figure}
 
-Come si può notare 2 VPN Gateway sono state allocati al fine di garantire i requisiti specificati: il primo al nodo 40.0.0.0
+Come si può notare 2 VPN Gateway sono stati allocati al fine di garantire i requisiti specificati: il primo al nodo 40.0.0.0
 è stato configurato in \textit{"ACCESS MODE"} permettendo a tutti i pacchetti provenienti da 60.0.0.1 e diretti a 90.0.0.0 di entrare nel tunnel VPN, il
-secondo invece è stato configurato in \textit{EXIT MODE} così da poter rimuovere la protezione per tutti i pacchetti inserita precedentemente. È inoltre fondamentale
+secondo invece è stato configurato in \textit{EXIT MODE} così da poter rimuovere la protezione, per tutti i pacchetti, inserita precedentemente. È inoltre fondamentale
 sottolineare come i requisiti che abbiamo richiesto sono stati tutti rispettati. È infatti possibile notare come il nodo considerato non sicuro (33.33.33.1) si trova all'interno del tunnel e ogni
 pacchetto che riceve sarà stato precedentemente protetto dal nodo 40.0.0.0. Similmente, il nodo 80.0.0.0 che dovrebbe agire da IDS per la topologia di esempio può svolgere la sua funzione in quanto
 tutti i pacchetti in transito vengono precedentemente decifrati dal nodo 50.0.0.0. Infine non avendo specificato alcun collegamento non sicuro verefoo ha garantito soltanto che il collegamento di default

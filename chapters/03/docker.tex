@@ -47,14 +47,14 @@ Più in generale le caratteristiche vantaggiose dei container rispetto alle macc
 
 
 \begin{itemize}
-    \item \textbf{Modularità}: avere la possibilità di creare un container per ogni possibile task permette di suddividere i container in vari moduli, ognuno che svolge una sepcifica funzione del progetto di riferimento. Operando in tale direzione, è possibile sviluppare progetti con un approccio Bottom-Up
+    \item \textbf{Modularità}: avere la possibilità di creare un container per ogni possibile task permette di suddividere i container in vari moduli, ognuno che svolge una specifica funzione del progetto di riferimento. Operando in tale direzione, è possibile sviluppare progetti con un approccio Bottom-Up
         , portando ad un ambiente di testing e validation più veloce ed immediato sui singoli moduli.
     \item \textbf{Isolamento}: ogni container che esegue una immagine viene visto come un ambiente isolato, indipendente dagli altri container in esecuzione. Questo approccio semplifica notevolmente l'individuazione di possibili bug ed errori nel progetto.
     \item \textbf{Peso in Memoria}: come analizzato nel lavoro di Martin Lindström\cite{performance-container}, differentemente dalle macchine virtuali, i container sono delle virtualizzazioni molto più leggere e che richiedono meno risorse alla macchina ospitante. Questo è derivato dal fatto che i container contengono solo lo stretto necessario all'applicazione per funzionare correttamente,
         mentre le VM hanno bisogno anche di istanziare un proprio sistema operativo, che richiede una discreta quantità di spazio.
     \item \textbf{Scalabilità}: Avendo un peso molto ridotto rispetto alle macchine virtuali, la necessità di aumentare le performance e le dimensioni di un progetto trova nei container un ottimo fattore di scalabilità. È  infatti possibile scalare i sistemi sia verticalmente, perchè all'aumentare delle risorse del sistema operativo ospitante corrisponde un aumento della velocità di reazione dei container
     che orizzontalmente, perchè aggiungere una feature corrisponde nell'aggiungere un container al sistema già funzionante. 
-    \item \textbf{Condivisone Risorse}: Attraverso i file di configurazione dei container è possibile condividere file con il container, che nell'ambiente isolato verranno considerate come risorse dedicate, anche se in realtà sono condivise. Ciò estende questa funzionalità se si mettono in comune le stesse risorse per più container. In questo caso sulle risorse verrà messo un lock che bloccherà le risorse fino a che
+    \item \textbf{Condivisone Risorse}: Attraverso i file di configurazione dei container è possibile condividere file con il container, che nell'ambiente isolato verranno considerati come risorse dedicate, anche se in realtà sono condivise. Ciò estende questa funzionalità se si mettono in comune le stesse risorse per più container. In questo caso sulle risorse verrà messo un lock che bloccherà le risorse fino a che
         uno dei container non abbia finito di utilizzarle, rilasciandole.
     \item \textbf{Fast Boot}:Non dovendo dipendere da nessun sistema operativo, i container possono avviarsi ed essere operativi molto più velocemente rispetto alle macchine virtuali.
     \item \textbf{Operazioni su disco}: Avendo un collegamento diretto con il sistema operativo le operazioni su  disco (scrittura, lettura e cancellazione) sono più veloci, portando ad un aumento delle performance per processi parallelizzabili.
@@ -121,7 +121,7 @@ Più precisamente le caratteristiche di docker compose possono essere riassunte,
 Per poter definire un ambiente virtuale tramite un unico file di configurazione, docker-compose accetta come input un file YAML che definisce tutti gli elementi presenti da virtualizzare. 
 
 \subsection{YAML}
-YAML\cite{yaml}, acronimo di "Yet Another Markup Language", è un formato di serializzazione dei dati universamentalmente utilizzato grazie alla sua semplicità, facilità di scrittura e di lettuera e comprensione.
+YAML\cite{yaml}, acronimo di "Yet Another Markup Language", è un formato di serializzazione dei dati universamentalmente utilizzato grazie alla sua semplicità, facilità di scrittura e di lettura e comprensione.
 Queste caratteristiche sono ottenibili grazie a diversi elementi che questo formato ha derivato da linguaggi come Pearl, C o Python, fornendo sia allo sviluppatore che al lettore dei file una sintassi semplice e di immediata comprensione, come l'utilizzo dei caratteri di indentazione per definire i blocchi (allo stesso modo di Python) o la definizione
 dei dati con mappe chiave valore come i file JSON.\\
 Grazie a queste sue caratteristiche YAML è uno dei formati più utilizzati per la scrittura di file di configurazione, per scambiare dati fra programmi che utilizzano diversi linguaggi di programmazione o rappresentare dati molto complessi in modo chiaro e leggibile da un utente.
@@ -167,7 +167,7 @@ All'interno del plugin docker-compose è quindi possibile utilizzare un unico fi
 di un file è possibile definire, ad alto livello, i seguenti elementi:
 
 \begin{itemize}
-    \item \textbf{Services}: Come è possibile ricavare dalla documentazione\cite{composeservices} "Un servizio è una definizione astratta di una risorsa di elaborazione all'interno di un'applica-zione che può essere scalata o sostituita indipendentemente da altri componenti. 
+    \item \textbf{Services}: Come è possibile ricavare dalla documentazione\cite{composeservices} "Un servizio è una definizione astratta di una risorsa di elaborazione all'interno di un'applicazione che può essere scalata o sostituita indipendentemente da altri componenti. 
     I servizi sono supportati da un insieme di contenitori, gestiti dalla piattaforma in base ai requisiti di replicazione e ai vincoli di posizionamento. Poiché i servizi sono supportati da contenitori, sono definiti da un'immagine Docker e un insieme di argomenti di runtime."
     Tramite la definizione di questi servizi è quindi possibile definire quali container il nostro sistema monterà e utilizzerà. Al fine di questo lavoro di tesi ogni container rappresenta un nodo all'interno della topologia di rete che verrà presa in esempio. La funzionalità del
     singolo nodo di rete verrà poi specificata all'interno dello stesso servizio. È infatti possibile definire, all'interno di ogni servizio, numerosi elementi che permettono di personalizzare il singolo servizio a preferenza dell'utente, i più importanti sono:\\

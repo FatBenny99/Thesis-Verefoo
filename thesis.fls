@@ -408,8 +408,8 @@ INPUT .\chapters\01\introduction.tex
 INPUT .\chapters\01\introduction.tex
 INPUT chapters\01\introduction.tex
 INPUT C:\Users\Benito\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT C:\Users\Benito\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti12.tfm
 INPUT C:\Users\Benito\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
+INPUT C:\Users\Benito\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti12.tfm
 INPUT C:\Users\Benito\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsl10.tfm
 INPUT .\chapters\02\Verefoo.tex
 INPUT .\chapters\02\Verefoo.tex

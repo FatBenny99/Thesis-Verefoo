@@ -9,20 +9,29 @@
 
 \section{Obiettivo della Tesi} 
 
-Nell'ultimo decennio diverse tecnologie di rete si sono sviluppate,
-creando reti sempre più robuste ed efficienti. In questo scenario,
-una tecnologia in particolare, la \textit{"Network Function Virtualization"}(NFV)
-ha reso possibile creare delle reti che svolgono le funzioni di sicurezza e
-trasporto dei dati tramite la virtualizzazione di quest'ultime. Ciò ha permesso di definire
-le \textit{"Software Defined Network"}(SDN) che introducono la possibilità di controllare le operazioni di rete
- tramite software.\\
-Sfruttando queste tecnologie è stato sviluppato Verefoo(VErified REfinement and Optimized Orchestration) cioè 
-un framework in grado di riuscire ad implementare nei nodi della rete i vari \textit{"Network Security Requirements"}(NSR) in una topologia predefinita e fornita
-come input al framework.\\
+Nel panorama sempre più interconnesso delle reti informatiche moderne, la sicurezza dei dati e delle comunicazioni occupa un ruolo di primaria importanza. 
+Con l'espansione esponenziale delle reti e l'aumento delle minacce informatiche, è diventato cruciale implementare soluzioni di sicurezza efficienti e dinamiche.
+Uno dei problemi più frequenti all'interno di questo ambito è la configurazione manuale delle funzioni di sicurezza all'interno alla rete che viene spesso effettuata
+manualmente dall'amministratore di rete o dal sistemista\cite{cit7}. Questo porta talvolta a degli errori di configurazione dati da possibili sviste di chi si occupa della configurazione,
+che sono invece quasi sempre presenti quando si parla di reti di medie-grandi dimensioni.
+Molte ricerche sono state quindi effettuate al fine di ottenere delle soluzioni in grado di poter rendere automatizzabile il lavoro di configurazione della rete \cite{cit1}. \\
+
+In questo contesto, le Network Security Functions (NSF) e le Software Defined Networks (SDN) emergono come tecnologie fondamentali per garantire la protezione delle reti e dei dati sensibili.
+Le Network Security Functions rappresentano un insieme di servizi e dispositivi progettati per proteggere le reti informatiche da una vasta gamma di minacce, inclusi attacchi informatici, intrusioni, malware e perdita di dati.
+Queste funzioni possono essere implementate attraverso una combinazione di hardware e software e includono firewall, sistemi di rilevamento e prevenzione delle intrusioni (IDS/IPS), filtri per contenuti web, sistemi di autenticazione e crittografia dei dati, tra gli altri. 
+L'obiettivo principale delle NSF è garantire l'integrità, la disponibilità e la riservatezza delle informazioni all'interno di una rete.\\
+
+Le Software Defined Networks rappresentano un paradigma architetturale che separa il piano di controllo dalla logica di instradamento e dalla gestione delle risorse, consentendo una programmabilità e una gestione centralizzate delle reti. 
+Questa separazione permette una maggiore agilità, flessibilità e scalabilità nell'implementazione e nella gestione delle reti. In una SDN, il controllo della rete è centralizzato in un controller software, mentre i dispositivi di rete (switch, router, etc.) eseguono le istruzioni di inoltro in base alle politiche definite dal controller.\\
+
+Sfruttando queste tecnologie è stato sviluppato dal gruppo di ricerca per la sicurezza delle reti del Politecnico di Torino VEREFOO(VErified REFinement and Optimized Orchestration) 
+un framework in grado di allocare, configurare e instanziare all'interno di una topologia di rete qualsiasi varie NSF definite in input dall'utente sotto forma di requisiti di sicurezza che la rete deve 
+obbligatoriamente avere.\\
+All'interno di questa tesi verranno quindi descritti i lavori di ricerca e sviluppo effettuati all'interno del framework congiuntamente allo sviluppo di software esterni per dimostrare il corretto funzionamento delle modifiche effettuate durante questo lavoro.
 
 \section{Descrizione della tesi}
 
-Dopo aver spiegato nel Capitolo \hyperref[ch:intro]{[1]} gli obiettivi ed il lavoro prodotto per raggiungerli, il resto della
+Dopo aver spiegato nel Capitolo \hyperref[ch:intro]{[1]} il macro-obiettivo del lavoro prodotto, il resto della
 tesi è definito nel seguente modo:
 
 \begin{itemize}
@@ -34,15 +43,15 @@ tesi è definito nel seguente modo:
           viene fatto un approfondimento sul docker-compose, un tool in grado di poter istanziare più container velocemente tramite script. Nella parte finale viene spiegato come effettuare il networking
           sui container instanziati, come definirlo tramite docker-compose e come testare le comunicazioni in modo efficiente.
     \item Il Capitolo \hyperref[ch:ThesisObj]{[4]} descrive gli obiettivi posti all'inizio di questo lavoro di tesi. Più specificatamente, per ogni obiettivo presente verranno specificate le modalità e le scelte effettuate per portarlo a termine con una descrizione accurata dei vari passi che sono stati svolti prima della soluzione definitiva.
-          Inoltre viene descritto in maniera più profonda rispetto a questo indice la descrizione dei futuri capitoli.
-    \item Il Capitolo \hyperref[ch:ThesisObj]{[5]} descrive i lavori svolti nella prima delle due demo di cui questa tesi tratterà. Inizialmente viene descritto tramite pezzi di codice lo sviluppo dell'installer prodotto affinchè un qualsiasi utente possa
+          Inoltre viene descritto in maniera più profonda rispetto a questo indice lo svolgimento dei futuri capitoli.
+    \item Il Capitolo \hyperref[ch:DemoA]{[5]} descrive i lavori svolti nella prima delle due demo di cui questa tesi tratterà. Inizialmente viene descritto tramite pezzi di codice lo sviluppo dell'installer prodotto affinchè un qualsiasi utente possa
           utilizzare la demo in maniera pratica ed agile. Nei paragrafi successivi vengono evidenziati i punti critici incontrati, elencando le modifiche apportate affinchè essa possa funzionare correttamente.
           Nell'ultimo paragrafo infine verranno specificati ulteriori upgrade che si possono inserire nella demo per mettere in mostra in maniera ancora più evidente il lavoro svolto da Verefoo.
-    \item Il Capitolo \hyperref[ch:intro]{[6]} descrive i lavori svolti ed implementati su Verefoo. In questo capitolo viene descritto il processo di merge fra le versioni precedentemente esistenti di Verefoo.
+    \item Il Capitolo \hyperref[ch:MergeChapter]{[6]} descrive i lavori svolti ed implementati su Verefoo. In questo capitolo viene descritto il processo di merge fra le versioni precedentemente esistenti di Verefoo.
           Successivamente verrà quindi spiegato, anche tramite frammenti di codice, gli step
           che il framework eseguirà per produrre in output una rete che soddisfi contemporaneamente tutti i requisiti di sicurezza passati come input.  
           Infine si evidenziano anche le difficoltà che sono emerse lavorando al framework, e verranno proposte alcune soluzioni per poter evitare simili problematiche in futuro.
-    \item Il Capitolo \hyperref[ch:intro]{[7]} descrive lo sviluppo della seconda Demo. In un primo momento viene mostrata la topologia
+    \item Il Capitolo \hyperref[ch:DemoB]{[7]} descrive lo sviluppo della seconda Demo. In un primo momento viene mostrata la topologia
         di rete scelta da virtualizzare, con la finalità di indicare le nuove funzionalità di verefoo sviluppate al completamento del secondo obiettivo della tesi. Successivamente vengono descritti tutti i passi svolti per implementare la demo, con un commento per il codice che è stato utilizzato. Infine
         si evidenziano anche i limiti della demo prodotta con alcuni  futuri aggiornamenti possibili.
     \item Il Capitolo \hyperref[ch:conclusions]{[8]} elenca i lavori futuri da svolgere all'interno del framework, la necessità di poter implementare soluzioni

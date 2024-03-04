@@ -330,7 +330,7 @@ definizione più generale grazie alla notazione con \textit{"*"}. Tramite ciò q
 
 \subsection{Configurazioni Strongswan}
 Nonostante le configurazioni della topologia e delle network security function siano corrette, il framework prodotto allo stato attuale non fornisce una implementazione aggiornata del Translator di Strongswan, non è quindi possibile ottenere automaticamente 
-una versione aggiornata dei file di configurazione "swanctl.conf". Per aggirare questo problema, durante lo sviluppo di questa Demo i file di configurazione dei due Gateway è stato prodotto manualmente a partire dalle configurazioni fornite da Verefoo. \\
+una versione aggiornata dei file di configurazione "swanctl.conf". Per aggirare questo problema, durante lo sviluppo di questa Demo i file di configurazione dei due Gateway sono stati prodotti manualmente a partire dalle configurazioni fornite da Verefoo. \\
 Di conseguenza, il seguente snippet di codice rappresenta uno dei due file di configurazione scritti per testare l'ambiente virtuale:
 
 \begin{lstlisting}[language=sh]
@@ -407,8 +407,8 @@ Per verificare anche questa condizione vengono effettuati gli stessi comandi sul
 Il risultato che viene visualizzato in output è coerente con quello che ci si aspetta, essendo opposto all'output del client C1-1. Le comunicazioni con il server
 10.0.0.2 non risultano possibili in quanto ogni pacchetto è stato scartato dal Firewall ed è presente anche qua il 100\% di packet loss, viceversa quando si fa un ping 
 sul server 10.0.0.1 corrispondente a S1 ogni pacchetto viene correttamente trasmesso e ricevuto dal server, passando quindi i controlli del firewall. \\
-È quindi possibile affermare che le configurazioni riguardanti i requisiti di raggiungibilità e di isolamento prodotte dal framework risultano corretti e con il minimo uso 
-di risorse possibili, in quanto grazie ad un unico firewall sono state soddisfatte tutti le caratteristiche fornite in input. \\ \\
+È quindi possibile affermare che le configurazioni riguardanti i requisiti di raggiungibilità e di isolamento prodotte dal framework risultano corrette e con il minimo uso 
+di risorse possibili, in quanto grazie ad un unico firewall sono state soddisfatte tutte le caratteristiche fornite in input. \\ \\
 La successiva verifica che deve essere effettuata sulla bontà della soluzione prodotta riguarda l'istanziazione e la configurazione dei VPN Gateway nella topologia di output.
 In questa istanza specifica solo 2 gateway sono stati allocati, quindi è sufficiente verificare che i pacchetti in transito tra il nodo C1-1 ed il server S2 risultano cifrati
 correttamente. Prendendo spunto dai test effettuati nella demo precedente utilizziamo tcpdump nel seguente modo:
@@ -434,7 +434,7 @@ nel terminale del firewall. Di seguito viene proposto un possibile output effett
     \label{fig:Verifica4}
 \end{figure}
 
-Il risultato ottenuto corrisponde alle aspettative descritte precedentemente. È infatti possibile notare come ogni pacchetto venga codificato con il protocollo ESP e viene monitorato con il path specifico del tunnel VPN.
+Il risultato ottenuto corrisponde alle aspettative descritte precedentemente. È infatti possibile notare come ogni pacchetto venga codificato con il protocollo ESP e venga monitorato con il path specifico del tunnel VPN.
 Di conseguenza è possibile affermare che il risultato prodotto da Verefoo è corretto in quanto garantisce la sicurezza in tutto il traffico partente dal nodo C1-1 al server S2. Grazie a questa ennesima verifica anche i requisiti
 di sicurezza sono rispettati, confermando la correttezza del framework e della demo prodotta. Di conseguenza si può affermare che anche il terzo ed ultimo obiettivo della tesi è stato portato a termine, producendo una demo funzionante che
 mettesse in risalto le caratteristiche della nuova versione del framework.

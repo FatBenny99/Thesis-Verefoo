@@ -27,11 +27,48 @@ D.~Bringhenti, G.~Marchetto, R.~Sisto, F.~Valenza, and J.~Yusupov, ``Towards a
   \emph{2019 4th International Conference on Computing, Communications and
   Security (ICCCS)}, 2019, pp. 1--7.
 
+\bibitem{cit7}
+\BIBentryALTinterwordspacing
+D.~Bringhenti, R.~Sisto, and F.~Valenza. (2023) A novel abstraction for
+  security configuration in virtual networks. Articolo ACM Digital Library.
+  [Online]. Available:
+  \url{https://www.sciencedirect.com/science/article/pii/S1389128623001901?via%3Dihub}
+\BIBentrySTDinterwordspacing
+
+\bibitem{cit1}
+\BIBentryALTinterwordspacing
+D.~Bringhenti, G.~Marchetto, R.~Sisto, and F.~Valenza. (2023) Automation for
+  network security configuration: State of the art and research trends.
+  Articolo ACM Digital Library. [Online]. Available:
+  \url{https://dl.acm.org/doi/10.1145/3616401}
+\BIBentrySTDinterwordspacing
+
+\bibitem{cit3}
+\BIBentryALTinterwordspacing
+------. (2020) Introducing programmability and automation in the synthesis of
+  virtual firewall rules. Articolo ACM Digital Library. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/9165434}
+\BIBentrySTDinterwordspacing
+
 \bibitem{rfc7665}
 \BIBentryALTinterwordspacing
 J.~M. Halpern and C.~Pignataro, ``Service function chaining {(SFC)}
   architecture,'' \emph{{RFC}}, vol. 7665, pp. 1--32, 2015. [Online].
   Available: \url{https://doi.org/10.17487/RFC7665}
+\BIBentrySTDinterwordspacing
+
+\bibitem{cit8}
+\BIBentryALTinterwordspacing
+D.~Bringhenti, R.~Sisto, and F.~Valenza. (2023) Towards security automation in
+  virtual networks. Articolo ACM Digital Library. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/10175459}
+\BIBentrySTDinterwordspacing
+
+\bibitem{cit2}
+\BIBentryALTinterwordspacing
+D.~Bringhenti, G.~Marchetto, R.~Sisto, and F.~Valenza. (2022) Automated
+  firewall configuration in virtual networks. Articolo ACM Digital Library.
+  [Online]. Available: \url{https://ieeexplore.ieee.org/document/9737389}
 \BIBentrySTDinterwordspacing
 
 \bibitem{strongswan}
@@ -43,6 +80,14 @@ J.~M. Halpern and C.~Pignataro, ``Service function chaining {(SFC)}
 \bibitem{ipsec}
 ``{IPsec} - {Internet Protocol Security},''
   \url{https://tools.ietf.org/html/rfc4301}, 2005, rFC 4301.
+
+\bibitem{cit5}
+\BIBentryALTinterwordspacing
+D.~Bringhenti, G.~Marchetto, R.~Sisto, and F.~Valenza. (2020) Short paper:
+  Automatic configuration for an optimal channel protection in virtualized
+  networks. Articolo ACM Digital Library. [Online]. Available:
+  \url{https://dl.acm.org/doi/10.1145/3411505.3418439}
+\BIBentrySTDinterwordspacing
 
 \bibitem{docker-docs}
 \BIBentryALTinterwordspacing
@@ -94,6 +139,14 @@ M.~Lindström, ``Containers \& virtual machines: A performance, resource \&
   \url{https://docs.docker.com/compose/compose-file/05-services/}
 \BIBentrySTDinterwordspacing
 
+\bibitem{cit4}
+\BIBentryALTinterwordspacing
+D.~Bringhenti, R.~Sisto, and F.~Valenza. (2023) A demonstration of verefoo: an
+  automated framework for virtual firewall configuration. Articolo ACM Digital
+  Library. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/10175442}
+\BIBentrySTDinterwordspacing
+
 \bibitem{dockerubuntu}
 \BIBentryALTinterwordspacing
 {Docker Documentation}. (2024) Install docker engine on ubuntu. Docker.
@@ -110,6 +163,14 @@ M.~Lindström, ``Containers \& virtual machines: A performance, resource \&
 \BIBentryALTinterwordspacing
 {Microsoft}. (2024) Z3 theorem prover. [Online]. Available:
   \url{https://github.com/Z3Prover/z3}
+\BIBentrySTDinterwordspacing
+
+\bibitem{cit6}
+\BIBentryALTinterwordspacing
+D.~Bringhenti, R.~Sisto, and F.~Valenza. (2023) Automating the configuration of
+  firewalls and channel protection systems in virtual networks. Articolo ACM
+  Digital Library. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/10175466}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

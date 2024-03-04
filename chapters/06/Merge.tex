@@ -39,7 +39,7 @@ Scendendo nel dettaglio, questa soluzione richiede lo svolgimento dei seguenti p
         prodotto al punto precedente. La chiamata restituirà un output nel quale i Firewall o i VPN Gateway saranno allocati(a seconda della versione utilizzata per prima), ove necesario, al posto degli allocation places disponibili mentre tutti gli allocation
         places aggiuntivi verranno sostituiti da dei semplici forwarder. 
     \item \textbf{Traduzione Output prima versione e creazione del nuovo input}: L'output prodotto nel passaggio precedente non è utilizzabile per la seconda iterazione di Verefoo. Risulta quindi necessario
-    \   tradurlo in una versione comprensibile da Verefoo. I nodi dove sono state allocate Network Security Functions verranno mantenute nell nuovo input, assieme all'inseme di nodi definiti precedentemente. Tutti i nodi
+    \   tradurlo in una versione comprensibile da Verefoo. I nodi dove sono state allocate Network Security Functions verranno mantenuti nel nuovo input, assieme all'insieme di nodi definiti precedentemente. Tutti i nodi
         che erano invece stati trasformati da allocation places a forwarder devono essere ritradotti come allocation places, ed infine il secondo gruppo di requirements deve essere aggiunto alla descrizione del grafo di input.
     \item \textbf{Iterazione della seconda versione di Verefoo}: Una volta terminata la produzione del secondo input è possibile eseguire il secondo file jar che si occupa dell'allocazione della Network
         Security Function rimanente in base alla scelta effettuata al punto 2. Come fatto precedentemente viene quindi eseguita una chiamata API di tipo POST tramite il pacchetto curl passando come argomento della chiamata
@@ -58,7 +58,7 @@ In seconda battuta è stato analizzato quale delle due versioni del framework an
 svolgono all'interno della topologia. I firewall per agire da packet filter devono infatti ispezionare i pacchetti che transitano attraverso il nodo e questo va in diretta contrapposizione con i tunnel VPN che vengono istanziati. Se infatti viene allocato un tunnel VPN nel quale path è presente un firewall questo non sarà in
 grado di poter ispezionare il pacchetto essendo completamente incapsulato dal protocollo ESP di IPsec.
 \\ \\ 
-Come ultima criticità di questa soluzione, che ha portato la ricerca di una soluzione alternativa, è stata la vera e propria incompatibilità delle due versioni del framework. Scendendo più nel dettaglio, è stato notato come pur traducendo momentaneamente manualmente il primo output in un input elegibile per la seconda versione di 
+Come ultima criticità di questo sistema, che ha portato alla ricerca di una soluzione alternativa, è stata la vera e propria incompatibilità delle due versioni del framework. Scendendo più nel dettaglio, è stato notato come pur traducendo momentaneamente manualmente il primo output in un input elegibile per la seconda versione di 
 Verefoo quest'ultimo continuava a non trovare una soluzione ottimale o in alcuni casi addirittura a dare errore di computazione restituendo un \textit{"503: Internal Server Error"} come risposta alla POST effettuata. Indagando è emerso che la versione che si occupava di Firewall non poteva in alcun modo accettare un input contenente
 dei Gateway VPN in quanto questi non erano stati definiti all'interno del codice del file jar e di conseguenza non venivano riconosciuti come Network Security Functions. Viceversa anche allocando prima i Firewall e successivamente i Gateway VPN la soluzione non veniva comunque computata in quanto, seppur presente la definizione dei Firewall all'interno del file Jar,
 i vincoli utilizzati per definire il problema MaxSMT riguardanti i Firewall non erano aggiornati allo stato più recente della ricerca, andando in conflitto con i nuovi security requirements in input.\\
@@ -66,7 +66,7 @@ Di conseguenza lo sviluppo di questa soluzione si è interrotto privilegiando un
 
 \section{Versioni Firewall-to-VPN e VPN-to-Firewall}
 
-Dovendo sviluppare una soluzione univoca una delle prime scelte effettuate è stata la decisione di cosa dover allocare in maniera prioritaria fra Firewall e VPN Gateway.
+Dovendo sviluppare una soluzione univoca una delle prime scelte effettuate è stata la decisione di cosa dover allocare in maniera prioritaria fra Firewall e VPN Gateway\cite{cit6}.
 Inizialmente si è preferito optare per una soluzione nella quale i Firewall venissero allocati prima dei Gateway VPN, in quanto la versione di Verefoo contentente l'allocazione e la configurazione dei Firewall era considerabile come la versione più aggiornata e testata rispetto alle altre e quindi un'ottima base di partenza per il lavoro di sintesi delle versioni.\\
 Tuttavia questa scelta è stata celermente scartata in quanto avere una soluzione intermedia nella quale sono già presenti i Firewall rispetto alle VPN porta a due problemi principali:
 
@@ -85,7 +85,7 @@ Tuttavia, per futuri lavori, le soluzioni Firewall-to-VPN non sono da escludere 
 garantire ciò è fondamentale che le configurazioni del firewall vengano sovrascritte tenendo conto di eventuali tunnel VPN che il framework potrebbe allocare, modificando le regole del firewall con i nuovi indirizzi IP del tunnel. Per fare ciò tuttavia è necessario modificare
 diverse features di Verefoo che non sono state argomento di approfondimento nello svolgimento di questo lavoro di tesi e perciò questa possibilità viene delegata al prossimo studio di implementazioni di soluzioni miste.
 \\
-Un altro elemento che è stato materia di studio all'interno dello sviluppo di questa soluzione è stata l'analisi della disponibilità dei singoli allocation places per la ricerca di soluzioni ottimali.
+Un altro elemento, materia di studio all'interno dello sviluppo di questa soluzione, è stato l'analisi della disponibilità dei singoli allocation places per la ricerca di soluzioni ottimali.
 Più precisamente, essendo la collocazione delle network security functions suddivisa per ogni funzione di rete è possibile trovarsi nella situazione in cui un allocation places che sarebbe stato un candidato ideale per la collocazione di una funzione di sicurezza viene occupato
 precedentemente da un'altra funzione di sicurezza. Questa situazione potrebbe portare quindi non solo a delle soluzioni che si possono definire sub-ottimali ma anche a delle situazioni limite in cui gli allocation places non sono sufficienti rispetto al numero di Network Security Functions
 che devono essere istanziate nella topologia di rete. Di seguito viene rappresentato un esempio molto semplice di caso limite che mostra questa circostanza: 
@@ -128,7 +128,7 @@ Attraverso l'introduzione di ulteriori allocation places la topologia risulterà
 possibili per risolvere l'input fornito maggiore. Di conseguenza la soluzione ottimale che verrà prodotta sarà non solo possibile nel caso limite, ma anche tendenzialmente migliore delle precedenti
 nei casi più comuni, in quanto sarà possibile applicare le restrizioni di sicurezza in più punti della rete intervenendo prima sui pacchetti che necessitano di essere scartati ma anche posizionando 
 i vari gateway VPN in posizioni più strategicamente valide all'interno della topologia. Infine viene fornito, nella figura sottostante, la soluzione finale che Verefoo produrrà in output per il caso
-descrito in questo paragrafo:
+descritto in questo paragrafo:
 
 \begin{figure}[h]  % 'h' significa che la figura viene posizionata qui
     \centering
@@ -244,7 +244,7 @@ Terminate le configurazioni necessarie per istanziare il Proxy, dallo stream del
 viene estratto tramite un filtro una lista formata univocamente dalle proprietà di protezione, cioè quelle responsabili dell'allocazione dei VPN gateway. Se la lista contiene 
 almeno una proprietà di sicurezza dovranno essere allocati almeno 2 gateway per poterla soddisfare, di conseguenza viene istanziato il VerefooProxy che è il cuore dell'algoritmo
 di verefoo, passando fra i vari parametri il grafo, gli host e le connessioni, le proprietà ricavate precedentemente e i paths possibili per soddisfarle. Viene inoltre definito il
-nuovo nome del profilo(VPN). Completata la computazione della soluzione all'interno del VerefooProxy l'output viene verificato per controllare se tutte le proprità sono effettivamente
+nuovo nome del profilo(VPN). Completata la computazione della soluzione all'interno del VerefooProxy l'output viene verificato per controllare se tutte le proprietà sono effettivamente
 ancora soddisfatte. Se l'ouput è corretto viene quindi definito un Translator che si occupa di tradurre l'output parziale in un formato valido per la computazione delle altre proprietà
 rimaste da verificare. In questo caso la variabile di soddisfacibilità viene posta a \textit{true} così che si possa procedere anche all'allocazione successiva. Viceversa in caso di un risultato  
 negativo il risultato viene posto uguale alla root iniziale e la variabile di soddisfacibilità viene posta a \textit{false}.

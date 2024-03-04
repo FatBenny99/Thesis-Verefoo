@@ -23,14 +23,14 @@
 \chapter{Correzione, sviluppo e ottimizzazione Demo A} \label{ch:DemoA}
 
 All'interno di questo capitolo sarà fornita una descrizione completa dei lavori svolti nel primo progetto di demo che è stato preso in analisi inizialmente, corretto e migliorato successivamente.
-\\ Inizialmente viene descritta con una breve introduzione gli obiettivi che ci si aspettava di raggiungere con lo sviluppo della demo, i problemi presenti all'inizio del lavoro svolto e le soluzioni possibili attuabili.
-\\ Nella seconda parte viene trattato, entrando più nello specifico, l'implementazioni delle soluzioni proposte e presentato il lavoro finale. 
+\\ Inizialmente vengono descritti, con una breve introduzione, gli obiettivi che ci si aspettava di raggiungere con lo sviluppo della demo, i problemi presenti all'inizio del lavoro svolto e le soluzioni possibili attuabili.
+\\ Nella seconda parte vengono trattate, entrando più nello specifico, le implementazioni delle soluzioni proposte e presentato il lavoro finale. 
 \\ Nell'ultima parte del capitolo viene infine mostrato una prova di correttezza della demo con la verifica dei suoi output e delle sue funzionalità.
 
 
 \section{Introduzione alla Demo}
 Come descritto al Capitolo[\ref{ch:verefoo}] Verefoo è un framework in grado di definire dei requisiti di sicurezza ad alto livello, allocare in maniera ottimale varie Network Security Functions (NSF) all'interno della topologia di rete fornita in input e configurare automaticamente tali funzioni 
-automaticamente. Allo stato attuale il framework è ancora in fase di sviluppo e, nonostante si ponga gli obiettivi appena descritti, non tutte le funzionalità sono attualmente possibili all'interno del framework. Più precisamente, varie versioni del framework sono presenti in stato di sviluppo, e ognuna si occupa di allocare una possibile NSF separatamente alle altre.
+automaticamente\cite{cit4}. Allo stato attuale il framework è ancora in fase di sviluppo e, nonostante si ponga gli obiettivi appena descritti, non tutte le funzionalità sono attualmente possibili all'interno del framework. Più precisamente, varie versioni del framework sono presenti in stato di sviluppo, e ognuna si occupa di allocare una possibile NSF separatamente alle altre.
 All'interno di questo capitolo verrà presa in considerazione per il lavoro una di queste possibili versioni, ovvero quella che si occupa della verifica dei Network Security Requirements di protezione, dell'allocazione del numero minimo ottimale di VPN Gateway per rispettare i requisiti in input, e della configurazione di questi ultimi.\\
 L'obiettivo principale di questo lavoro di demo è quindi mostrare all'utente come questa versione sia in grado, data una topologia di rete simile a quelle di una azienda di medie dimensioni, di verificare i requisiti, allocare le VPN e configurarle correttamente.
 \newpage
@@ -93,8 +93,8 @@ effettuato un downgrade della versione corrente. In caso negativo il package ver
     fi
 \end{lstlisting}
 
-Per quanto riguarda i package pv e curl l'installazione è piuttosto semplice, infatti si può notare come sia alla riga 2 che alla riga 11 venga controllato che i comandi pv e curl siano presenti reinderizzando l'output sia in caso di successo che di errore al folder /dev/null che è un folder nel quale i 
-dati vengono cancellati automaticamente ma che restuituisce il successo o il fallimento dell'operazione. Nel caso l'operazione restituisca successo vuol dire che il package è già presente all'interno del sistema operativo, in caso contrario viene installato eseguendo precedentemente una \textit{apt-get update}
+Per quanto riguarda i package pv e curl l'installazione è piuttosto semplice, infatti si può notare come sia alla riga 2 che alla riga 11 venga controllato che i comandi pv e curl siano presenti reindirizzando l'output sia in caso di successo che di errore al folder /dev/null che è un folder nel quale i 
+dati vengono cancellati automaticamente ma che restituisce il successo o il fallimento dell'operazione. Nel caso l'operazione restituisca successo vuol dire che il package è già presente all'interno del sistema operativo, in caso contrario viene installato eseguendo precedentemente una \textit{apt-get update}
 per scaricare localmente la versione più aggiornata del package.
 Per quanto riguarda l'installazione di java invece l'installazione è leggermente più complessa:
 
@@ -387,7 +387,7 @@ Prima di procedere però è importante anche analizzare i vari elementi che Vere
 \end{table}
 
 Prendendo in esempio il VPN Gateway 1 è possibile notare come Verefoo non si limita ad eseguire delle configurazioni semplici ma è in grado di produrre anche configurazioni miste, ovvero non unicamente di ingresso o di uscita dal tunnel. 
-È infatti possibile notare come tutto il traffico in transito può sia cifrato in Accesso (ACCESS) al tunnel che decifrato in uscita (EXIT) al tunnel.\\
+È infatti possibile notare come tutto il traffico in transito può essere sia cifrato in Accesso (ACCESS) al tunnel che decifrato in uscita (EXIT).\\
 Oltre alle configurazioni dei gateway VPN, Verefoo offre, tramite un traduttore automatico, dei file di configurazione per istanziare i tunnel VPN utilizzando Strongswan.\\
 A fine di esempio viene fornito il file di configurazione di Strongswan di uno dei vari gateway della topologia, che verrà utilizzato per istanziare il tunnel VPN nell'ambiente virtuale:\\
 
@@ -425,8 +425,8 @@ A fine di esempio viene fornito il file di configurazione di Strongswan di uno d
 \end{lstlisting}
 
 \section{Verifiche e Test}
-Definito l'ambiente virtuale e impostato le configurazioni di Verefoo prodotte in output è necessario testare e dimostrare che il framework ha prodotto una soluzione corretta.\\
-Al fine di eseguire tutte le operazioni di verifica e test in maniera più trasparente possibile è stato inserito, in aggiunta alla topologia già definite nella figura (\ref{fig:VPNDeployA})
+Definito l'ambiente virtuale e impostate le configurazioni di Verefoo prodotte in output è necessario testare e dimostrare che il framework ha prodotto una soluzione corretta.\\
+Al fine di eseguire tutte le operazioni di verifica e test in maniera più trasparente possibile è stato inserito, in aggiunta alla topologia già definita nella figura (\ref{fig:VPNDeployA})
 un nodo aggiuntivo, di collegamento fra il vpn gateway 4 e l'endpoint 8. 
 In questo modo, utilizzando tcpdump e analizzando le interfacce di rete sarà possibile notare in quali nodi della topologia il traffico passerà in chiaro e in quali invece verrà cifrato. 
 È importante sottolineare come all'interno dell'ambiente virtuale tutti gli elementi sono stati configurati precedentemente per velocizzare le operazioni di testing, di conseguenza i vari certificati pubblici e privati sono stati già generati ed inseriti all'interno dei nodi VPN, e le route di trasmissione statiche sono state già inserite per tutta la topologia tramite il file di docker-compose.\\
