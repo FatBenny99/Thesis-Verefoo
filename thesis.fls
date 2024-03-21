@@ -384,10 +384,10 @@ INPUT .\chapters\00\abstract.tex
 INPUT .\chapters\00\abstract.tex
 INPUT chapters\00\abstract.tex
 INPUT C:\Users\Benito\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmcsc10.tfm
+INPUT C:\Users\Benito\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT .\thesis.toc
 INPUT .\thesis.toc
 INPUT thesis.toc
-INPUT C:\Users\Benito\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 OUTPUT thesis.toc
 INPUT .\thesis.lof
 INPUT .\thesis.lof
