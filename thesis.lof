@@ -3,37 +3,37 @@
 \babel@toc {italian}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Esempio di Service Function Chain}}{18}{figure.2.1}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Architettura di VEREFOO \cite {Bringhenti2019}}}{20}{figure.2.2}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Esempi di Service (in alto) e Allocation(in basso) Graphs \cite {Bringhenti2019}}}{22}{figure.2.3}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Esempio di un Service Graph}}{23}{figure.2.4}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Grafo di allocazione per requisito di raggiungibilità}}{28}{figure.2.5}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Output grafo di esempio per requisito di raggiungibilità}}{29}{figure.2.6}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Output grafo di esempio per requisito di isolamento}}{30}{figure.2.7}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Grafo di allocazione d'esempio per requisiti di protezione}}{33}{figure.2.8}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Output grafo di esempio per requisito di protezione}}{33}{figure.2.9}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Esempio di Service Function Chain}}{15}{figure.2.1}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Architettura di VEREFOO \cite {Bringhenti2019}}}{17}{figure.2.2}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Esempi di Service (in alto) e Allocation(in basso) Graphs \cite {Bringhenti2019}}}{19}{figure.2.3}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Esempio di un Service Graph}}{20}{figure.2.4}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Grafo di allocazione per requisito di raggiungibilità}}{25}{figure.2.5}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Output grafo di esempio per requisito di raggiungibilità}}{26}{figure.2.6}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Output grafo di esempio per requisito di isolamento}}{27}{figure.2.7}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Grafo di allocazione d'esempio per requisiti di protezione}}{30}{figure.2.8}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Output grafo di esempio per requisito di protezione}}{30}{figure.2.9}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Architettura Virtual Machine e Containers}}{36}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Architettura Docker}}{38}{figure.3.2}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Architettura Virtual Machine e Containers}}{33}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Architettura Docker}}{35}{figure.3.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Service Graph Demo A}}{51}{figure.5.1}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Verefoo Output Demo A}}{54}{figure.5.2}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces VpnGateway4}}{57}{figure.5.3}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces VpnGateway5}}{57}{figure.5.4}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Verifica Tunnel VPN}}{58}{figure.5.5}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Tunnel stabilito}}{59}{figure.5.6}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Prova di correttezza}}{59}{figure.5.7}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Service Graph Demo A}}{48}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Verefoo Output Demo A}}{51}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces VpnGateway4}}{54}{figure.5.3}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces VpnGateway5}}{54}{figure.5.4}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Verifica Tunnel VPN}}{55}{figure.5.5}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Tunnel stabilito}}{56}{figure.5.6}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Prova di correttezza}}{56}{figure.5.7}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Definizione esempio caso limite per duplice allocazione}}{65}{figure.6.1}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Allocazione parziale del caso limite}}{65}{figure.6.2}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Soluzione all'allocazione parziale del caso limite}}{66}{figure.6.3}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Soluzione finale caso limite}}{66}{figure.6.4}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Definizione esempio caso limite per duplice allocazione}}{62}{figure.6.1}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Allocazione parziale del caso limite}}{62}{figure.6.2}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Soluzione all'allocazione parziale del caso limite}}{63}{figure.6.3}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Soluzione finale caso limite}}{63}{figure.6.4}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Grafo di Allocazione della Demo B}}{75}{figure.7.1}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Verefoo Output}}{82}{figure.7.2}%
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Verifica pacchetti scartati dal Firewall per rete 20.1.*.*}}{85}{figure.7.3}%
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Verifica pacchetti scartati dal Firewall per rete 20.2.*.*}}{86}{figure.7.4}%
-\contentsline {figure}{\numberline {7.5}{\ignorespaces Setup tcpdump per verifiche di sicurezza}}{87}{figure.7.5}%
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Verifica cifratura dei pacchetti in transito}}{87}{figure.7.6}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Grafo di Allocazione della Demo B}}{72}{figure.7.1}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Verefoo Output}}{79}{figure.7.2}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Verifica pacchetti scartati dal Firewall per rete 20.1.*.*}}{82}{figure.7.3}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Verifica pacchetti scartati dal Firewall per rete 20.2.*.*}}{83}{figure.7.4}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Setup tcpdump per verifiche di sicurezza}}{84}{figure.7.5}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Verifica cifratura dei pacchetti in transito}}{84}{figure.7.6}%
 \addvspace {10\p@ }

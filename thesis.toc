@@ -1,49 +1,49 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\contentsline {chapter}{Elenco delle figure}{9}{section*.1}%
-\contentsline {chapter}{Elenco delle tabelle}{11}{section*.2}%
-\contentsline {chapter}{Listings}{12}{section*.2}%
-\contentsline {chapter}{\numberline {1}Introduzione}{14}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Obiettivo della Tesi}{14}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Descrizione della tesi}{15}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Network Security Automation e Verefoo}{17}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Service Function Chain}{17}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Verefoo}{19}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Introduzione}{19}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Descrizione del modello}{19}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Definizione ed esempio di Grafo di servizio e di allocazione}{22}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Definizione ed esempi delle proprietà di sicurezza}{26}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Reachability Requirements}{27}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Isolation Requirements}{29}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Protection Requirements}{31}{subsection.2.4.3}%
-\contentsline {chapter}{\numberline {3}Docker}{35}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Differenze fra Container e Macchine Virtuali}{35}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Docker e la sua architettura}{38}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Il tool Compose}{39}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Introduzione}{39}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}YAML}{40}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Services e Networking}{41}{subsection.3.3.3}%
-\contentsline {chapter}{\numberline {4}Obiettivi della tesi}{44}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Correzione, sviluppo e ottimizzazione Demo A}{46}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Introduzione alla Demo}{46}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Sviluppo Installer}{47}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Implementazione}{51}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Output}{54}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Verifiche e Test}{57}{section.5.5}%
-\contentsline {chapter}{\numberline {6}Merge Funzioni di Verefoo}{61}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Versione Ibrida con doppio Jar File}{62}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Versioni Firewall-to-VPN e VPN-to-Firewall}{64}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Trasposizione Teorica in Codice: Analisi dell'Implementazione}{67}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Definizione del Verefoo Serializer}{67}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Definizione del Verefoo Proxy}{71}{subsection.6.3.2}%
-\contentsline {chapter}{\numberline {7}Design, progetto e sviluppo Demo B}{74}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Introduzione}{74}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Implementazione}{75}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Output}{82}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Topologia di Rete}{82}{subsection.7.3.1}%
-\contentsline {subsection}{\numberline {7.3.2}Configurazioni Network Security Functions}{83}{subsection.7.3.2}%
-\contentsline {subsection}{\numberline {7.3.3}Configurazioni Strongswan}{84}{subsection.7.3.3}%
-\contentsline {section}{\numberline {7.4}Verifiche e Test}{85}{section.7.4}%
-\contentsline {chapter}{\numberline {8}Conclusioni e Lavori Futuri}{89}{chapter.8}%
-\contentsline {chapter}{Bibliografia}{91}{chapter.8}%
+\contentsline {chapter}{Elenco delle figure}{6}{section*.1}%
+\contentsline {chapter}{Elenco delle tabelle}{8}{section*.2}%
+\contentsline {chapter}{Listings}{9}{section*.2}%
+\contentsline {chapter}{\numberline {1}Introduzione}{11}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Obiettivo della Tesi}{11}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Descrizione della tesi}{12}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Network Security Automation e Verefoo}{14}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Service Function Chain}{14}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Verefoo}{16}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Introduzione}{16}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Descrizione del modello}{16}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Definizione ed esempio di Grafo di servizio e di allocazione}{19}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Definizione ed esempi delle proprietà di sicurezza}{23}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Reachability Requirements}{24}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Isolation Requirements}{26}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Protection Requirements}{28}{subsection.2.4.3}%
+\contentsline {chapter}{\numberline {3}Docker}{32}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Differenze fra Container e Macchine Virtuali}{32}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Docker e la sua architettura}{35}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Il tool Compose}{36}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Introduzione}{36}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}YAML}{37}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Services e Networking}{38}{subsection.3.3.3}%
+\contentsline {chapter}{\numberline {4}Obiettivi della tesi}{41}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Correzione, sviluppo e ottimizzazione Demo A}{43}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introduzione alla Demo}{43}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Sviluppo Installer}{44}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Implementazione}{48}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Output}{51}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Verifiche e Test}{54}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Merge Funzioni di Verefoo}{58}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Versione Ibrida con doppio Jar File}{59}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Versioni Firewall-to-VPN e VPN-to-Firewall}{61}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Trasposizione Teorica in Codice: Analisi dell'Implementazione}{64}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Definizione del Verefoo Serializer}{64}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Definizione del Verefoo Proxy}{68}{subsection.6.3.2}%
+\contentsline {chapter}{\numberline {7}Design, progetto e sviluppo Demo B}{71}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Introduzione}{71}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Implementazione}{72}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Output}{79}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Topologia di Rete}{79}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Configurazioni Network Security Functions}{80}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}Configurazioni Strongswan}{81}{subsection.7.3.3}%
+\contentsline {section}{\numberline {7.4}Verifiche e Test}{82}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Conclusioni e Lavori Futuri}{86}{chapter.8}%
+\contentsline {chapter}{Bibliografia}{93}{chapter.8}%
